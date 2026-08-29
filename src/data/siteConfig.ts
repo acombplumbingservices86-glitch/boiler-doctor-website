@@ -50,8 +50,9 @@ export const siteConfig = {
   acBrands: ["Bosch", "Daikin", "Haier"],
 
   thermostatBrand: "Hive",
+  standardControlsBrand: "EPH", // fitted as standard — time/temperature control with a remote stat, not "smart" but a solid standard option
 
-  officeHours: "", // NOT yet confirmed — Steve's "8:00 and 5:00" comment turned out to be about Hive, not office hours. Ask again before launch.
+  officeHours: "8:00am – 5:00pm", // confirmed directly by Steve, 29 Aug
 
   minCallOutFee: "£100 + VAT",
   warranty: "12 months from invoice date",
