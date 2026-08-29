@@ -1,0 +1,20 @@
+---
+import { siteConfig } from "../data/siteConfig";
+const whatsappHref = siteConfig.whatsappReady
+  ? `https://wa.me/${siteConfig.whatsappNumberIntl}`
+  : siteConfig.phoneHref; // falls back to a call until WhatsApp is verified + live
+---
+<div class="sticky-bar" role="navigation" aria-label="Quick contact">
+  <a href={siteConfig.phoneHref}>
+    <span aria-hidden="true">📞</span>
+    Call
+  </a>
+  <a href={whatsappHref}>
+    <span aria-hidden="true">💬</span>
+    WhatsApp
+  </a>
+  <a href="/book-online/" class="sticky-bar__book">
+    <span aria-hidden="true">📅</span>
+    Book Online
+  </a>
+</div>

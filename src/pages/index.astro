@@ -1,0 +1,201 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import CTABand from "../components/CTABand.astro";
+import NeedsInput from "../components/NeedsInput.astro";
+import { siteConfig, serviceTiles } from "../data/siteConfig";
+
+const title = "Boiler Repairs, Servicing & Installation in York | The Boiler Doctor";
+const description =
+  "Family-run boiler and heating engineers in York. 5.0 stars from 384 real Google reviews. Same trade, same faces — Steve and Kyle, on your doorstep. Call 01904 206190.";
+
+const realReviews = [
+  {
+    name: "Ian Ilsley",
+    text: "Called about a toilet with a broken flush in a rental property — quick and professional, sorted the same day.",
+    service: "Plumbing repair",
+  },
+  {
+    name: "Belinda Levy",
+    text: "Steve plumbed in a new kitchen tap back in 2022. It started dripping in 2026, so he came back and replaced it — no fuss.",
+    service: "Plumbing repair",
+  },
+];
+---
+<BaseLayout title={title} description={description}>
+  <!-- Hero -->
+  <section class="section hero">
+    <div class="container hero__inner">
+      <div>
+        <h1>York's Boiler Doctor — Fixed Fast, Fitted Right</h1>
+        <p class="hero__subhead">
+          Family-run heating engineers trusted by {siteConfig.reviews.count} five-star reviews
+          across Acomb, York and the surrounding villages. No call centre, no hard sell — just
+          Steve, Kyle and Hayden.
+        </p>
+        <div class="hero__actions">
+          <a href="/book-online/" class="btn btn--primary">Book Online</a>
+          <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <NeedsInput label="NEEDS ASSET: real hero photo of Steve/Kyle on a job, or the van — replacing this placeholder block." />
+      </div>
+    </div>
+    <div class="container">
+      <TrustStrip />
+    </div>
+  </section>
+
+  <!-- What we do -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Whatever's wrong with your heating, there's a good chance we've already fixed it a few hundred times.</h2>
+      <div class="grid grid--3">
+        {serviceTiles.map((tile) => (
+          <a href={tile.href} class="card service-tile">
+            <h3>{tile.label}</h3>
+            <p>{tile.blurb}</p>
+            <span class="service-tile__link">Find out more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="section">
+    <div class="container">
+      <h2>Why York homeowners choose us</h2>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Same engineer, every time</h3>
+          <p>Most jobs are done by Steve or Kyle directly — not a rotating cast of subcontractors. Regular customers ask for them by name.</p>
+        </div>
+        <div class="card">
+          <h3>Straight answers, fair prices</h3>
+          <p>No inflated "diagnostic fees" or pressure to buy a new boiler when a repair will do. {siteConfig.minCallOutFee} minimum call-out, agreed before we start.</p>
+        </div>
+        <div class="card">
+          <h3>We turn up</h3>
+          <p>Reviews consistently mention punctuality and same-day or next-day response for breakdowns — because we're local, not dispatched from across the county.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real reviews -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2>What real customers say</h2>
+      <TrustStrip />
+      <div class="grid grid--2">
+        {realReviews.map((r) => (
+          <blockquote class="card review-card">
+            <p>"{r.text}"</p>
+            <footer>— {r.name}, <span class="badge">{r.service}</span></footer>
+          </blockquote>
+        ))}
+      </div>
+      <NeedsInput label="NEEDS ASSET: confirm/select the full rotating set of reviews to feature here — see 09 Real Google Reviews Sample.csv for the full pool of 40." />
+      <p><a href="/reviews/">Read all {siteConfig.reviews.count} reviews →</a></p>
+    </div>
+  </section>
+
+  <!-- Care plans teaser -->
+  <section class="section">
+    <div class="container care-teaser">
+      <div>
+        <h2>Never get caught out by a cold house again</h2>
+        <p>Three simple care plans from £12.99/month — annual service, priority callouts and repair cover included.</p>
+        <a href="/boiler-care-plans/" class="btn btn--primary">Compare plans</a>
+      </div>
+      <ul class="care-teaser__list">
+        <li><strong>The Checkup</strong> — £12.99/mo</li>
+        <li><strong>On Call</strong> — £16.99/mo</li>
+        <li><strong>House Call</strong> — £24.99/mo</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Service areas -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Covering Acomb and all of York</h2>
+      <p>{siteConfig.serviceAreas.join(", ")}.</p>
+      <p><a href="/service-areas/">See the full coverage map →</a></p>
+    </div>
+  </section>
+
+  <!-- Meet the team teaser -->
+  <section class="section">
+    <div class="container team-teaser">
+      <h2>Meet the team</h2>
+      <div class="grid grid--3">
+        <div class="card">
+          <NeedsInput label="NEEDS ASSET: photo of Steve" />
+          <h3>Steve</h3>
+          <p>Owner and lead engineer. Gas Safe registered. Still does the tools every day.</p>
+        </div>
+        <div class="card">
+          <NeedsInput label="NEEDS ASSET: photo of Kyle" />
+          <h3>Kyle</h3>
+          <p>Engineer — named by customers again and again as thorough and friendly on the job.</p>
+        </div>
+        <div class="card">
+          <NeedsInput label="NEEDS ASSET: photo of Hayden" />
+          <h3>Hayden</h3>
+          <p>Runs the office — usually the first friendly voice you'll hear on the phone.</p>
+        </div>
+      </div>
+      <p><a href="/about/">Read our story →</a></p>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Boiler playing up? Get it sorted today."
+    subheading="Call, WhatsApp, or book online in two minutes."
+  />
+</BaseLayout>
+
+<style>
+  .hero__inner {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .hero__inner { grid-template-columns: 1.1fr 0.9fr; }
+  }
+  .hero__subhead { font-size: 1.1rem; color: var(--color-grey-600); max-width: 42ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .hero__media {
+    background: var(--color-grey-100);
+    border-radius: var(--radius-lg);
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .service-tile { text-decoration: none; color: inherit; display: block; }
+  .service-tile__link { color: var(--color-orange-600); font-weight: 700; font-size: 0.9rem; }
+  .review-card { border: none; margin: 0; }
+  .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
+  .care-teaser {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .care-teaser { grid-template-columns: 1.3fr 0.7fr; }
+  }
+  .care-teaser__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+  .care-teaser__list li {
+    background: var(--color-off-white);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1.1rem;
+  }
+</style>

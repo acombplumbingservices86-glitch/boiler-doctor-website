@@ -1,0 +1,85 @@
+---
+import { siteConfig } from "../data/siteConfig";
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <p class="site-footer__brand">{siteConfig.businessName}</p>
+      <p>
+        {siteConfig.address.line1}, {siteConfig.address.line2}<br />
+        {siteConfig.address.city} {siteConfig.address.postcode}
+      </p>
+      <p>
+        {siteConfig.legalName} · Company No. {siteConfig.companyNumber}<br />
+        VAT No. {siteConfig.vatNumber}
+      </p>
+    </div>
+
+    <div>
+      <h3>Get in touch</h3>
+      <p>
+        <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a><br />
+        <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a>
+      </p>
+      <p>
+        <a href={siteConfig.socials.facebook}>Facebook</a> ·{" "}
+        <a href={siteConfig.socials.youtube}>YouTube</a>
+      </p>
+    </div>
+
+    <div>
+      <h3>Services</h3>
+      <ul class="site-footer__list">
+        <li><a href="/boiler-repairs-breakdowns/">Boiler Repairs</a></li>
+        <li><a href="/boiler-servicing/">Boiler Servicing</a></li>
+        <li><a href="/new-boiler-installation/">New Boilers</a></li>
+        <li><a href="/boiler-care-plans/">Care Plans</a></li>
+        <li><a href="/air-conditioning/">Air Conditioning</a></li>
+        <li><a href="/gas-safety-landlords/">Landlord Gas Safety</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Company</h3>
+      <ul class="site-footer__list">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/real-work/">Real Work</a></li>
+        <li><a href="/service-areas/">Service Areas</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms-conditions/">Terms &amp; Conditions</a></li>
+        <li><a href="/accessibility/">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>© {year} {siteConfig.legalName}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-navy-900);
+    color: var(--color-grey-300);
+    padding-top: 3rem;
+  }
+  .site-footer h3 { color: var(--color-white); font-size: 1rem; }
+  .site-footer a { color: var(--color-grey-300); }
+  .site-footer a:hover { color: var(--color-orange-400); }
+  .site-footer__brand { font-weight: 800; color: var(--color-white); font-size: 1.1rem; }
+  .site-footer__grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding-bottom: 2rem;
+  }
+  .site-footer__list { list-style: none; margin: 0; padding: 0; }
+  .site-footer__list li { margin-bottom: 0.4em; }
+  .site-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 1.25rem 0;
+    font-size: 0.85rem;
+  }
+</style>

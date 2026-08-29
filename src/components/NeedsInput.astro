@@ -1,0 +1,11 @@
+---
+// Renders a visible, clearly-marked placeholder for anything still flagged
+// [NEEDS STEVE] or [NEEDS ASSET] in "17 Full Page Copy - Draft.md" — so it's
+// obvious in a preview what's real copy vs. what's still waiting on Steve,
+// and nothing gets mistaken for finished, approved content.
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+<p class="needs-input">⚠️ {label}</p>

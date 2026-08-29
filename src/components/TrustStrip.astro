@@ -1,0 +1,12 @@
+---
+import { siteConfig } from "../data/siteConfig";
+---
+<div class="trust-strip">
+  <span class="trust-strip__item">
+    <span class="trust-strip__stars" aria-hidden="true">★★★★★</span>
+    {siteConfig.reviews.rating.toFixed(1)} from {siteConfig.reviews.count} Google reviews
+  </span>
+  <span class="trust-strip__item">✅ Gas Safe registered</span>
+  <span class="trust-strip__item">🛠️ {siteConfig.yearsTrading} years in plumbing &amp; heating</span>
+  <span class="trust-strip__item">🔧 Worcester Bosch &amp; Ideal accredited</span>
+</div>
