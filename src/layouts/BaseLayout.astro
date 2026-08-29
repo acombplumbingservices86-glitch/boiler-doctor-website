@@ -29,6 +29,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/og-image.png", Astro.site).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
     <LocalBusinessSchema />
   </head>
   <body>
