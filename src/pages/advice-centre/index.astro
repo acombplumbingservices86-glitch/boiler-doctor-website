@@ -7,12 +7,12 @@ const title = "Boiler & Heating Advice | The Boiler Doctor, York";
 const description = "Honest, jargon-free advice on boilers, heating and air conditioning from York's own Boiler Doctor.";
 
 const articles = [
-  "How much does a new boiler actually cost?",
-  "Combi vs system boiler — which do I need?",
-  "Why is my boiler losing pressure?",
-  "Do I really need an annual service?",
-  "What does a CP12 landlord certificate cover?",
-  "Signs you need a power flush, not just a bleed",
+  { title: "How much does a new boiler actually cost?", href: "/advice-centre/new-boiler-cost/" },
+  { title: "Combi vs system boiler — which do I need?", href: "/advice-centre/combi-vs-system-boiler/" },
+  { title: "Why is my boiler losing pressure?", href: "/advice-centre/why-is-my-boiler-losing-pressure/" },
+  { title: "Do I really need an annual service?", href: null },
+  { title: "What does a CP12 landlord certificate cover?", href: null },
+  { title: "Signs you need a power flush, not just a bleed", href: null },
 ];
 ---
 <BaseLayout title={title} description={description}>
@@ -27,10 +27,17 @@ const articles = [
     <div class="container">
       <div class="grid grid--3">
         {articles.map((a) => (
-          <div class="card">
-            <h3>{a}</h3>
-            <NeedsInput label="Article content to be written — seeded from real call-transcript themes, once core sitemap pages are live." />
-          </div>
+          a.href ? (
+            <a href={a.href} class="card article-tile">
+              <h3>{a.title}</h3>
+              <span class="article-tile__link">Read the guide →</span>
+            </a>
+          ) : (
+            <div class="card">
+              <h3>{a.title}</h3>
+              <NeedsInput label="Article not written yet — coming as the Advice Centre grows." />
+            </div>
+          )
         ))}
       </div>
     </div>
@@ -50,4 +57,6 @@ const articles = [
 <style>
   .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
   .narrow { max-width: 68ch; text-align: center; }
+  .article-tile { text-decoration: none; color: inherit; display: block; }
+  .article-tile__link { color: var(--color-orange-600); font-weight: 700; font-size: 0.9rem; }
 </style>

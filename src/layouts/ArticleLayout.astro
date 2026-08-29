@@ -1,0 +1,34 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import CTABand from "../components/CTABand.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  dateUpdated: string;
+}
+const { title, description, dateUpdated } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <article class="section">
+    <div class="container narrow">
+      <p class="breadcrumb"><a href="/advice-centre/">Advice Centre</a> →</p>
+      <slot />
+      <p class="updated">Last updated {dateUpdated} by The Boiler Doctor, York.</p>
+    </div>
+  </article>
+  <CTABand heading="Still not sure? Just ask us directly." />
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 68ch; }
+  .breadcrumb { font-size: 0.85rem; color: var(--color-grey-600); }
+  .breadcrumb a { color: var(--color-orange-600); text-decoration: none; }
+  .updated { margin-top: 2rem; font-size: 0.85rem; color: var(--color-grey-600); border-top: 1px solid var(--color-grey-100); padding-top: 1rem; }
+  :global(.narrow h1) { margin-top: 0.5rem; }
+  :global(.narrow h2) { margin-top: 2rem; }
+  :global(.narrow ul), :global(.narrow ol) { padding-left: 1.3em; display: grid; gap: 0.4rem; }
+  :global(.narrow table) { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  :global(.narrow th), :global(.narrow td) { text-align: left; padding: 0.6em 0.8em; border-bottom: 1px solid var(--color-grey-100); }
+  :global(.narrow th) { background: var(--color-off-white); }
+</style>
