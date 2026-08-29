@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "About The Boiler Doctor | Family-Run Heating Engineers in York";
+const description =
+  "17 years in plumbing and heating. Started as Acomb Plumbing & Heating in 2013, rebranded to The Boiler Doctor in 2020. Meet Steve, Kyle and Hayden.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>From Apprentice to The Boiler Doctor</h1>
+      <p class="lede">Seventeen years of fixing York's boilers, one honest job at a time.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>The real story</h2>
+      <p>
+        Steve apprenticed in plumbing and heating, then went out on his own — founding
+        <strong>Acomb Plumbing &amp; Heating in 2013</strong>. He built it up on word of mouth
+        and repeat trade, one satisfied customer at a time. In <strong>2020</strong>, the
+        business rebranded to <strong>The Boiler Doctor</strong> — not a fresh start, but a
+        name that finally matched what the business had actually become: boiler-first,
+        heating-focused, same standards throughout.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Meet the team</h2>
+      <div class="grid grid--3">
+        <div class="card">
+          <NeedsInput label="NEEDS ASSET: photo of Steve, ideally on-the-job" />
+          <h3>Steve</h3>
+          <p>Owner and lead engineer. Gas Safe registered (No. {siteConfig.gasSafeNumber}). Still does the tools every day — not just running the business from an office.</p>
+        </div>
+        <div class="card">
+          <NeedsInput label="NEEDS ASSET: photo of Kyle, ideally on-the-job" />
+          <h3>Kyle</h3>
+          <p>Engineer, with Steve for 5 years. Fully trained and gas-qualified. Regular customers ask for him by name.</p>
+        </div>
+        <div class="card">
+          <NeedsInput label="NEEDS ASSET: photo of Hayden" />
+          <h3>Hayden</h3>
+          <p>Runs the office. First point of contact by phone for most enquiries — website enquiries get routed straight through to Steve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What we don't do</h2>
+      <p>
+        We no longer take on full bathroom installs or complete bathroom suites. If you're an
+        existing customer with a dripping tap or a running toilet, give us a call — we'll
+        usually sort it. New to us with a plumbing job? We might be able to help depending on
+        what it is, but heating and boilers come first.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Accreditations</h2>
+      <ul class="accreditation-list">
+        <li>Gas Safe registered — No. {siteConfig.gasSafeNumber}</li>
+        <li>Worcester Bosch accredited installer</li>
+        <li>Ideal accredited installer</li>
+        <li>F-Gas registered (air conditioning)</li>
+      </ul>
+      <p class="fine-print">
+        For security reasons we don't publish our F-Gas registration number online — happy to
+        provide it directly to trade partners or on request.
+      </p>
+    </div>
+  </section>
+
+  <CTABand heading="Want to see the standard for yourself?" subheading="Read what real customers say." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .narrow { max-width: 68ch; }
+  .accreditation-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+  .accreditation-list li {
+    background: var(--color-off-white);
+    border-radius: var(--radius-sm);
+    padding: 0.7em 1em;
+    font-weight: 600;
+  }
+  .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+</style>

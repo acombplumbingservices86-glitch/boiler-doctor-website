@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+
+const title = "Central Heating & Radiator Installation, York | The Boiler Doctor";
+const description =
+  "New radiators, heating system upgrades, and central heating fault-finding across York. Call 01904 206190.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Warm Rooms, Sorted Properly</h1>
+      <p class="lede">From a single cold radiator to a full central heating upgrade — diagnosed and fixed by people who know why it's actually happening.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book Online</a>
+        <a href="tel:01904206190" class="btn btn--secondary">Call 01904 206190</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What we cover</h2>
+      <ul class="tick-list">
+        <li>Radiators not heating up (cold spots — needs bleeding, balancing, or a power flush?)</li>
+        <li>Radiator replacement and upgrades</li>
+        <li>Pipework and system alterations</li>
+        <li>Central heating system fault-finding</li>
+        <li>Thermostatic radiator valve fitting</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>How we diagnose before we quote</h2>
+      <p>There's a real difference between a 30-second bleed, a system balance, and a full power flush — and most "my radiator's cold" calls don't need the most expensive fix. We'll tell you which one you actually need.</p>
+      <p><a href="/power-flushing/">When it genuinely is a power flush →</a></p>
+    </div>
+  </section>
+
+  <CTABand heading="Cold radiator? Let's find out why, properly." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .tick-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .tick-list li { padding-left: 1.6em; position: relative; }
+  .tick-list li::before { content: "✅"; position: absolute; left: 0; }
+</style>

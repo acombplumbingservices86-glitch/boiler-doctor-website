@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+
+const title = "New Boiler Installation in York | Worcester Bosch & Ideal Specialists";
+const description =
+  "From £1,500-£3,000 fitted. Worcester Bosch and Ideal accredited installer. Honest advice on combi vs system, no pressure. Call 01904 206190.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>A New Boiler, Fitted by People Who'll Still Be Around Next Year</h1>
+      <p class="lede">Worcester Bosch and Ideal accredited. Straight advice on what you actually need — not the biggest boiler we can sell you.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Free Quote</a>
+        <a href="tel:01904206190" class="btn btn--secondary">Call 01904 206190</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What it costs</h2>
+      <ul class="price-list">
+        <li><strong>Like-for-like combi swap:</strong> from £2,000</li>
+        <li><strong>System-to-combi conversion:</strong> from £3,000</li>
+        <li>Typical range £1,500–£3,000 depending on the job</li>
+        <li>Deposit required on jobs over £400 (set out in your written quote); balance due within 7 days of completion</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>How we help you choose</h2>
+      <p>Combi vs system vs regular/heat-only, sizing for your home and hot water demand, Worcester Bosch vs Ideal trade-offs, when a straight swap makes sense vs when the pipework needs work too. We'll answer your actual questions — not push a specific brand.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>The process, start to finish</h2>
+      <ol class="process-list">
+        <li>Free home visit and quote</li>
+        <li>Written proposal with clear pricing</li>
+        <li>Agreed install date</li>
+        <li>Typically 1 day for a like-for-like swap</li>
+        <li>Gas Safe certificate and warranty registration handled for you</li>
+        <li>Follow-up service reminder</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Warranty</h2>
+      <p>12 months' workmanship warranty from invoice date; manufacturer's boiler warranty runs separately (length confirmed at quote stage).</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow lead-magnet">
+      <h2>Not sure what you need yet?</h2>
+      <p>Get our free guide to choosing a new boiler.</p>
+      <NeedsInput label="Phase Four build: embed the rebuilt Ultimate Boiler Guide form here once live in GHL (see file 18)." />
+    </div>
+  </section>
+
+  <CTABand heading="Get a straight quote, no obligation." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .price-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+  .price-list li { background: var(--color-off-white); border-radius: var(--radius-sm); padding: 0.7em 1em; }
+  .process-list { padding-left: 1.2em; display: grid; gap: 0.4rem; }
+  .lead-magnet { text-align: center; }
+</style>

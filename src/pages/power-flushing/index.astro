@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+
+const title = "Power Flushing in York | Clear Sludge, Restore Heating Efficiency";
+const description =
+  "Professional power flushing to remove sludge and restore your heating system's efficiency. Call 01904 206190 for a quote.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>When Bleeding the Radiators Isn't Enough</h1>
+      <p class="lede">A proper power flush clears years of sludge and debris, restoring efficiency and protecting your boiler.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book Online</a>
+        <a href="tel:01904206190" class="btn btn--secondary">Call 01904 206190</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Signs you might need one</h2>
+      <ul class="tick-list">
+        <li>Cold spots at the bottom of radiators</li>
+        <li>Noisy boiler (kettling)</li>
+        <li>Boiler working harder than it should</li>
+        <li>Black or discoloured water when bleeding a radiator</li>
+        <li>Uneven heating across the house</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>What's involved</h2>
+      <p>A specialist pump and chemical cleaner flush the system through, radiator by radiator, clearing out built-up sludge. It's worth doing before a new boiler install as much as on an older system — protects the investment either way.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>When we'd say no</h2>
+      <p>If the real fix is a bleed or a balance, that's what we'll recommend instead — we won't sell you a flush you don't need.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Get your system properly checked before we recommend anything." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .tick-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .tick-list li { padding-left: 1.6em; position: relative; }
+  .tick-list li::before { content: "✅"; position: absolute; left: 0; }
+</style>

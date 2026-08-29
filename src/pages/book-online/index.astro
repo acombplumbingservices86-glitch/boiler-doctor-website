@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Book Online | The Boiler Doctor, York";
+const description = "Book your boiler repair, service or installation online in a couple of minutes.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Book in Two Minutes</h1>
+      <p class="lede">Pick what you need, choose a time, and we'll confirm by text or email.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="booking-embed card">
+        <iframe
+          src={siteConfig.bookingUrl}
+          title="Book an appointment with The Boiler Doctor"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow fallback">
+      <p>Prefer to speak to someone first?</p>
+      <a href={siteConfig.phoneHref} class="btn btn--primary">Call {siteConfig.phoneDisplay}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .narrow { max-width: 68ch; text-align: center; }
+  .booking-embed { padding: 0; overflow: hidden; }
+  .booking-embed iframe { width: 100%; min-height: 720px; border: 0; display: block; }
+  .fallback { padding-bottom: 3rem; }
+</style>

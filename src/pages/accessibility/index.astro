@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Accessibility Statement | The Boiler Doctor";
+const description = "Our commitment to making this website accessible to everyone.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow">
+      <h1>Accessibility Statement</h1>
+      <p>This site is built with accessibility in mind — semantic HTML, colour contrast, keyboard navigation, and alt text on images.</p>
+      <p>If something on this site isn't accessible to you, please let us know at <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a> — your feedback helps us improve it.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 68ch; }
+</style>

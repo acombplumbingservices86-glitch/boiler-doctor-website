@@ -1,0 +1,49 @@
+# The Boiler Doctor — 301 redirect map
+# Generated from 04 Old URL Inventory.csv / 11 Master Sitemap.csv (Phase Four build).
+# Cloudflare Pages _redirects syntax: /old-path  /new-path  301
+
+/about  /about/  301
+/air-conditioning-york  /air-conditioning/  301
+/areas-i-cover  /service-areas/  301
+/bathroom-installation-plumber  /about/  301
+/bathroom-renovation-plumber  /about/  301
+/blog/addressing-customer-concerns-future-gas-boilers-and-parts-availability  /advice-centre/  301
+/blog/how-choose-best-combi-boiler-your-home-comprehensive-guide  /advice-centre/  301
+/blog/how-improve-boiler-efficiency-and-save-energy-bills  /advice-centre/  301
+/blog/importance-regular-boiler-maintenance-longevity-and-performance  /advice-centre/  301
+/blog/signs-your-boiler-needs-repair-what-york-homeowners-should-look  /advice-centre/  301
+/blog/understanding-power-flushing-what-it-and-why-your-central-heating-system-needs-it  /advice-centre/  301
+/blogs  /advice-centre/  301
+/boiler-installation-acomb-plumber  /new-boiler-installation/  301
+/boiler-installation-york  /new-boiler-installation/  301
+/boiler-installations-plumber  /new-boiler-installation/  301
+/boiler-pressure-plumber  /advice-centre/  301
+/boiler-repair-york  /boiler-repairs-breakdowns/  301
+/boiler-repairs-plumber  /boiler-repairs-breakdowns/  301
+/boiler-service-acomb-plumber  /boiler-servicing/  301
+/boiler-service-acomb-york  /boiler-servicing/  301
+/boiler-service-plumber  /boiler-servicing/  301
+/boiler-upgrade-plumber  /new-boiler-installation/  301
+/book-your-boiler-service-online  /book-online/  301
+/booking  /book-online/  301
+/care-plans  /boiler-care-plans/  301
+/cloudy-warm-water-plumber  /about/  301
+/contact  /contact/  301
+/gas-safety-inspection-plumber  /gas-safety-landlords/  301
+/hard-water-acomb-plumber  /about/  301
+/how-top-boiler-plumber  /advice-centre/  301
+/how-unblock-sink-plumber  /about/  301
+/main-services-list  /  301
+/my-work  /real-work/  301
+/plumber-acomb-plumber  /about/  301
+/power-flushing-plumber  /power-flushing/  301
+/privacy-policy  /privacy-policy/  301
+/radiator-valves-plumber  /central-heating-radiators/  301
+/radiators-plumber  /central-heating-radiators/  301
+/services  /  301
+/stop-tap-plumber  /about/  301
+/terms-conditions  /terms-conditions/  301
+/testimonials  /reviews/  301
+/thermostats-plumber  /controls-smart-thermostats/  301
+/prices  /  301
+/gas-leak-plumber  /gas-safety-landlords/  301

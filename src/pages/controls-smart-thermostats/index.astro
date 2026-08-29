@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+
+const title = "Smart Thermostat & Heating Controls Installation, York | The Boiler Doctor";
+const description =
+  "Smart heating control installation and setup in York, matched to your home rather than one fixed brand. Call 01904 206190.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Control Your Heating From Your Phone</h1>
+      <p class="lede">Smart thermostat supply, installation and setup — configured properly so it actually saves you money, not just looks clever.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book Online</a>
+        <a href="tel:01904206190" class="btn btn--secondary">Call 01904 206190</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What we fit</h2>
+      <p>Smart thermostats and heating controls, zone controls for multi-area heating, thermostatic radiator valves, timer and programmer upgrades.</p>
+      <p><strong>We fit Hive</strong> — our go-to smart thermostat system, installed and set up properly so it actually saves you money, not just looks clever on your phone.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Why get it fitted rather than DIY</h2>
+      <p>Most smart thermostats are DIY-installable in theory, but wiring compatibility and correct zoning is where people get it wrong — a professional install avoids a return trip to undo a mistake.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Smarter heating, properly set up." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+</style>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Page Not Found | The Boiler Doctor";
+const description = "That page has gone missing.";
+---
+<BaseLayout title={title} description={description} noindex>
+  <section class="section not-found">
+    <div class="container narrow">
+      <h1>That Page Has Gone Missing (a Bit Like a Boiler on a Sunday)</h1>
+      <p class="lede">The page you're looking for doesn't exist — but here's how to find what you need.</p>
+      <div class="quick-links">
+        <a href="/" class="btn btn--primary">Home</a>
+        <a href="/boiler-repairs-breakdowns/" class="btn btn--secondary">Boiler Repairs</a>
+        <a href="/book-online/" class="btn btn--secondary">Book Online</a>
+        <a href="/contact/" class="btn btn--secondary">Contact</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found { text-align: center; }
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; margin: 0 auto 1.5rem; }
+  .narrow { max-width: 68ch; margin: 0 auto; }
+  .quick-links { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+</style>

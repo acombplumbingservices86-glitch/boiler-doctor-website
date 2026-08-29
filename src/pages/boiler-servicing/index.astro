@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Annual Boiler Service in York from £85 | The Boiler Doctor";
+const description =
+  "Keep your boiler safe, efficient and under warranty with an annual service. Gas Safe registered. Book online or call 01904 206190.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>One Service a Year Keeps the Cold Away</h1>
+      <p class="lede">A proper annual boiler service protects your warranty, catches problems early, and keeps your gas safety certificate current.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Service</a>
+        <a href="/boiler-care-plans/" class="btn btn--secondary">Compare Care Plans</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What's included</h2>
+      <ul class="tick-list">
+        <li>Full visual inspection</li>
+        <li>Flue and ventilation check</li>
+        <li>Gas pressure and burner check</li>
+        <li>Safety device test</li>
+        <li>Casing and seals inspection</li>
+        <li>CO alarm check</li>
+        <li>Written service record for your files and any warranty claim</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Price</h2>
+      <p class="price-highlight">£85</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Why not just leave it</h2>
+      <p>Manufacturer warranties are typically void without an annual service. A service often catches a small fault before it becomes a Saturday-night no-heat emergency. Landlords have a legal obligation too — see our <a href="/gas-safety-landlords/">Gas Safety &amp; Landlords</a> page.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow card care-cross-sell">
+      <h2>If you're doing this every year anyway...</h2>
+      <p>Our Checkup plan works out cheaper than a one-off service and throws in a free CO alarm and WhatsApp access to Steve.</p>
+      <a href="/boiler-care-plans/" class="btn btn--primary">See Care Plans</a>
+    </div>
+  </section>
+
+  <CTABand heading="Book your service before winter catches you out." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .tick-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .tick-list li { padding-left: 1.6em; position: relative; }
+  .tick-list li::before { content: "✅"; position: absolute; left: 0; }
+  .price-highlight { font-size: 2.5rem; font-weight: 800; color: var(--color-orange-600); }
+  .care-cross-sell { text-align: center; }
+</style>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Contact The Boiler Doctor | York";
+const description = "Get in touch by phone, WhatsApp or email. We usually reply the same day.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p class="lede">Hayden picks up most calls and emails — website enquiries come straight through to Steve.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container contact-grid">
+      <div class="card">
+        <h2>Contact details</h2>
+        <p>
+          <strong>Phone:</strong> <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a><br />
+          <strong>Email:</strong> <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a><br />
+          <strong>WhatsApp:</strong> {siteConfig.whatsappDisplay} {siteConfig.whatsappReady ? "" : "(coming soon)"}<br />
+          <strong>Office hours:</strong> {siteConfig.officeHours || "TBC"}
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Send a message</h2>
+        <NeedsInput label="Phase Four build: form here routes into GHL, tagged by service interest (see file 18)." />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow fine-print">
+      <p>
+        {siteConfig.address.line1}, {siteConfig.address.line2}, {siteConfig.address.city} {siteConfig.address.postcode}<br />
+        {siteConfig.legalName} · Company No. {siteConfig.companyNumber} · VAT No. {siteConfig.vatNumber}
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .contact-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .narrow { max-width: 68ch; }
+  .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+</style>

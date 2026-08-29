@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+
+const title = "Boiler Care Plans from £12.99/month | The Boiler Doctor, York";
+const description =
+  "Annual service, priority callouts and repair cover from £12.99/month. Three plans, no small print surprises. Compare and join online.";
+
+const plans = [
+  {
+    name: "The Checkup",
+    price: "£12.99/mo",
+    priceYear: "or £140/yr",
+    features: [
+      "Annual service (from year two)",
+      "CP12 gas safety check",
+      "Boiler health report",
+      "Free CO alarm",
+      "WhatsApp access to Steve",
+    ],
+  },
+  {
+    name: "On Call",
+    price: "£16.99/mo",
+    priceYear: "or £183/yr",
+    features: [
+      "Everything in The Checkup",
+      "24-hour priority booking",
+      "10% off repairs",
+      "Free 3D-printed radiator key",
+    ],
+    highlight: true,
+  },
+  {
+    name: "House Call",
+    price: "£24.99/mo",
+    priceYear: "or £270/yr",
+    features: [
+      "Everything in On Call",
+      "Free callout (£120 value)",
+      "£250/yr parts & labour cover",
+      "Controls/thermostat inspection",
+      "Radiator maintenance",
+      "No excess",
+      "Dedicated phone line",
+      "Branded mug",
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Never Get Caught Out By a Cold House Again</h1>
+      <p class="lede">Three simple care plans. Pick the level of cover that suits your home.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--3 plans">
+        {plans.map((plan) => (
+          <div class={`card plan-card ${plan.highlight ? "plan-card--highlight" : ""}`}>
+            <h3>{plan.name}</h3>
+            <p class="plan-card__price">{plan.price} <span>{plan.priceYear}</span></p>
+            <ul>
+              {plan.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a href="/contact/" class="btn btn--primary btn--block">Join {plan.name}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>How WhatsApp access works</h2>
+      <p>WhatsApp access to Steve is a genuine Care Plan member perk — not a general enquiry line open to every visitor. Once you're on a plan, you'll get the number to message directly.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Pick your plan, we'll take it from there." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .narrow { max-width: 68ch; }
+  .plan-card { display: flex; flex-direction: column; gap: 0.75rem; }
+  .plan-card--highlight { border: 2px solid var(--color-orange-500); }
+  .plan-card__price { font-size: 1.6rem; font-weight: 800; color: var(--color-navy-900); }
+  .plan-card__price span { font-size: 0.9rem; font-weight: 500; color: var(--color-grey-600); }
+  .plan-card ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; display: grid; gap: 0.4rem; }
+  .plan-card li { padding-left: 1.4em; position: relative; font-size: 0.92rem; }
+  .plan-card li::before { content: "✓"; position: absolute; left: 0; color: var(--color-success); font-weight: 700; }
+</style>

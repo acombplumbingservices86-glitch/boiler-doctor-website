@@ -42,6 +42,17 @@ export const siteConfig = {
     rebrand: "The Boiler Doctor, 2020",
   },
 
+  gasSafeNumber: "570248",
+  // F-Gas: Steve is F-Gas registered, but the number is deliberately NEVER shown publicly —
+  // publishing it would let someone else use it to order restricted refrigerant units in his
+  // name. Show the "F-Gas registered" badge/claim only. Do not add a number field for this.
+
+  acBrands: ["Bosch", "Daikin", "Haier"],
+
+  thermostatBrand: "Hive",
+
+  officeHours: "", // NOT yet confirmed — Steve's "8:00 and 5:00" comment turned out to be about Hive, not office hours. Ask again before launch.
+
   minCallOutFee: "£100 + VAT",
   warranty: "12 months from invoice date",
 

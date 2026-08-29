@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+
+const title = "Terms & Conditions | The Boiler Doctor";
+const description = "Our terms and conditions.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow">
+      <h1>Terms &amp; Conditions</h1>
+      <NeedsInput label="NEEDS STEVE: confirm these are complete and current before publishing as the legal basis for every job." />
+      <ul>
+        <li>Workmanship warranty: 12 months from invoice date</li>
+        <li>Deposit required on jobs over £400 (amount set out in your written quote)</li>
+        <li>Balance due on completion, payable within 7 days</li>
+        <li>Unquoted extra work charged at £85/hour</li>
+        <li>Minimum call-out fee: £100 + VAT</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 68ch; }
+</style>

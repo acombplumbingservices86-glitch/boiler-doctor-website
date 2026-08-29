@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+
+const title = "Landlord Gas Safety Certificates (CP12) in York | The Boiler Doctor";
+const description =
+  "Annual gas safety checks and CP12 certificates for landlords across York. Gas Safe registered. Call 01904 206190.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Your Legal Obligation, Handled Properly</h1>
+      <p class="lede">Annual Landlord Gas Safety Records (CP12), boiler servicing and repairs for rental properties across York.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Check</a>
+        <a href="tel:01904206190" class="btn btn--secondary">Call 01904 206190</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What landlords are legally required to do</h2>
+      <p>An annual gas safety check by a Gas Safe registered engineer is a legal requirement for any rented property with gas appliances, and a copy of the certificate must go to tenants within 28 days.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>What's included</h2>
+      <p>Same checks as a standard service, plus the formal CP12 certificate — issued same day where possible.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Multiple properties</h2>
+      <p>For landlords or agents with several properties: batch scheduling, reminders when certificates are due to expire, and a single point of contact — Hayden in the office — for coordinating access across tenants.</p>
+      <NeedsInput label="NEEDS STEVE: confirm whether multi-property batch scheduling is something to actively offer, or just handled ad hoc today" />
+    </div>
+  </section>
+
+  <CTABand heading="Get your certificate booked before it lapses." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+</style>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import CTABand from "../../components/CTABand.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = `${siteConfig.reviews.count} Five-Star Reviews | The Boiler Doctor, York`;
+const description =
+  "Real reviews from real customers across York. 5.0 stars from 384 Google reviews. Read what people actually say about working with us.";
+
+// Seed set from "09 Real Google Reviews Sample.csv" — full 40-review pool lives there.
+// Phase Four build note: replace this static list with a live Google Business Profile
+// pull so new reviews appear automatically.
+const reviews = [
+  { name: "Ian Ilsley", text: "Called about a toilet with a broken flush in a rental property — quick and professional, sorted the same day.", tag: "Plumbing repair" },
+  { name: "Belinda Levy", text: "Steve plumbed in a new kitchen tap back in 2022. It started dripping in 2026, so he came back and replaced it — no fuss.", tag: "Plumbing repair" },
+];
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>{siteConfig.reviews.count} Five-Star Reviews. Real Names, Real Jobs.</h1>
+      <p class="lede">Every review here is a genuine Google review — nothing written by us, nothing hand-picked to hide the bad ones (there aren't any yet, but if there ever are, they'll be here too).</p>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--2">
+        {reviews.map((r) => (
+          <blockquote class="card review-card">
+            <p>"{r.text}"</p>
+            <footer>— {r.name}, <span class="badge">{r.tag}</span></footer>
+          </blockquote>
+        ))}
+      </div>
+      <NeedsInput label="Phase Four build: pull the full 40-review seed set (and eventually a live Google Business Profile feed) in here, filterable by service type." />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Leave a review</h2>
+      <p>Had a good experience? A review helps other people in York find us just as easily as you did.</p>
+      <NeedsInput label="Phase Four build: link straight through to the Google review form." />
+    </div>
+  </section>
+
+  <CTABand heading="Ready to find out for yourself?" />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .narrow { max-width: 68ch; }
+  .review-card { border: none; }
+  .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
+</style>

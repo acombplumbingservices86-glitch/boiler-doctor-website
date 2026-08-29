@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Air Conditioning Installation & Servicing in York | The Boiler Doctor";
+const description =
+  "Domestic air conditioning supply, installation and servicing across York. F-Gas registered engineers. Call 01904 206190.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Stay Cool Without the Cowboys</h1>
+      <p class="lede">Domestic air conditioning installed and serviced by F-Gas registered engineers, backed by the same standards as our boiler work.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Free Quote</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What we cover</h2>
+      <ul class="tick-list">
+        <li>Single and multi-split system installation</li>
+        <li>Servicing and re-gassing</li>
+        <li>Fault-finding and repair</li>
+        <li>Advice on sizing for the room — not oversizing and wasting your money</li>
+      </ul>
+      <p><strong>Brands we fit:</strong> {siteConfig.acBrands.join(", ")}.</p>
+      <p class="fine-print">F-Gas registered. For security reasons we don't publish the registration number online — happy to provide it directly on request.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Not just a boiler company doing AC on the side</h2>
+      <p>AC and heating both come down to the same core skill — refrigerant and heat-exchange systems, proper commissioning, and not cutting corners on installation. It's a genuine second specialism here, not an afterthought.</p>
+      <NeedsInput label="NEEDS ASSET: AC-specific case studies, install counts, or before/after photos for proof" />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Servicing</h2>
+      <p>An annual service maintains efficiency and keeps your warranty valid — same logic as boiler servicing.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Get ahead of summer — book your AC quote now." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .tick-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .tick-list li { padding-left: 1.6em; position: relative; }
+  .tick-list li::before { content: "✅"; position: absolute; left: 0; }
+  .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+</style>

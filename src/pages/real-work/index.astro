@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+
+const title = "Real Jobs, Real Results | The Boiler Doctor, York";
+const description =
+  "Before-and-after photos and real job stories from boiler installs, repairs and heating upgrades across York.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>See the Work, Not Just the Words</h1>
+      <p class="lede">A selection of real jobs, with real photos — because "trust us" only goes so far.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <NeedsInput label="NEEDS ASSET: this entire page is blocked on real job photos from Steve — currently zero usable images on file. Even phone photos from recent jobs would let this page start taking shape." />
+    </div>
+  </section>
+
+  <CTABand heading="Got a job like this? Let's talk." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+</style>

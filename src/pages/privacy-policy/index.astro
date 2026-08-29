@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NeedsInput from "../../components/NeedsInput.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Privacy Policy | The Boiler Doctor";
+const description = "Our privacy policy.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow">
+      <h1>Privacy Policy</h1>
+      <NeedsInput label="Awaiting a fresh, UK-GDPR-compliant policy — Steve's decision, 29 Aug: commissioning one properly (solicitor or reputable template service) rather than carrying the 2023 version forward. Placeholder structure below." />
+      <h2>What this will cover</h2>
+      <ul>
+        <li>What data we collect (forms, WhatsApp, GHL, Care Plan billing) and why</li>
+        <li>How long it's kept</li>
+        <li>Third parties it's shared with (GoHighLevel, ServiceM8, Google, payment processor)</li>
+        <li>Cookie use</li>
+        <li>Your rights — access, deletion, correction</li>
+        <li>Contact for data requests: <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 68ch; }
+</style>

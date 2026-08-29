@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Areas We Cover | Boiler & Heating Engineers in York";
+const description = "Covering Acomb, York and surrounding villages. See the full list of areas we serve.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Covering Acomb and All of York</h1>
+      <p class="lede">Based in Acomb, working right across York and the surrounding area.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="area-grid">
+        {siteConfig.serviceAreas.map((area) => (
+          <span class="area-chip">{area}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <p>Not sure if we cover you? Just ask — <a href={siteConfig.phoneHref}>call {siteConfig.phoneDisplay}</a>.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Not sure if we cover you? Just ask." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .narrow { max-width: 68ch; }
+  .area-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .area-chip {
+    background: var(--color-white);
+    border-radius: 999px;
+    padding: 0.5em 1.1em;
+    font-weight: 600;
+    box-shadow: var(--shadow-card);
+  }
+</style>
