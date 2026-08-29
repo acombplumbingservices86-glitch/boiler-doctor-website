@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-// Static XML sitemap for the 21 core pages. Kept as a hand-built route rather
+// Static XML sitemap for the site's pages. Kept as a hand-built route rather
 // than @astrojs/sitemap for now, since the whole site is small and static —
 // swap to the official integration if/when the Advice Centre articles grow
 // this past a size where hand-maintaining it stops making sense.
