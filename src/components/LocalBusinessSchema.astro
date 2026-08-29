@@ -1,0 +1,29 @@
+---
+import { siteConfig } from "../data/siteConfig";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": siteConfig.businessName,
+  "legalName": siteConfig.legalName,
+  "image": "https://www.the-boiler-doctor.co.uk/og-image.png",
+  "url": "https://www.the-boiler-doctor.co.uk/",
+  "telephone": siteConfig.phoneDisplay,
+  "email": siteConfig.emailDisplay,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": siteConfig.address.line1,
+    "addressLocality": siteConfig.address.city,
+    "postalCode": siteConfig.address.postcode,
+    "addressCountry": "GB",
+  },
+  "areaServed": siteConfig.serviceAreas,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": siteConfig.reviews.rating,
+    "reviewCount": siteConfig.reviews.count,
+  },
+  "sameAs": [siteConfig.socials.facebook, siteConfig.socials.youtube],
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

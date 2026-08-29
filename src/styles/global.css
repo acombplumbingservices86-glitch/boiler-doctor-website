@@ -8,8 +8,10 @@
   --color-navy-800: #122a4f;
   --color-navy-700: #1b3a68;
   --color-navy-600: #274a82;
-  --color-orange-600: #d9540c;
-  --color-orange-500: #f2680f;
+  /* Orange values tuned for WCAG AA contrast (4.5:1+) as both button backgrounds
+     (white text) and as link text on white — verified with Lighthouse. */
+  --color-orange-600: #a83e07;
+  --color-orange-500: #c24709;
   --color-orange-400: #f8863f;
   --color-white: #ffffff;
   --color-off-white: #f7f8fa;

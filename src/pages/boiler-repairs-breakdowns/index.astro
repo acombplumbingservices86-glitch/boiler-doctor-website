@@ -16,8 +16,19 @@ const faqs = [
   { q: "Error codes on the display", a: "Tell us the code when you call — it usually points us straight to the fault before we even arrive." },
   { q: "Leaking boiler", a: "Turn off the water supply if you can do so safely, then call us — this one's worth same-day attention." },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((item) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+};
 ---
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <section class="section">
     <div class="container">
       <h1>Boiler Broken Down? We'll Sort It.</h1>
