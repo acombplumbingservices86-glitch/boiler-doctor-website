@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
 import { siteConfig } from "../../data/siteConfig";
 
 const title = "Boiler Servicing & Annual Checks in York | The Boiler Doctor";
@@ -14,8 +15,12 @@ const description =
       <p class="lede">A proper annual boiler service protects your warranty, catches problems early, and keeps your gas safety certificate current.</p>
       <div class="hero__actions">
         <a href="/book-online/" class="btn btn--primary">Book a Service</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
         <a href="/boiler-care-plans/" class="btn btn--secondary">Compare Care Plans</a>
       </div>
+    </div>
+    <div class="container">
+      <TrustStrip />
     </div>
   </section>
 
@@ -51,6 +56,17 @@ const description =
   </section>
 
   <section class="section">
+    <div class="container narrow">
+      <h2>Real customer story</h2>
+      <blockquote class="card review-card">
+        <p>"We had our boiler serviced by Kyle, he was a very professional young man. I always recommend The Boiler Doctor to family and friends as the service is always amazing."</p>
+        <footer>— Rodney Plonker, <span class="badge">Boiler service</span></footer>
+      </blockquote>
+      <p><a href="/reviews/">Read all {siteConfig.reviews.count} reviews →</a></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
     <div class="container narrow card care-cross-sell">
       <h2>If you're doing this every year anyway...</h2>
       <p>Our Checkup plan works out cheaper than a one-off service and throws in a free CO alarm.</p>
@@ -75,4 +91,6 @@ const description =
   .price-highlight { font-size: 2.5rem; font-weight: 800; color: var(--color-orange-600); }
   .care-cross-sell { text-align: center; }
   .area-links { margin-top: 1rem; font-size: 0.9rem; color: var(--color-grey-600); }
+  .review-card { border: none; }
+  .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
 </style>

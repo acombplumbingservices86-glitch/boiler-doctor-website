@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
 import LeadMagnetForm from "../../components/LeadMagnetForm.astro";
+import { siteConfig } from "../../data/siteConfig";
 
 const priceGuideSteps = [
   {
@@ -41,6 +43,9 @@ const description =
         <a href="tel:01904206190" class="btn btn--secondary">Call 01904 206190</a>
       </div>
     </div>
+    <div class="container">
+      <TrustStrip />
+    </div>
   </section>
 
   <section class="section section--alt">
@@ -79,13 +84,24 @@ const description =
 
   <section class="section">
     <div class="container narrow">
+      <h2>Real customer story</h2>
+      <blockquote class="card review-card">
+        <p>"100% recommended. We have used the Boiler Doctor for many years now. Totally reliable and honest. As always, a super friendly guy who did a great job in good time."</p>
+        <footer>— James Reel, <span class="badge">New boiler</span></footer>
+      </blockquote>
+      <p><a href="/reviews/">Read all {siteConfig.reviews.count} reviews →</a></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
       <h2>Warranty</h2>
       <p>12 months' workmanship warranty from invoice date; manufacturer's boiler warranty runs separately (length confirmed at quote stage).</p>
       <p class="area-links">We've now got a dedicated page for every one of the 20 areas we cover — including <a href="/new-boiler-installation-woodthorpe/">Woodthorpe</a>, <a href="/new-boiler-installation-acomb/">Acomb</a> and <a href="/new-boiler-installation-york/">York</a> — see the <a href="/service-areas/">full list of areas</a>.</p>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section">
     <div class="container narrow lead-magnet">
       <h2>Not sure what you need yet?</h2>
       <p>Two quick questions and we'll give you a straight ballpark figure — right here, no waiting on a callback.</p>
@@ -112,4 +128,6 @@ const description =
   .process-list { padding-left: 1.2em; display: grid; gap: 0.4rem; }
   .lead-magnet { text-align: center; }
   .area-links { margin-top: 1rem; font-size: 0.9rem; color: var(--color-grey-600); }
+  .review-card { border: none; }
+  .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
 </style>

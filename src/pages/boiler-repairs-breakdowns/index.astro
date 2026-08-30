@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
 import NeedsInput from "../../components/NeedsInput.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
 import { siteConfig } from "../../data/siteConfig";
 
 const title = "Boiler Repairs & Breakdown Cover in York | The Boiler Doctor";
@@ -37,6 +38,9 @@ const faqSchema = {
         <a href={siteConfig.phoneHref} class="btn btn--primary">Call {siteConfig.phoneDisplay}</a>
         <a href="/book-online/" class="btn btn--secondary">Book Online</a>
       </div>
+    </div>
+    <div class="container">
+      <TrustStrip />
     </div>
   </section>
 
