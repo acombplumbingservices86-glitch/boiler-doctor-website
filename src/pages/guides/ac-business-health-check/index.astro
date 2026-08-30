@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeadMagnetForm from "../../../components/LeadMagnetForm.astro";
+
+const title = "Free AC Health-Check for Your Business | The Boiler Doctor";
+const description = "Two quick questions and we'll book in a free pre-summer air conditioning health-check for your shop, office or small business.";
+
+const steps = [
+  {
+    key: "units",
+    type: "choice",
+    question: "How many rooms or units need cooling?",
+    options: ["Just 1", "2–4", "5 or more"],
+  },
+  {
+    key: "role",
+    type: "choice",
+    question: "What kind of business is it?",
+    options: ["Shop", "Office", "Other small business"],
+  },
+];
+
+const resultBodyHtml = `
+  <p>Noted — <strong>{{answers.units}}</strong> room(s)/unit(s), a <strong>{{answers.role}}</strong>. A service contract keeps things running reliably through the warmer months, rather than finding out a unit's failed on the hottest day of the year.</p>
+  <p>We'll be in touch to arrange a free health-check visit, working around your trading hours where we can.</p>
+`;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow center">
+      <h1>Don't Wait for the Hottest Day to Find Out</h1>
+      <p class="lede">Two quick questions and we'll book in a free pre-summer AC health-check for your business.</p>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <LeadMagnetForm
+        magnetId="ac-business-health-check"
+        intro="Takes about 20 seconds. We'll follow up to arrange a visit that fits around your opening hours."
+        steps={steps}
+        resultHeading="Good to go"
+        resultBodyHtml={resultBodyHtml}
+        sourcePage="/guides/ac-business-health-check/"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; margin: 0 auto; }
+  .narrow { max-width: 68ch; }
+  .center { text-align: center; }
+</style>

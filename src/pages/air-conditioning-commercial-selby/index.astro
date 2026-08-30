@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Air Conditioning for Small Businesses in Selby | The Boiler Doctor";
+const description = "Air conditioning installed and serviced for shops, offices and small businesses in Selby. F-Gas registered. Call 01904 206190.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": 'Do you fit air conditioning for shops and offices in Selby?', "acceptedAnswer": { "@type": "Answer", "text": "Yes — we cover small business premises in Selby the same as we do homes, a bit further out, south of York, but well within reach. We'll work around your opening hours where we can." } },
+    { "@type": "Question", "name": 'Can you keep our system running through a service contract?', "acceptedAnswer": { "@type": "Answer", "text": 'We can service and re-gas on a regular basis to keep your system reliable through summer — talk to us about what suits your premises.' } }
+  ],
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="section">
+    <div class="container">
+      <h1>Air Conditioning for Small Businesses in Selby</h1>
+      <p class="lede">Cooling for shops, offices and small premises in Selby, a bit further out, south of York, but well within reach — installed with minimal disruption to your trading hours.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Free Quote</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
+      </div>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What we cover</h2>
+      <ul class="tick-list">
+        <li>Single and multi-split systems for shops, offices and small units</li>
+        <li>Sizing advice — the right system for the space, not the biggest one</li>
+        <li>Servicing and re-gassing to keep things running through summer</li>
+        <li>Fault-finding and repair, with minimal disruption to your trading hours</li>
+      </ul>
+      <p><strong>Brands we fit:</strong> {siteConfig.acBrands.join(", ")}.</p>
+      <p class="fine-print">F-Gas registered. For security reasons we don't publish the registration number online — happy to provide it directly on request.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Why Selby businesses choose us</h2>
+      <p>Same standards as our boiler and domestic AC work — proper commissioning, no corners cut, and a free written quote before anything's agreed. We know a broken-down system on a hot day is a problem for your customers as well as you, so we treat it that way.</p>
+      <p>Cooling more than one room? See our <a href="/air-conditioning-split-systems-selby/">single &amp; multi-split systems</a> page.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>More AC options in Selby</h2>
+      <p>Also see: <a href="/air-conditioning-domestic-selby/">Domestic AC</a> · <a href="/air-conditioning-split-systems-selby/">Split Systems</a></p>
+      <p>Read our <a href="/advice-centre/air-conditioning-advice-selby/">Selby air conditioning advice guide</a>.</p>
+      <p class="nearby">Also covering: <a href="/air-conditioning-commercial-york/">York</a> · <a href="/air-conditioning-commercial-fulford/">Fulford</a> · <a href="/air-conditioning-commercial-dringhouses/">Dringhouses</a> · <a href="/service-areas/">see all 20 areas we cover →</a></p>
+    </div>
+  </section>
+
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+    <details class="faq-item">
+      <summary>Do you fit air conditioning for shops and offices in Selby?</summary>
+      <p>Yes — we cover small business premises in Selby the same as we do homes, a bit further out, south of York, but well within reach. We'll work around your opening hours where we can.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can you keep our system running through a service contract?</summary>
+      <p>We can service and re-gas on a regular basis to keep your system reliable through summer — talk to us about what suits your premises.</p>
+    </details>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Get a straight AC quote for your Selby business." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .tick-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .tick-list li { padding-left: 1.6em; position: relative; }
+  .tick-list li::before { content: "✅"; position: absolute; left: 0; }
+  .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+  .faq-list { display: grid; gap: 0.75rem; }
+  .faq-item { background: var(--color-white); border-radius: var(--radius-md); padding: 1rem 1.25rem; box-shadow: var(--shadow-card); }
+  .faq-item summary { font-weight: 700; cursor: pointer; }
+  .faq-item p { margin: 0.6em 0 0; color: var(--color-grey-600); }
+  .nearby { font-size: 0.9rem; color: var(--color-grey-600); }
+  
+</style>

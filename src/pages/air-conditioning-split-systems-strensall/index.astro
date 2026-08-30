@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Single & Multi-Split Air Conditioning in Strensall | The Boiler Doctor";
+const description = "Single and multi-split air conditioning systems installed in Strensall. One room or several, sized properly. Call 01904 206190.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What's the difference between single and multi-split?", "acceptedAnswer": { "@type": "Answer", "text": 'A single-split system is one outdoor unit paired with one indoor unit, for cooling a single room. A multi-split system is one outdoor unit running several indoor units, so you can cool multiple rooms without cluttering the outside of the building with units.' } },
+    { "@type": "Question", "name": 'Which one do I need in Strensall?', "acceptedAnswer": { "@type": "Answer", "text": "Depends on how many rooms you want cooled and where the outdoor unit can go — we'll talk through it on a free home visit and size it properly, not just sell you the biggest system." } }
+  ],
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="section">
+    <div class="container">
+      <h1>Single &amp; Multi-Split Air Conditioning in Strensall</h1>
+      <p class="lede">Cooling one room or several — installed and sized properly for Strensall homes and small premises, the village north of York.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Free Quote</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
+      </div>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Single-split</h2>
+      <p>One outdoor unit, one indoor unit — the straightforward option for cooling a single room: a bedroom, home office, or a small shop unit.</p>
+      <h2>Multi-split</h2>
+      <p>One outdoor unit running two or more indoor units, so you can cool several rooms without multiple units cluttering the outside wall. A common choice for larger homes and small business premises with more than one room to cool.</p>
+      <p><strong>Brands we fit:</strong> {siteConfig.acBrands.join(", ")}.</p>
+      <p class="fine-print">F-Gas registered. For security reasons we don't publish the registration number online — happy to provide it directly on request.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Sized for the room, not oversold</h2>
+      <p>An oversized unit short-cycles and wastes money; an undersized one never quite keeps up on a hot day. We size it for the room on the visit, the village north of York, and give you a free written quote before anything's agreed.</p>
+      <p>Cooling a home? See our <a href="/air-conditioning-domestic-strensall/">domestic air conditioning</a> page. Running a shop or office? See <a href="/air-conditioning-commercial-strensall/">air conditioning for small businesses</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>More AC options in Strensall</h2>
+      <p>Also see: <a href="/air-conditioning-domestic-strensall/">Domestic AC</a> · <a href="/air-conditioning-commercial-strensall/">Small Business AC</a></p>
+      <p>Read our <a href="/advice-centre/air-conditioning-advice-strensall/">Strensall air conditioning advice guide</a>.</p>
+      <p class="nearby">Also covering: <a href="/air-conditioning-split-systems-haxby/">Haxby</a> · <a href="/air-conditioning-split-systems-wigginton/">Wigginton</a> · <a href="/air-conditioning-split-systems-huntington/">Huntington</a> · <a href="/service-areas/">see all 20 areas we cover →</a></p>
+    </div>
+  </section>
+
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+    <details class="faq-item">
+      <summary>What's the difference between single and multi-split?</summary>
+      <p>A single-split system is one outdoor unit paired with one indoor unit, for cooling a single room. A multi-split system is one outdoor unit running several indoor units, so you can cool multiple rooms without cluttering the outside of the building with units.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Which one do I need in Strensall?</summary>
+      <p>Depends on how many rooms you want cooled and where the outdoor unit can go — we'll talk through it on a free home visit and size it properly, not just sell you the biggest system.</p>
+    </details>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Get a straight quote for Strensall, no obligation." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .tick-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .tick-list li { padding-left: 1.6em; position: relative; }
+  .tick-list li::before { content: "✅"; position: absolute; left: 0; }
+  .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+  .faq-list { display: grid; gap: 0.75rem; }
+  .faq-item { background: var(--color-white); border-radius: var(--radius-md); padding: 1rem 1.25rem; box-shadow: var(--shadow-card); }
+  .faq-item summary { font-weight: 700; cursor: pointer; }
+  .faq-item p { margin: 0.6em 0 0; color: var(--color-grey-600); }
+  .nearby { font-size: 0.9rem; color: var(--color-grey-600); }
+  
+</style>

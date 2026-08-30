@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeadMagnetForm from "../../../components/LeadMagnetForm.astro";
+
+const title = "Never Miss a CP12 Renewal | The Boiler Doctor";
+const description = "Landlords: sign up and we'll remind you before your gas safety certificate expires — no scrambling, no lapsed cover.";
+
+const steps = [
+  {
+    key: "properties",
+    type: "choice",
+    question: "How many properties do you need certificates for?",
+    options: ["1", "2–5", "6+"],
+  },
+  {
+    key: "expiry",
+    type: "choice",
+    question: "When does your current certificate expire?",
+    options: ["Within 3 months", "Later this year", "Not sure"],
+  },
+];
+
+const resultBodyHtml = `
+  <p>You're on the list — <strong>{{answers.properties}}</strong> propert(y/ies), certificate expiry: <strong>{{answers.expiry}}</strong>.</p>
+  <p>We'll get in touch before it's due so you're never scrambling for a last-minute booking or caught with a lapsed certificate. If you're not sure exactly when yours expires, we can help you check.</p>
+`;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow center">
+      <h1>Never Miss a Gas Safety Renewal</h1>
+      <p class="lede">Two quick questions and we'll remind you before your CP12 expires — no scrambling, no gaps in cover.</p>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <LeadMagnetForm
+        magnetId="cp12-reminder"
+        intro="Takes about 20 seconds. Tell us what you're working with, and we'll do the remembering from here."
+        steps={steps}
+        resultHeading="You're covered"
+        resultBodyHtml={resultBodyHtml}
+        sourcePage="/guides/cp12-reminder/"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; margin: 0 auto; }
+  .narrow { max-width: 68ch; }
+  .center { text-align: center; }
+</style>

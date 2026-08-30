@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeadMagnetForm from "../../../components/LeadMagnetForm.astro";
+
+const title = "What Size Air Conditioning Do You Need? | The Boiler Doctor";
+const description = "Two quick questions and we'll tell you whether you need a single-split or multi-split system — sized properly, not oversold.";
+
+const steps = [
+  {
+    key: "rooms",
+    type: "choice",
+    question: "How many rooms do you want to cool?",
+    options: ["Just one", "A couple of rooms", "Most of the house"],
+  },
+  {
+    key: "roomType",
+    type: "choice",
+    question: "What's the main room like?",
+    options: ["Bedroom", "Home office", "Open-plan living space", "Loft conversion"],
+  },
+];
+
+const resultBodyHtml = `
+  <p>Based on what you told us — <strong>{{answers.rooms}}</strong>, mainly a <strong>{{answers.roomType}}</strong>:</p>
+  <ul>
+    <li>Cooling <strong>just one room</strong>? A single-split system is usually the answer — one outdoor unit, one indoor unit.</li>
+    <li>Cooling <strong>more than one room</strong>? A multi-split system runs several indoor units off one outdoor unit, so you're not cluttering the outside of the house with separate boxes.</li>
+  </ul>
+  <p>We size it properly on a free home visit — not the biggest unit we can sell you. We'll follow up with exact options for your home.</p>
+`;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow center">
+      <h1>What Size AC Unit Do You Actually Need?</h1>
+      <p class="lede">Two quick questions and we'll tell you what fits — before anyone tries to sell you more than you need.</p>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <LeadMagnetForm
+        magnetId="ac-sizing-guide"
+        intro="Takes about 20 seconds. We'll give you a straight answer, then follow up with exact options."
+        steps={steps}
+        resultHeading="Here's what fits"
+        resultBodyHtml={resultBodyHtml}
+        sourcePage="/guides/ac-sizing-guide/"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; margin: 0 auto; }
+  .narrow { max-width: 68ch; }
+  .center { text-align: center; }
+</style>

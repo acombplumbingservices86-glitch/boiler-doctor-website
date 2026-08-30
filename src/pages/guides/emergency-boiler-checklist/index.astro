@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeadMagnetForm from "../../../components/LeadMagnetForm.astro";
+
+const title = "Emergency Boiler Checklist | The Boiler Doctor";
+const description = "Boiler playing up? Two quick questions gets you what to check right now, before you even pick up the phone.";
+
+const steps = [
+  {
+    key: "issue",
+    type: "choice",
+    question: "What's happening?",
+    options: ["No heat or hot water", "Losing pressure", "Strange noise", "Leaking", "Something else"],
+  },
+  {
+    key: "vulnerable",
+    type: "choice",
+    question: "Is anyone in the house elderly, unwell, or otherwise vulnerable?",
+    options: ["Yes", "No"],
+  },
+];
+
+const resultBodyHtml = `
+  <p>You told us: <strong>{{answers.issue}}</strong>. Here's what to check right now:</p>
+  <ul>
+    <li>Check the <strong>pressure gauge</strong> — anything under 1 bar usually points to a leak or a recent radiator bleed</li>
+    <li>Look for an <strong>error code</strong> on the display — tell us what it says when you call, it helps us get to you faster with the right parts</li>
+    <li>If it's <strong>leaking</strong>, turn off the water supply if you can do so safely</li>
+  </ul>
+  <p>If that's you or someone vulnerable in the house (you told us: {{answers.vulnerable}}), say so when you call — those are the jobs we push to the top of the list, not the bottom.</p>
+`;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow center">
+      <h1>Boiler Playing Up? Start Here.</h1>
+      <p class="lede">Two quick questions and we'll tell you what to check before you even pick up the phone.</p>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <LeadMagnetForm
+        magnetId="emergency-boiler-checklist"
+        intro="Takes about 20 seconds. We'll show you what to check right now, and flag your call as priority if it needs to be."
+        steps={steps}
+        resultHeading="Here's what to check"
+        resultBodyHtml={resultBodyHtml}
+        sourcePage="/guides/emergency-boiler-checklist/"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; margin: 0 auto; }
+  .narrow { max-width: 68ch; }
+  .center { text-align: center; }
+</style>

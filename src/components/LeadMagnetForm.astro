@@ -1,0 +1,267 @@
+---
+// Reusable one-question-at-a-time lead capture form: sleek progress bar,
+// auto-advancing choice questions, a single bundled contact step at the end,
+// and an on-screen result panel so the visitor gets real value immediately
+// rather than waiting on an email that depends on the backend working.
+//
+// Submissions POST as JSON to siteConfig.leadWebhookUrl. That's a single
+// config value (empty until Steve wires up a GHL inbound webhook or a
+// Zapier "Catch Hook") — until it's set, the form still works and shows
+// the result, it just isn't captured anywhere yet.
+import { siteConfig } from "../data/siteConfig";
+
+interface ChoiceStep {
+  key: string;
+  type: "choice";
+  question: string;
+  options: string[];
+}
+interface Props {
+  magnetId: string;
+  intro: string;
+  steps: ChoiceStep[];
+  resultHeading: string;
+  resultBodyHtml: string; // shown after submit; may reference {{answers.KEY}} placeholders resolved client-side per option
+  sourcePage: string;
+}
+const { magnetId, intro, steps, resultHeading, resultBodyHtml, sourcePage } = Astro.props;
+const totalSteps = steps.length + 1; // + the contact step
+---
+<div class="lm" id={`lm-${magnetId}`} data-magnet={magnetId} data-source={sourcePage}>
+  <div class="lm__progress-track" role="progressbar" aria-valuemin="0" aria-valuemax={totalSteps} aria-valuenow="1" aria-label="Progress">
+    <div class="lm__progress-fill"></div>
+  </div>
+  <p class="lm__stepcount"><span class="lm__stepcount-current">1</span> of {totalSteps}</p>
+
+  <div class="lm__stage">
+    <div class="lm__panel lm__panel--intro is-active" data-panel="intro">
+      <h2 class="visually-hidden">Quick questions</h2>
+      <p class="lm__intro">{intro}</p>
+      <button type="button" class="btn btn--primary lm__start">Get started</button>
+    </div>
+
+    {steps.map((step, i) => (
+      <div class="lm__panel" data-panel={`step-${i}`} data-key={step.key}>
+        <h2 class="lm__question">{step.question}</h2>
+        <div class="lm__choices">
+          {step.options.map((opt) => (
+            <button type="button" class="lm__choice" data-value={opt}>{opt}</button>
+          ))}
+        </div>
+        {i > 0 && <button type="button" class="lm__back">← Back</button>}
+      </div>
+    ))}
+
+    <div class="lm__panel" data-panel="contact">
+      <h2 class="lm__question">Where should we send this?</h2>
+      <form class="lm__contact-form">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>
+          <span>Phone</span>
+          <input type="tel" name="phone" required autocomplete="tel" />
+        </label>
+        <button type="submit" class="btn btn--primary lm__submit">Get my answer</button>
+      </form>
+      <button type="button" class="lm__back">← Back</button>
+    </div>
+
+    <div class="lm__panel" data-panel="result">
+      <div class="lm__result-icon">✓</div>
+      <h2 class="lm__question">{resultHeading}</h2>
+      <div class="lm__result-body" set:html={resultBodyHtml} />
+      <div class="lm__result-cta">
+        <a href="/book-online/" class="btn btn--primary">Book a Free Quote</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ webhookUrl: siteConfig.leadWebhookUrl, magnetId, sourcePage }}>
+  (function () {
+    const root = document.getElementById(`lm-${magnetId}`);
+    if (!root) return;
+    const panels = Array.from(root.querySelectorAll(".lm__panel"));
+    const fill = root.querySelector(".lm__progress-fill");
+    const track = root.querySelector(".lm__progress-track");
+    const counter = root.querySelector(".lm__stepcount-current");
+    const total = panels.length - 2; // exclude intro + result from the visible count
+    const answers = {};
+    let index = 0; // index into panels, starting at intro (0)
+
+    function show(newIndex) {
+      panels[index].classList.remove("is-active");
+      index = newIndex;
+      panels[index].classList.add("is-active");
+      root.classList.toggle("lm--started", index > 0);
+      // progress bar/counter only meaningful once past the intro; result panel holds at 100%.
+      const stepNum = Math.min(index, total);
+      const pct = Math.round((stepNum / total) * 100);
+      fill.style.width = pct + "%";
+      if (track) track.setAttribute("aria-valuenow", String(stepNum));
+      if (counter) counter.textContent = String(Math.max(1, stepNum));
+      panels[index].querySelector("input")?.focus();
+    }
+
+    root.querySelector(".lm__start")?.addEventListener("click", () => show(1));
+
+    panels.forEach((panel, i) => {
+      panel.querySelectorAll(".lm__choice").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const key = panel.getAttribute("data-key");
+          answers[key] = btn.getAttribute("data-value");
+          show(i + 1);
+        });
+      });
+      panel.querySelector(".lm__back")?.addEventListener("click", () => show(Math.max(0, i - 1)));
+    });
+
+    const contactForm = root.querySelector(".lm__contact-form");
+    contactForm?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData(contactForm);
+      answers.name = fd.get("name");
+      answers.email = fd.get("email");
+      answers.phone = fd.get("phone");
+
+      const submitBtn = contactForm.querySelector(".lm__submit");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+
+      const payload = {
+        magnetId,
+        sourcePage,
+        submittedAt: new Date().toISOString(),
+        answers,
+      };
+
+      if (webhookUrl) {
+        try {
+          await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+        } catch (err) {
+          console.warn("Lead capture webhook failed — continuing anyway:", err);
+        }
+      } else {
+        console.warn("[lead-magnet] No leadWebhookUrl configured in siteConfig — this submission was not captured anywhere:", payload);
+      }
+
+      // Resolve any {{answers.KEY}} placeholders in the result panel before showing it.
+      const resultPanel = panels[panels.length - 1];
+      resultPanel.innerHTML = resultPanel.innerHTML.replace(/\{\{answers\.(\w+)\}\}/g, (_, k) => answers[k] ?? "");
+      show(panels.length - 1);
+    });
+  })();
+</script>
+
+<style>
+  .lm {
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 2rem 1.75rem 2.25rem;
+  }
+  .lm__progress-track {
+    height: 6px;
+    background: var(--color-grey-100);
+    border-radius: 999px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .lm.lm--started .lm__progress-track { opacity: 1; }
+  .lm__stepcount { opacity: 0; transition: opacity 0.25s ease; }
+  .lm.lm--started .lm__stepcount { opacity: 1; }
+  .lm__progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-orange-500), var(--color-orange-400));
+    border-radius: 999px;
+    transition: width 0.35s ease;
+  }
+  .lm__stepcount {
+    margin: 0.5rem 0 1.5rem;
+    font-size: 0.78rem;
+    color: var(--color-grey-600);
+    font-weight: 600;
+  }
+  .lm__stage { position: relative; }
+  .lm__panel {
+    display: none;
+    animation: lmFadeIn 0.3s ease;
+  }
+  .lm__panel.is-active { display: block; }
+  @keyframes lmFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .lm__intro { font-size: 1.05rem; color: var(--color-grey-900); margin: 0 0 1.5rem; line-height: 1.55; }
+  .lm__question { font-size: 1.3rem; margin: 0 0 1.25rem; color: var(--color-navy-900); }
+  .lm__choices { display: grid; gap: 0.6rem; margin-bottom: 1rem; }
+  .lm__choice {
+    text-align: left;
+    font: inherit;
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 0.9em 1.1em;
+    border: 2px solid var(--color-grey-100);
+    background: var(--color-off-white);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+  }
+  .lm__choice:hover { border-color: var(--color-orange-400); background: var(--color-white); }
+  .lm__choice:active { transform: scale(0.99); }
+  .lm__back {
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--color-grey-600);
+    cursor: pointer;
+    padding: 0.4em 0;
+    text-decoration: underline;
+  }
+  .lm__contact-form { display: grid; gap: 1rem; margin-bottom: 0.75rem; }
+  .lm__contact-form label { display: grid; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--color-grey-600); }
+  .lm__contact-form input {
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.75em 0.9em;
+    border: 2px solid var(--color-grey-100);
+    border-radius: var(--radius-sm);
+    background: var(--color-off-white);
+  }
+  .lm__contact-form input:focus { outline: none; border-color: var(--color-orange-400); background: var(--color-white); }
+  .lm__submit { width: 100%; justify-content: center; margin-top: 0.25rem; }
+  .lm__result-icon {
+    width: 3rem; height: 3rem;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--color-success);
+    color: var(--color-white);
+    border-radius: 50%;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .lm__result-body { color: var(--color-grey-900); line-height: 1.6; margin-bottom: 1.5rem; }
+  .lm__result-body :global(ul) { padding-left: 1.2em; display: grid; gap: 0.4em; }
+  .lm__result-body :global(strong) { color: var(--color-navy-900); }
+  .lm__result-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  @media (max-width: 480px) {
+    .lm { padding: 1.5rem 1.25rem 1.75rem; border-radius: var(--radius-md); }
+    .lm__question { font-size: 1.15rem; }
+  }
+</style>

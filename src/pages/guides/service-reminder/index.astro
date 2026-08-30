@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeadMagnetForm from "../../../components/LeadMagnetForm.astro";
+
+const title = "Never Miss Your Boiler Service | The Boiler Doctor";
+const description = "Sign up and we'll remind you when your annual boiler service is due — so you never lose your warranty by accident.";
+
+const steps = [
+  {
+    key: "lastService",
+    type: "choice",
+    question: "When was your boiler last serviced?",
+    options: ["This year", "Last year", "Longer ago", "Not sure"],
+  },
+  {
+    key: "remindWhen",
+    type: "choice",
+    question: "When should we remind you?",
+    options: ["In 11 months (annual reminder)", "In 6 months", "Just sign me up for yearly reminders"],
+  },
+];
+
+const resultBodyHtml = `
+  <p>You're on the list. Based on what you told us (last service: <strong>{{answers.lastService}}</strong>), we'll remind you <strong>{{answers.remindWhen}}</strong>.</p>
+  <p>An annual service is £85 and it's the simplest way to avoid an emergency callout — it also protects your manufacturer's warranty, which most homeowners only discover has lapsed when it's too late. We'll get in touch nearer the time to get you booked in.</p>
+`;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow center">
+      <h1>Never Miss a Service Again</h1>
+      <p class="lede">Two quick questions and we'll remind you when it's due — so your warranty stays protected without you having to think about it.</p>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <LeadMagnetForm
+        magnetId="service-reminder"
+        intro="Takes about 20 seconds. Tell us where you're at, and we'll do the remembering from here."
+        steps={steps}
+        resultHeading="You're set"
+        resultBodyHtml={resultBodyHtml}
+        sourcePage="/guides/service-reminder/"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; margin: 0 auto; }
+  .narrow { max-width: 68ch; }
+  .center { text-align: center; }
+</style>

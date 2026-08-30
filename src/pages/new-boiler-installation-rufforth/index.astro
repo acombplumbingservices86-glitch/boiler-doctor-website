@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "New Boiler Installation in Rufforth | Worcester Bosch & Ideal | The Boiler Doctor";
+const description = "New boiler fitted in Rufforth from £2,000–£3,000. Worcester Bosch and Ideal accredited, Gas Safe registered. Free quote — call 01904 206190.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": 'Do you install new boilers in Rufforth?', "acceptedAnswer": { "@type": "Answer", "text": 'Yes — Rufforth is one of our regular areas, the village just west of York. We fit Worcester Bosch and Ideal boilers there every month.' } },
+    { "@type": "Question", "name": 'How quickly can you fit a new boiler in Rufforth?', "acceptedAnswer": { "@type": "Answer", "text": "Most like-for-like combi swaps are booked in and completed within a week or two of your free quote, often faster if it's urgent." } }
+  ],
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="section">
+    <div class="container">
+      <h1>New Boiler Installation in Rufforth</h1>
+      <p class="lede">Worcester Bosch and Ideal accredited installs for Rufforth homes — the village just west of York. Straight advice on what you actually need, not the biggest boiler we can sell you.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Free Quote</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
+      </div>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What it costs in Rufforth</h2>
+      <ul class="price-list">
+        <li><strong>Like-for-like combi swap:</strong> from £2,000</li>
+        <li><strong>System-to-combi conversion:</strong> from £3,000</li>
+        <li>Typical range £2,000–£3,000 depending on the job</li>
+        <li>Deposit required on jobs over £400; balance due within 7 days of completion</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Why Rufforth customers choose us</h2>
+      <p>We're Gas Safe registered, Worcester Bosch and Ideal accredited, and we've been fitting boilers around York for {siteConfig.yearsTrading} years — the village just west of York. No pushy upsell, no biggest-boiler-you-can-afford sales pitch. Just a free home visit, a written quote, and honest advice on combi vs system for your home.</p>
+      <p><a href="/advice-centre/combi-vs-system-boiler/">Read our honest combi vs system comparison →</a> · <a href="/advice-centre/new-boiler-cost/">See real pricing breakdowns →</a></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Common questions from Rufforth homeowners</h2>
+      <div class="faq-list">
+    <details class="faq-item">
+      <summary>Do you install new boilers in Rufforth?</summary>
+      <p>Yes — Rufforth is one of our regular areas, the village just west of York. We fit Worcester Bosch and Ideal boilers there every month.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How quickly can you fit a new boiler in Rufforth?</summary>
+      <p>Most like-for-like combi swaps are booked in and completed within a week or two of your free quote, often faster if it's urgent.</p>
+    </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>The process, start to finish</h2>
+      <ol class="process-list">
+        <li>Free home visit and quote</li>
+        <li>Written proposal with clear pricing</li>
+        <li>Agreed install date</li>
+        <li>Typically 1 day for a like-for-like swap</li>
+        <li>Gas Safe certificate and warranty registration handled for you</li>
+      </ol>
+      <p><a href="/new-boiler-installation/">Read the full New Boiler Installation guide →</a></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>More on Rufforth</h2>
+      <p>Read our <a href="/advice-centre/boiler-advice-rufforth/">Rufforth boiler advice guide</a>, or see our <a href="/boiler-repairs-rufforth/">boiler repairs</a> and <a href="/boiler-servicing-rufforth/">boiler servicing</a> pages for Rufforth.</p>
+      <p class="nearby">Also covering: <a href="/new-boiler-installation-knapton/">Knapton</a> · <a href="/new-boiler-installation-poppleton/">Poppleton</a> · <a href="/new-boiler-installation-tockwith/">Tockwith</a> · <a href="/service-areas/">see all 20 areas we cover →</a></p>
+    </div>
+  </section>
+
+  <CTABand heading="Get a straight quote for your Rufforth home, no obligation." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .price-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+  .price-list li { background: var(--color-off-white); border-radius: var(--radius-sm); padding: 0.7em 1em; }
+  .process-list { padding-left: 1.2em; display: grid; gap: 0.4rem; }
+  .faq-list { display: grid; gap: 0.75rem; }
+  .faq-item { background: var(--color-white); border-radius: var(--radius-md); padding: 1rem 1.25rem; box-shadow: var(--shadow-card); }
+  .faq-item summary { font-weight: 700; cursor: pointer; }
+  .faq-item p { margin: 0.6em 0 0; color: var(--color-grey-600); }
+  .nearby { font-size: 0.9rem; color: var(--color-grey-600); }
+</style>

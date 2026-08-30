@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeadMagnetForm from "../../../components/LeadMagnetForm.astro";
+
+const title = "Instant Boiler Price Estimate | The Boiler Doctor";
+const description = "Answer two quick questions and get a real ballpark price for your new boiler in York — no obligation, no pushy quote call.";
+
+const steps = [
+  {
+    key: "situation",
+    type: "choice",
+    question: "What are you looking to do?",
+    options: [
+      "Replace a broken boiler, like-for-like",
+      "Upgrade from a system boiler to a combi",
+      "Not sure yet — just exploring",
+    ],
+  },
+  {
+    key: "bedrooms",
+    type: "choice",
+    question: "Roughly how many bedrooms?",
+    options: ["1–2", "3–4", "5+"],
+  },
+];
+
+const resultBodyHtml = `
+  <p>Based on what you've told us — <strong>{{answers.situation}}</strong>, {{answers.bedrooms}} bedrooms:</p>
+  <ul>
+    <li>A <strong>like-for-like combi swap</strong> starts from <strong>£2,000</strong></li>
+    <li>A <strong>system-to-combi conversion</strong> starts from <strong>£3,000</strong></li>
+  </ul>
+  <p>That's a solid starting point — the exact number depends on the boiler and what's already in the house. We'll follow up with a proper written quote after a free home visit. No obligation, no pressure to buy bigger than you need.</p>
+`;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container narrow center">
+      <h1>What's a New Boiler Actually Going to Cost You?</h1>
+      <p class="lede">Two quick questions, straight answer — not a form that disappears into a sales queue.</p>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <LeadMagnetForm
+        magnetId="boiler-price-estimate"
+        intro="Takes about 20 seconds. We'll give you a real price range on screen, then follow up with an exact written quote."
+        steps={steps}
+        resultHeading="Here's your ballpark"
+        resultBodyHtml={resultBodyHtml}
+        sourcePage="/guides/boiler-price-estimate/"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; margin: 0 auto; }
+  .narrow { max-width: 68ch; }
+  .center { text-align: center; }
+</style>

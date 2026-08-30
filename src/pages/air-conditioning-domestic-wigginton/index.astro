@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Domestic Air Conditioning in Wigginton | The Boiler Doctor";
+const description = "Home air conditioning installed and serviced in Wigginton. F-Gas registered engineers, Bosch, Daikin and Haier. Free quote — call 01904 206190.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": 'Do you install home air conditioning in Wigginton?', "acceptedAnswer": { "@type": "Answer", "text": 'Yes — Wigginton is one of our regular areas, just north of York, next to Haxby. We size the system for the room, not the biggest unit we can sell you.' } },
+    { "@type": "Question", "name": 'How much does home air conditioning cost in Wigginton?', "acceptedAnswer": { "@type": "Answer", "text": "It depends on the room, the system, and whether it's a single or multi-room job — we'll give you a free, written quote after a home visit. No obligation." } }
+  ],
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="section">
+    <div class="container">
+      <h1>Domestic Air Conditioning in Wigginton</h1>
+      <p class="lede">Home cooling installed properly for Wigginton homes — just north of York, next to Haxby. F-Gas registered, backed by the same standards as our boiler work.</p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book a Free Quote</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
+      </div>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>What we cover</h2>
+      <ul class="tick-list">
+        <li>Single-room and whole-home cooling</li>
+        <li>Sizing advice for the room — not oversizing and wasting your money</li>
+        <li>Servicing and re-gassing</li>
+        <li>Fault-finding and repair</li>
+      </ul>
+      <p><strong>Brands we fit:</strong> {siteConfig.acBrands.join(", ")}.</p>
+      <p class="fine-print">F-Gas registered. For security reasons we don't publish the registration number online — happy to provide it directly on request.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Why Wigginton homeowners choose us</h2>
+      <p>AC and heating come down to the same core skill — refrigerant and heat-exchange systems, proper commissioning, and not cutting corners on installation. It's a genuine second specialism here, not an afterthought, just north of York, next to Haxby.</p>
+      <p>Not sure which type suits your home? See our <a href="/air-conditioning-split-systems-wigginton/">single &amp; multi-split systems</a> page for the difference.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>More AC options in Wigginton</h2>
+      <p>Also see: <a href="/air-conditioning-split-systems-wigginton/">Split Systems</a> · <a href="/air-conditioning-commercial-wigginton/">Small Business AC</a></p>
+      <p>Read our <a href="/advice-centre/air-conditioning-advice-wigginton/">Wigginton air conditioning advice guide</a>.</p>
+      <p class="nearby">Also covering: <a href="/air-conditioning-domestic-haxby/">Haxby</a> · <a href="/air-conditioning-domestic-strensall/">Strensall</a> · <a href="/air-conditioning-domestic-huntington/">Huntington</a> · <a href="/service-areas/">see all 20 areas we cover →</a></p>
+    </div>
+  </section>
+
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+    <details class="faq-item">
+      <summary>Do you install home air conditioning in Wigginton?</summary>
+      <p>Yes — Wigginton is one of our regular areas, just north of York, next to Haxby. We size the system for the room, not the biggest unit we can sell you.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How much does home air conditioning cost in Wigginton?</summary>
+      <p>It depends on the room, the system, and whether it's a single or multi-room job — we'll give you a free, written quote after a home visit. No obligation.</p>
+    </details>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Get ahead of summer — book your Wigginton AC quote now." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .tick-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .tick-list li { padding-left: 1.6em; position: relative; }
+  .tick-list li::before { content: "✅"; position: absolute; left: 0; }
+  .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+  .faq-list { display: grid; gap: 0.75rem; }
+  .faq-item { background: var(--color-white); border-radius: var(--radius-md); padding: 1rem 1.25rem; box-shadow: var(--shadow-card); }
+  .faq-item summary { font-weight: 700; cursor: pointer; }
+  .faq-item p { margin: 0.6em 0 0; color: var(--color-grey-600); }
+  .nearby { font-size: 0.9rem; color: var(--color-grey-600); }
+  
+</style>

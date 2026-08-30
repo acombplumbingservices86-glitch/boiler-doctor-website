@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Emergency Boiler Repairs in Rawcliffe | Same-Day | The Boiler Doctor";
+const description = "Boiler broken down in Rawcliffe? Fast, honest repairs, call-out agreed upfront. Call 01904 206190.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": 'Do you do emergency boiler repairs in Rawcliffe?', "acceptedAnswer": { "@type": "Answer", "text": 'Yes — Rawcliffe is one of our regular areas, on the north side of York. Same-day and next-day repairs, most weeks.' } },
+    { "@type": "Question", "name": 'How much is a boiler repair call-out in Rawcliffe?', "acceptedAnswer": { "@type": "Answer", "text": 'Call-out and diagnostic is £100 + VAT minimum. Any repair beyond that is quoted before we start — you agree the price, then we do the work.' } }
+  ],
+};
+---
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="section">
+    <div class="container">
+      <h1>Boiler Broken Down in Rawcliffe? We'll Sort It.</h1>
+      <p class="lede">Same-day and next-day repairs in Rawcliffe — on the north side of York. No pushy upsell — if it can be fixed, we'll fix it.</p>
+      <div class="hero__actions">
+        <a href={siteConfig.phoneHref} class="btn btn--primary">Call {siteConfig.phoneDisplay}</a>
+        <a href="/book-online/" class="btn btn--secondary">Book Online</a>
+      </div>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Common breakdowns we fix in Rawcliffe</h2>
+      <div class="faq-list">
+        <details class="faq-item"><summary>No heating or hot water</summary><p>Often a pressure, valve or PCB fault — usually diagnosed and fixed same visit.</p></details>
+        <details class="faq-item"><summary>Boiler losing pressure</summary><p>Could be a small leak or a faulty valve — read our full pressure-troubleshooting guide below for what to check yourself first.</p></details>
+        <details class="faq-item"><summary>Strange noises (kettling, banging)</summary><p>Often sludge or limescale build-up — sometimes solved by a service, sometimes needs a power flush.</p></details>
+        <details class="faq-item"><summary>Leaking boiler</summary><p>Turn off the water supply if you can do so safely, then call us — this one's worth same-day attention.</p></details>
+    <details class="faq-item">
+      <summary>Do you do emergency boiler repairs in Rawcliffe?</summary>
+      <p>Yes — Rawcliffe is one of our regular areas, on the north side of York. Same-day and next-day repairs, most weeks.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How much is a boiler repair call-out in Rawcliffe?</summary>
+      <p>Call-out and diagnostic is £100 + VAT minimum. Any repair beyond that is quoted before we start — you agree the price, then we do the work.</p>
+    </details>
+      </div>
+      <p><a href="/advice-centre/why-is-my-boiler-losing-pressure/">Read the full pressure-troubleshooting guide →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>What it costs</h2>
+      <ul class="price-list">
+        <li><strong>Prices start from</strong> {siteConfig.minCallOutFee}</li>
+        <li>Any repair beyond that is quoted before we start — you agree the price, then we do the work.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Why Rawcliffe customers call us</h2>
+      <p>We're Gas Safe registered and we've covered Rawcliffe for years, on the north side of York. No callout cowboys, no scare tactics — just a straight diagnosis and an agreed price before any work starts.</p>
+      <p><a href="/boiler-repairs-breakdowns/">Read the full Boiler Repairs &amp; Breakdowns guide →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>More on Rawcliffe</h2>
+      <p>Read our <a href="/advice-centre/boiler-advice-rawcliffe/">Rawcliffe boiler advice guide</a>, or see our <a href="/new-boiler-installation-rawcliffe/">new boiler installation</a> and <a href="/boiler-servicing-rawcliffe/">boiler servicing</a> pages for Rawcliffe.</p>
+      <p class="nearby">Also covering: <a href="/boiler-repairs-clifton/">Clifton</a> · <a href="/boiler-repairs-poppleton/">Poppleton</a> · <a href="/boiler-repairs-skelton/">Skelton</a> · <a href="/service-areas/">see all 20 areas we cover →</a></p>
+    </div>
+  </section>
+
+  <CTABand heading="Cold house in Rawcliffe? Let's fix that." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .narrow { max-width: 68ch; }
+  .faq-list { display: grid; gap: 0.75rem; }
+  .faq-item { background: var(--color-white); border-radius: var(--radius-md); padding: 1rem 1.25rem; box-shadow: var(--shadow-card); }
+  .faq-item summary { font-weight: 700; cursor: pointer; }
+  .faq-item p { margin: 0.6em 0 0; color: var(--color-grey-600); }
+  .price-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+  .price-list li { background: var(--color-off-white); border-radius: var(--radius-sm); padding: 0.7em 1em; }
+  .nearby { font-size: 0.9rem; color: var(--color-grey-600); }
+</style>
