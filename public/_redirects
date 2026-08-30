@@ -47,3 +47,72 @@
 /thermostats-plumber  /controls-smart-thermostats/  301
 /prices  /  301
 /gas-leak-plumber  /gas-safety-landlords/  301
+
+# --- Added: remaining old-site redirects from the migration analysis
+# (previously identified in the redirect-map workbook but not yet implemented) ---
+
+# Old Drupal 'taxonomy' area-tag pages -> strongest new-site page for that area
+/taxonomy/term/534  /new-boiler-installation-acomb/  301
+/taxonomy/term/535  /new-boiler-installation-york/  301
+/taxonomy/term/536  /new-boiler-installation-skelton/  301
+/taxonomy/term/537  /new-boiler-installation-rawcliffe/  301
+/taxonomy/term/538  /new-boiler-installation-clifton/  301
+/taxonomy/term/539  /new-boiler-installation-poppleton/  301
+/taxonomy/term/540  /new-boiler-installation-haxby/  301
+/taxonomy/term/541  /new-boiler-installation-wigginton/  301
+/taxonomy/term/542  /new-boiler-installation-bishopthorpe/  301
+/taxonomy/term/543  /new-boiler-installation-copmanthorpe/  301
+/taxonomy/term/544  /new-boiler-installation-strensall/  301
+/taxonomy/term/545  /new-boiler-installation-huntington/  301
+/taxonomy/term/546  /new-boiler-installation-fulford/  301
+/taxonomy/term/547  /new-boiler-installation-dringhouses/  301
+/taxonomy/term/548  /new-boiler-installation-holgate/  301
+/taxonomy/term/549  /new-boiler-installation-woodthorpe/  301
+/taxonomy/term/550  /new-boiler-installation-knapton/  301
+/taxonomy/term/551  /new-boiler-installation-rufforth/  301
+/taxonomy/term/552  /new-boiler-installation-tockwith/  301
+/taxonomy/term/553  /new-boiler-installation-selby/  301
+
+# Remaining old pages: videos, my-work case studies, misc legacy pages
+/albums  /real-work/  301
+/facebook-posts  /advice-centre/  301
+# Old lead-magnet PDF page — closest new-site equivalent.
+/free-guide-choosing-boiler.html  /advice-centre/new-boiler-cost/  301
+# No consolidated FAQ hub on the new site (FAQs exist per-page as schema, but nowhere central).
+/frequently-asked-questions  /advice-centre/  301
+# Interactive tool, not rebuilt on the new site.
+/heat-loss-calculator  /  301
+/heating-engineer-acomb-plumber  /new-boiler-installation-acomb/  301
+/heating-tips-plumber  /advice-centre/  301
+/helpsheets  /advice-centre/  301
+# No hydrogen-boiler content on the new site yet.
+/hydrogen-boilers-plumber  /new-boiler-installation/  301
+/my-videos  /about/  301
+/my-work/boiler-installation-york  /real-work/  301
+# Duplicate-looking old URL (note the '-0' suffix).
+/my-work/boiler-installation-york-0  /real-work/  301
+/my-work/gas-regulations-update  /real-work/  301
+/my-work/meet-wife-wearing-my-merch  /real-work/  301
+/my-work/new-boiler-installation-acomb  /real-work/  301
+# Individual case study — no per-job pages on new site yet.
+/my-work/smart-thermostat-installation-york  /real-work/  301
+# FLAG: old page is about Nest thermostats; new site's siteConfig lists Hive as the
+# installed brand. Redirect target is safe either way — confirm the brand mismatch
+# separately, it doesn't block this redirect.
+/nest-thermostats-plumber  /controls-smart-thermostats/  301
+# Old site has two near-duplicate URLs for this topic (see next row too).
+/open-therm-technology-plumber  /controls-smart-thermostats/  301
+/opentherm-plumber  /controls-smart-thermostats/  301
+# Not marketed as a standalone service — see Strategic Notes in the redirect-map workbook.
+/plumbing-tips-plumber  /advice-centre/  301
+/programmer-plumber  /controls-smart-thermostats/  301
+/pump-plumber  /boiler-repairs-breakdowns/  301
+/smart-thermostat-plumber  /controls-smart-thermostats/  301
+/team-members  /about/  301
+/timer-plumber  /controls-smart-thermostats/  301
+/video/2-years-vs-7-years-vs-12-years-running-business  /about/  301
+/video/boiler-doctor-podcast-energy-efficiency  /about/  301
+/video/boiler-doctor-podcast-energy-efficiency-episode-2  /about/  301
+/video/overcoming-life-challenges-inspiring-men-talk-stephen-kinsella  /about/  301
+# Generic 'plumber in York' page — no direct equivalent; see plumbing-scope note in the workbook.
+/york-plumber  /  301

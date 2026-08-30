@@ -60,7 +60,7 @@ const plans = [
       <div class="grid grid--3 plans">
         {plans.map((plan) => (
           <div class={`card plan-card ${plan.highlight ? "plan-card--highlight" : ""}`}>
-            <h3>{plan.name}</h3>
+            <h2>{plan.name}</h2>
             <p class="plan-card__price">{plan.price} <span>{plan.priceYear}</span></p>
             <ul>
               {plan.features.map((f) => <li>{f}</li>)}
@@ -82,6 +82,7 @@ const plans = [
   .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
   .narrow { max-width: 68ch; }
   .plan-card { display: flex; flex-direction: column; gap: 0.75rem; }
+  .plan-card h2 { font-size: clamp(1.15rem, 2vw, 1.4rem); } /* visually matches the old h3 size — only the semantic level changed, to fix a heading-order a11y gap */
   .plan-card--highlight { border: 2px solid var(--color-orange-500); }
   .plan-card__price { font-size: 1.6rem; font-weight: 800; color: var(--color-navy-900); }
   .plan-card__price span { font-size: 0.9rem; font-weight: 500; color: var(--color-grey-600); }

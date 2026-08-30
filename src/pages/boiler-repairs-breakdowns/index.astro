@@ -45,7 +45,7 @@ const faqSchema = {
       <h2>Common breakdowns we fix</h2>
       <div class="faq-list">
         {faqs.map((item) => (
-          <details class="faq-item">
+          <details class="faq-item" open>
             <summary>{item.q}</summary>
             <p>{item.a}</p>
           </details>
@@ -70,10 +70,10 @@ const faqSchema = {
     <div class="container narrow">
       <h2>Real customer story</h2>
       <blockquote class="card review-card">
-        <p>"Called about a toilet with a broken flush in a rental property — quick and professional, sorted the same day."</p>
-        <footer>— Ian Ilsley</footer>
+        <p>"The Boiler Doctor arrived promptly, as scheduled. He took a neat, methodical approach to diagnosing the fault with my..."</p>
+        <footer>— Adrian Dale, <span class="badge">Boiler repair</span></footer>
       </blockquote>
-      <NeedsInput label="NEEDS ASSET: more repair-specific reviews, with permission to feature by name" />
+      <p><a href="/reviews/">Read all {siteConfig.reviews.count} reviews →</a></p>
     </div>
   </section>
 

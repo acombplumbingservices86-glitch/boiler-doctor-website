@@ -17,12 +17,28 @@ const schema = {
     "postalCode": siteConfig.address.postcode,
     "addressCountry": "GB",
   },
+  // Geocoded from the YO26 5DX postcode (public postcode lookup) — same address
+  // as siteConfig.address, just expressed as coordinates for map/rich-result use.
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.954301,
+    "longitude": -1.140207,
+  },
+  // Derived directly from siteConfig.minCallOutFee (£100 + VAT) — schema.org's
+  // priceRange just wants a rough indicator, not a full price list.
+  "priceRange": "£100+",
   "areaServed": siteConfig.serviceAreas,
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": siteConfig.reviews.rating,
     "reviewCount": siteConfig.reviews.count,
   },
+  // NEEDS STEVE: add the Google Business Profile URL here once confirmed (Google
+  // Business Profile → Share profile, or the "cid=" maps link) — don't guess it,
+  // a wrong GBP link actively hurts the local-SEO signal this field exists for.
+  // NEEDS STEVE: openingHoursSpecification needs confirmed days (siteConfig.officeHours
+  // only has the time, "8:00am – 5:00pm", no days) — add once confirmed rather than
+  // assume Mon–Fri for what may be a 7-day emergency callout business.
   "sameAs": [siteConfig.socials.facebook, siteConfig.socials.youtube],
 };
 ---
