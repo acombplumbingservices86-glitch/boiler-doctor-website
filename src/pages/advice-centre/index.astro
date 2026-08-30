@@ -40,12 +40,12 @@ const articles = [...generalArticles, ...areaArticles];
         {articles.map((a) => (
           a.href ? (
             <a href={a.href} class="card article-tile">
-              <h3>{a.title}</h3>
+              <h2>{a.title}</h2>
               <span class="article-tile__link">Read the guide →</span>
             </a>
           ) : (
             <div class="card">
-              <h3>{a.title}</h3>
+              <h2>{a.title}</h2>
               <NeedsInput label="Article not written yet — coming as the Advice Centre grows." />
             </div>
           )
@@ -69,5 +69,8 @@ const articles = [...generalArticles, ...areaArticles];
   .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
   .narrow { max-width: 68ch; text-align: center; }
   .article-tile { text-decoration: none; color: inherit; display: block; }
+  /* Card titles are h2 (heading-order fix — h1 jumped straight to h3 with no h2 in
+     between); sized to match the old h3 look so the grid reads exactly the same. */
+  .article-tile h2 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
   .article-tile__link { color: var(--color-orange-600); font-weight: 700; font-size: 0.9rem; }
 </style>

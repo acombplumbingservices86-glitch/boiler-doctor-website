@@ -17,7 +17,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
-      <h3>Get in touch</h3>
+      <h2>Get in touch</h2>
       <p>
         <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a><br />
         <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a>
@@ -29,7 +29,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
-      <h3>Services</h3>
+      <h2>Services</h2>
       <ul class="site-footer__list">
         <li><a href="/boiler-repairs-breakdowns/">Boiler Repairs</a></li>
         <li><a href="/boiler-servicing/">Boiler Servicing</a></li>
@@ -41,7 +41,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
-      <h3>Company</h3>
+      <h2>Company</h2>
       <ul class="site-footer__list">
         <li><a href="/about/">About</a></li>
         <li><a href="/reviews/">Reviews</a></li>
@@ -65,7 +65,9 @@ const year = new Date().getFullYear();
     color: var(--color-grey-300);
     padding-top: 3rem;
   }
-  .site-footer h3 { color: var(--color-white); font-size: 1rem; }
+  /* Footer column titles are h2 (site-wide heading-order fix — several pages had nothing
+     but a footer h3 after their h1, skipping a level); kept visually identical to before. */
+  .site-footer h2 { color: var(--color-white); font-size: 1rem; font-weight: 700; margin: 0 0 0.5em; }
   .site-footer a { color: var(--color-grey-300); }
   .site-footer a:hover { color: var(--color-orange-400); }
   .site-footer__brand { font-weight: 800; color: var(--color-white); font-size: 1.1rem; }
