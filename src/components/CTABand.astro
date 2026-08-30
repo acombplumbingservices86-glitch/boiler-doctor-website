@@ -3,8 +3,10 @@ import { siteConfig } from "../data/siteConfig";
 interface Props {
   heading: string;
   subheading?: string;
+  guideHref?: string;
+  guideLabel?: string;
 }
-const { heading, subheading } = Astro.props;
+const { heading, subheading, guideHref, guideLabel } = Astro.props;
 ---
 <section class="section section--navy cta-band">
   <div class="container cta-band__inner">
@@ -15,6 +17,10 @@ const { heading, subheading } = Astro.props;
     <div class="cta-band__actions">
       <a href="/book-online/" class="btn btn--primary">Book Online</a>
       <a href={siteConfig.phoneHref} class="btn btn--on-navy">Call {siteConfig.phoneDisplay}</a>
+      {siteConfig.whatsappReady && (
+        <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`} class="btn btn--on-navy">WhatsApp Us</a>
+      )}
+      {guideHref && <a href={guideHref} class="btn btn--on-navy btn--guide">{guideLabel ?? "Get the free guide"}</a>}
     </div>
   </div>
 </section>
@@ -28,4 +34,6 @@ const { heading, subheading } = Astro.props;
     gap: 1.5rem;
   }
   .cta-band__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn--guide { background: transparent; border: 2px solid rgba(255,255,255,0.4); }
+  .btn--guide:hover { border-color: rgba(255,255,255,0.8); }
 </style>

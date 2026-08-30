@@ -9,16 +9,24 @@ const title = "Boiler Repairs, Servicing & Installation in York | The Boiler Doc
 const description =
   "Family-run boiler and heating engineers in York. 5.0 stars from 384 real Google reviews. Same trade, same faces — Steve and Kyle, on your doorstep. Call 01904 206190.";
 
+// Curated from the full 38-review set on /reviews/ — deliberately picked to show the
+// three core services (service, repair, install) rather than the two plumbing-only
+// quotes this used to feature. Text is verbatim from Google, as posted.
 const realReviews = [
   {
-    name: "Ian Ilsley",
-    text: "Called about a toilet with a broken flush in a rental property — quick and professional, sorted the same day.",
-    service: "Plumbing repair",
+    name: "Rodney Plonker",
+    text: "We had our boiler serviced by Kyle, he was a very professional young man. I always recommend The Boiler Doctor to family and friends as the service is always amazing.",
+    service: "Boiler service",
   },
   {
-    name: "Belinda Levy",
-    text: "Steve plumbed in a new kitchen tap back in 2022. It started dripping in 2026, so he came back and replaced it — no fuss.",
-    service: "Plumbing repair",
+    name: "Paul Foster",
+    text: "Great customer service, engineer turned up on time and helped to resolve the boiler issue we had. Would definitely use again and recommend to others.",
+    service: "Boiler repair",
+  },
+  {
+    name: "James Reel",
+    text: "100% recommended. We have used the Boiler Doctor for many years now. Totally reliable and honest. As always, a super friendly guy who did a great job in good time.",
+    service: "New boiler",
   },
 ];
 ---
@@ -89,7 +97,7 @@ const realReviews = [
     <div class="container">
       <h2>What real customers say</h2>
       <TrustStrip />
-      <div class="grid grid--2">
+      <div class="grid grid--3">
         {realReviews.map((r) => (
           <blockquote class="card review-card">
             <p>"{r.text}"</p>
@@ -97,7 +105,6 @@ const realReviews = [
           </blockquote>
         ))}
       </div>
-      <NeedsInput label="NEEDS ASSET: confirm/select the full rotating set of reviews to feature here — see 09 Real Google Reviews Sample.csv for the full pool of 40." />
       <p><a href="/reviews/">Read all {siteConfig.reviews.count} reviews →</a></p>
     </div>
   </section>

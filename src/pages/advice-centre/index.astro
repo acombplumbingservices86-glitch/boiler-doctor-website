@@ -2,11 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
 import NeedsInput from "../../components/NeedsInput.astro";
+import { siteConfig } from "../../data/siteConfig";
 
 const title = "Boiler & Heating Advice | The Boiler Doctor, York";
 const description = "Honest, jargon-free advice on boilers, heating and air conditioning from York's own Boiler Doctor.";
 
-const articles = [
+const generalArticles = [
   { title: "How much does a new boiler actually cost?", href: "/advice-centre/new-boiler-cost/" },
   { title: "Combi vs system boiler — which do I need?", href: "/advice-centre/combi-vs-system-boiler/" },
   { title: "Why is my boiler losing pressure?", href: "/advice-centre/why-is-my-boiler-losing-pressure/" },
@@ -14,6 +15,16 @@ const articles = [
   { title: "What does a CP12 landlord certificate cover?", href: "/advice-centre/cp12-landlord-certificate/" },
   { title: "Signs you need a power flush, not just a bleed", href: "/advice-centre/signs-you-need-power-flush/" },
 ];
+
+const areaArticles = siteConfig.serviceAreas.flatMap((name) => {
+  const slug = name.toLowerCase();
+  return [
+    { title: `Boiler advice for ${name} homeowners`, href: `/advice-centre/boiler-advice-${slug}/` },
+    { title: `Air conditioning advice for ${name}`, href: `/advice-centre/air-conditioning-advice-${slug}/` },
+  ];
+});
+
+const articles = [...generalArticles, ...areaArticles];
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
@@ -46,8 +57,8 @@ const articles = [
   <section class="section">
     <div class="container narrow lead-magnet">
       <h2>Thinking about a new boiler?</h2>
-      <p>Get our free guide.</p>
-      <a href="/new-boiler-installation/" class="btn btn--primary">Get the guide</a>
+      <p>Two quick questions and we'll give you a straight ballpark price.</p>
+      <a href="/guides/boiler-price-estimate/" class="btn btn--primary">Get the free price estimate</a>
     </div>
   </section>
 

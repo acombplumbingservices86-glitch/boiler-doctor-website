@@ -4,6 +4,14 @@
 
 export const siteConfig = {
   businessName: "The Boiler Doctor",
+  gaMeasurementId: "G-SHP5WPXQ3E", // GA4 property, added 2026-08-29
+
+  // Lead-magnet form submissions POST here as JSON. Empty until Steve wires
+  // up a GHL inbound webhook (or a 2-minute Zapier "Catch Hook" as a
+  // stopgap) — until then, the forms still work and show a result, they
+  // just aren't captured anywhere. Fill in and every lead-magnet page picks
+  // it up automatically, no other changes needed.
+  leadWebhookUrl: "",
   legalName: "The Boiler Doctor York Limited",
   companyNumber: "13104837",
   vatNumber: "366 8000 94",
@@ -14,12 +22,12 @@ export const siteConfig = {
   emailDisplay: "office@the-boiler-doctor.co.uk",
   emailHref: "mailto:office@the-boiler-doctor.co.uk",
 
-  // WhatsApp number confirmed in GHL — 07414 291034. Still pending verification
-  // in GHL as of the last audit (file 08) — do not surface this link publicly
-  // until Steve confirms it's live and verified.
+  // WhatsApp number confirmed in GHL — 07414 291034. Verified and connected
+  // in GHL as of 30 Aug 2026 (Steve completed the number verification himself).
+  // Open to all visitors, not gated to Care Plan members.
   whatsappDisplay: "07414 291034",
   whatsappNumberIntl: "447414291034",
-  whatsappReady: false, // flip to true once verified + templates/flow built in GHL
+  whatsappReady: true,
 
   address: {
     line1: "2 Sanderson Court",
@@ -36,7 +44,7 @@ export const siteConfig = {
     asOf: "2026-08-28",
   },
 
-  yearsTrading: 17,
+  yearsTrading: 18, // Steve started plumbing in 2008 — confirmed directly by Steve, 29 Aug 2026
   founded: {
     original: "Acomb Plumbing & Heating, 2013",
     rebrand: "The Boiler Doctor, 2020",

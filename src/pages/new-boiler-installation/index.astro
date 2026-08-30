@@ -1,11 +1,35 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
-import NeedsInput from "../../components/NeedsInput.astro";
+import LeadMagnetForm from "../../components/LeadMagnetForm.astro";
+
+const priceGuideSteps = [
+  {
+    key: "situation",
+    type: "choice",
+    question: "What are you looking to do?",
+    options: ["Replace a broken boiler, like-for-like", "Upgrade from a system boiler to a combi", "Not sure yet — just exploring"],
+  },
+  {
+    key: "bedrooms",
+    type: "choice",
+    question: "How many bedrooms in the property?",
+    options: ["1–2", "3–4", "5+"],
+  },
+];
+
+const priceGuideResultHtml = `
+  <p>Based on what you've told us — <strong>{{answers.situation}}</strong>, {{answers.bedrooms}} bedrooms:</p>
+  <ul>
+    <li>A <strong>like-for-like combi swap</strong> starts from <strong>£2,000</strong></li>
+    <li>A <strong>system-to-combi conversion</strong> starts from <strong>£3,000</strong></li>
+  </ul>
+  <p>That's a solid starting point — the exact number depends on the boiler and what's already in the house. We'll follow up with a proper written quote after a free home visit. No obligation, no pressure to buy bigger than you need.</p>
+`;
 
 const title = "New Boiler Installation in York | Worcester Bosch & Ideal Specialists";
 const description =
-  "From £1,500-£3,000 fitted. Worcester Bosch and Ideal accredited installer. Honest advice on combi vs system, no pressure. Call 01904 206190.";
+  "From £2,000-£3,000 fitted. Worcester Bosch and Ideal accredited installer. Honest advice on combi vs system, no pressure. Call 01904 206190.";
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
@@ -25,7 +49,7 @@ const description =
       <ul class="price-list">
         <li><strong>Like-for-like combi swap:</strong> from £2,000</li>
         <li><strong>System-to-combi conversion:</strong> from £3,000</li>
-        <li>Typical range £1,500–£3,000 depending on the job</li>
+        <li>Typical range £2,000–£3,000 depending on the job</li>
         <li>Deposit required on jobs over £400 (set out in your written quote); balance due within 7 days of completion</li>
       </ul>
     </div>
@@ -57,14 +81,22 @@ const description =
     <div class="container narrow">
       <h2>Warranty</h2>
       <p>12 months' workmanship warranty from invoice date; manufacturer's boiler warranty runs separately (length confirmed at quote stage).</p>
+      <p class="area-links">We've now got a dedicated page for every one of the 20 areas we cover — including <a href="/new-boiler-installation-woodthorpe/">Woodthorpe</a>, <a href="/new-boiler-installation-acomb/">Acomb</a> and <a href="/new-boiler-installation-york/">York</a> — see the <a href="/service-areas/">full list of areas</a>.</p>
     </div>
   </section>
 
   <section class="section section--alt">
     <div class="container narrow lead-magnet">
       <h2>Not sure what you need yet?</h2>
-      <p>Get our free guide to choosing a new boiler.</p>
-      <NeedsInput label="Phase Four build: embed the rebuilt Ultimate Boiler Guide form here once live in GHL (see file 18)." />
+      <p>Two quick questions and we'll give you a straight ballpark figure — right here, no waiting on a callback.</p>
+      <LeadMagnetForm
+        magnetId="boiler-price-estimate-inline"
+        intro="Takes about 20 seconds. Tell us what you're working with, and we'll give you a straight ballpark."
+        steps={priceGuideSteps}
+        resultHeading="Here's your ballpark"
+        resultBodyHtml={priceGuideResultHtml}
+        sourcePage="/new-boiler-installation/"
+      />
     </div>
   </section>
 
@@ -79,4 +111,5 @@ const description =
   .price-list li { background: var(--color-off-white); border-radius: var(--radius-sm); padding: 0.7em 1em; }
   .process-list { padding-left: 1.2em; display: grid; gap: 0.4rem; }
   .lead-magnet { text-align: center; }
+  .area-links { margin-top: 1rem; font-size: 0.9rem; color: var(--color-grey-600); }
 </style>

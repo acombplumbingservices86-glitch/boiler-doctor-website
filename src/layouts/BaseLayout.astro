@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import StickyMobileBar from "../components/StickyMobileBar.astro";
 import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
+import { siteConfig } from "../data/siteConfig";
 import "../styles/global.css";
 
 interface Props {
@@ -32,6 +33,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:image" content={new URL("/og-image.png", Astro.site).toString()} />
     <meta name="twitter:card" content="summary_large_image" />
     <LocalBusinessSchema />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}></script>
+    <script define:vars={{ gaId: siteConfig.gaMeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", gaId);
+    </script>
   </head>
   <body>
     <a href="#main" class="visually-hidden">Skip to content</a>

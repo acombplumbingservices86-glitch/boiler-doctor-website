@@ -9,34 +9,76 @@ const title = `${siteConfig.reviews.count} Five-Star Reviews | The Boiler Doctor
 const description =
   "Real reviews from real customers across York. 5.0 stars from 384 Google reviews. Read what people actually say about working with us.";
 
-// Seed set from "09 Real Google Reviews Sample.csv" — full 40-review pool lives there.
-// Phase Four build note: replace this static list with a live Google Business Profile
-// pull so new reviews appear automatically.
+// Full written-review set from "09 Real Google Reviews Sample.csv" — Steve's own sample pull
+// from Google. All 38 reviews with written text are shown below, verbatim as posted (including
+// the odd typo — real reviews aren't copy-edited). 2 more in the same sample were 5-star ratings
+// with no written comment; noted below rather than invented. Swap for a live Google Business
+// Profile feed later so new reviews appear automatically — this is real data either way, not a
+// placeholder.
 const reviews = [
-  { name: "Ian Ilsley", text: "Called about a toilet with a broken flush in a rental property — quick and professional, sorted the same day.", tag: "Plumbing repair" },
-  { name: "Belinda Levy", text: "Steve plumbed in a new kitchen tap back in 2022. It started dripping in 2026, so he came back and replaced it — no fuss.", tag: "Plumbing repair" },
+  { name: "Tony Machin", text: "Very good service by the Boiler Doctor done by Kyle, very pleasant person and any questions asked was answered with...", tag: "Boiler service" },
+  { name: "Paul F", text: "Excellent service from Steve and his team. I needed a new boiler and was impressed by the positive Google reviews. Kyle...", tag: "New boiler" },
+  { name: "Charlotte Risi", text: "Great communication, prompt service, would recommend.", tag: null },
+  { name: "Vitor Antunes (Eloah)", text: "Very happy with service", tag: null },
+  { name: "Mark Forde", text: "Brilliant company . Would highly recommend .", tag: null },
+  { name: "Adrian Dale", text: "The Boiler Doctor arrived promptly, as scheduled. He took a neat, methodical approach to diagnosing the fault with my...", tag: "Boiler repair" },
+  { name: "Chris Smith", text: "I booked with boiler doctor after looking for a local independant boiler service....", tag: "Boiler service" },
+  { name: "Ben Deacon", text: "Brilliant service from start to finish. Easy to book online, great communication, turned up on time. Kyle was polite, a...", tag: "Central heating" },
+  { name: "Andy", text: "all perfect, no mess, shoes off i recomend this company", tag: null },
+  { name: "Sharon Platts", text: "Great Service from the start. Aidan who man's the office was so helpful when I rang. He contacted Steve the engineer who then rang me to arrange a visit for 9am the next day. 100% satisfied from start to finish.", tag: "Booking experience" },
+  { name: "Richard Copley", text: "We had The Boiler Doctor at our property for an inspection and service....", tag: "Boiler service" },
+  { name: "Carole Winter", text: "Good service, efficient highly recommend. Kyle was excellent, on time good job. Thanks", tag: null },
+  { name: "Hassan Sulieman A Ali", text: "Outstanding service from start to finish! From the first phone call to completing the gas connection in my home,...", tag: "Gas installation" },
+  { name: "James Reel", text: "100% recommended. We have used the Boiler Doctor for many years now. Totally reliable and honest. As always, a super friendly guy who did a great job in good time.", tag: "New boiler" },
+  { name: "Ben Martin", text: "Clear, profession and well explained service. Easy to arrange with good reminders up front.", tag: null },
+  { name: "Paul Foster", text: "Great customer service, engineer turned up on time and helped to resolve the boiler issue we had. Would definitely use again and recommend to others.", tag: "Boiler repair" },
+  { name: "Stefan Bailey", text: "We had The Boiler Doctor at our property for a regular service of the boiler. A thorough job was done and everything continues to be in working order. A strong recommendation for those who are curious.", tag: "Boiler service" },
+  { name: "Jennie Walker", text: "Very professional, friendly company who kept me informed of timings for visit. Explained the process and provided photos of work carried out. Will definitely use again. Brilliant service", tag: null },
+  { name: "Rob K", text: "New to the area, we discovered The Boiler Doctor thanks to their posts on Facebook. Booking an appointment was simple....", tag: null },
+  { name: "Kathleen Butcher", text: "Very happy with The Boiler Doctor especially the ease of booking. Very good service.", tag: null },
+  { name: "Patricia Ann Doyle", text: "Great service friendly guys thank you", tag: null },
+  { name: "Ian Ilsley", text: "Had a toilet with a broken flush in a rental property, phoned boiler doctor and spoke to Haydon who was very helpful and...", tag: "Plumbing repair" },
+  { name: "Solange Bohling", text: "Very pleased with the Boiler Doctor! Easy to contact and good communication. When they came to the property the first...", tag: "Boiler repair" },
+  { name: "Steven Raven", text: "Very friendly and professional, explained everything that they did and the reason for doing so", tag: null },
+  { name: "Rodney Plonker", text: "We had our boiler serviced by Kyle, he was a very professional young man. I always recommend The Boiler Doctor to family and friends as the service is always amazing.", tag: "Boiler service" },
+  { name: "Dianne Crowther", text: "The Boiler Doctor. I have used Steve for years after he was recommended to me. Always efficient and polite. Provides a...", tag: "Emergency repair" },
+  { name: "Colin Groom", text: "Super-efficient booking. Prompt , professional, friendly and very reasonably priced. Great follow up afterwards. Highly recommended!", tag: null },
+  { name: "Belinda Levy", text: "I recommend The Boiler Doctor. Steve plumbed in a new kitchen tap in 2022. It was dripping in 2026 so he replaced the...", tag: "Plumbing repair" },
+  { name: "Mel Burley", text: "Fast and efficient service Does a great job with no mess Its great to have somebody that knows what they are doing and doing it well Very Highly Recommended and I will happily use again", tag: null },
+  { name: "Sarah Thompson", text: "The Boiler Doctor attended my property to service my boiler they fitted last year. Great service as always, they send an...", tag: "Boiler service" },
+  { name: "Mark Peters", text: "Easy booking, great communication. Kyle attended to complete a full boiler service. He was friendly, professional and a...", tag: "Boiler service" },
+  { name: "Jennifer Fox", text: "Great service from Kyle. He gave me a full explanation and was very professional. Would definitely use these guys in future", tag: null },
+  { name: "Sam Birt", text: "We've had a boiler replacement and subsequent annual service with The Boiler Doctor, and have always had excellent service. I would highly recommend!", tag: "Boiler & service" },
+  { name: "Mrs M Curtis", text: "Absolutely amazing would recommend to all my friends, Steve was brilliant and would say 5 stars for everything thank you", tag: null },
+  { name: "Jayne Leckenby", text: "Very professional, messaged before they arrived and great service Will definitely use again Thank you...", tag: null },
+  { name: "Chris Hogg", text: "Absolutely brilliant service from Boiler Doctor York! Friendly, helpful, and really easy to deal with from start to...", tag: null },
+  { name: "Fraser McHale", text: "Whole experience very professional, work was completely very quickly and on time. Would recommend to anyone in the area", tag: null },
+  { name: "Eddie Dance", text: "Great lads, professional work. I would recommend", tag: null },
 ];
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
     <div class="container">
       <h1>{siteConfig.reviews.count} Five-Star Reviews. Real Names, Real Jobs.</h1>
-      <p class="lede">Every review here is a genuine Google review — nothing written by us, nothing hand-picked to hide the bad ones (there aren't any yet, but if there ever are, they'll be here too).</p>
+      <p class="lede">Every review below is genuine — pulled straight from Google, nothing written by us and nothing hand-picked to hide the bad ones (there aren't any yet, but if there ever are, they'll be here too).</p>
       <TrustStrip />
     </div>
   </section>
 
   <section class="section section--alt">
     <div class="container">
-      <div class="grid grid--2">
+      <div class="grid grid--3">
         {reviews.map((r) => (
           <blockquote class="card review-card">
             <p>"{r.text}"</p>
-            <footer>— {r.name}, <span class="badge">{r.tag}</span></footer>
+            <footer>
+              <span class="review-card__name">— {r.name}</span>
+              {r.tag && <span class="badge">{r.tag}</span>}
+            </footer>
           </blockquote>
         ))}
       </div>
-      <NeedsInput label="Phase Four build: pull the full 40-review seed set (and eventually a live Google Business Profile feed) in here, filterable by service type." />
+      <p class="more-note">Plus 2 more 5-star ratings from the same sample with no written comment attached — we didn't invent quotes to fill the gap.</p>
     </div>
   </section>
 
@@ -44,7 +86,7 @@ const reviews = [
     <div class="container narrow">
       <h2>Leave a review</h2>
       <p>Had a good experience? A review helps other people in York find us just as easily as you did.</p>
-      <NeedsInput label="Phase Four build: link straight through to the Google review form." />
+      <NeedsInput label="NEEDS STEVE: the direct Google 'write a review' link for the business profile (Google Business Profile → Ask for reviews → Get link) — swap in here rather than a general search link." />
     </div>
   </section>
 
@@ -54,6 +96,16 @@ const reviews = [
 <style>
   .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
   .narrow { max-width: 68ch; }
-  .review-card { border: none; }
-  .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
+  .review-card { border: none; display: flex; flex-direction: column; }
+  .review-card p { flex-grow: 1; }
+  .review-card footer {
+    margin-top: 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .review-card__name { font-weight: 600; color: var(--color-navy-800); }
+  .more-note { margin-top: 1.5rem; font-size: 0.88rem; color: var(--color-grey-600); text-align: center; }
 </style>

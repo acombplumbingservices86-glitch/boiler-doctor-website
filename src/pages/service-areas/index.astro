@@ -5,6 +5,23 @@ import { siteConfig } from "../../data/siteConfig";
 
 const title = "Areas We Cover | Boiler & Heating Engineers in York";
 const description = "Covering Acomb, York and surrounding villages. See the full list of areas we serve.";
+
+const areas = siteConfig.serviceAreas.map((name) => {
+  const slug = name.toLowerCase();
+  return {
+    name,
+    links: [
+      { label: "New boiler installation", href: `/new-boiler-installation-${slug}/` },
+      { label: "Boiler repairs & breakdowns", href: `/boiler-repairs-${slug}/` },
+      { label: "Boiler servicing", href: `/boiler-servicing-${slug}/` },
+      { label: `${name} boiler advice guide`, href: `/advice-centre/boiler-advice-${slug}/` },
+      { label: "Domestic air conditioning", href: `/air-conditioning-domestic-${slug}/` },
+      { label: "Split system air conditioning", href: `/air-conditioning-split-systems-${slug}/` },
+      { label: "Air conditioning for small businesses", href: `/air-conditioning-commercial-${slug}/` },
+      { label: `${name} air conditioning advice guide`, href: `/advice-centre/air-conditioning-advice-${slug}/` },
+    ],
+  };
+});
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
@@ -19,6 +36,25 @@ const description = "Covering Acomb, York and surrounding villages. See the full
       <div class="area-grid">
         {siteConfig.serviceAreas.map((area) => (
           <span class="area-chip">{area}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Dedicated pages for every area</h2>
+      <p class="lede">Boilers and air conditioning, with a full page and an advice guide for each of the 20 areas we cover:</p>
+      <div class="grid grid--3">
+        {areas.map((area) => (
+          <div class="card area-card">
+            <h3>{area.name}</h3>
+            <ul>
+              {area.links.map((link) => (
+                <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
         ))}
       </div>
     </div>
@@ -44,4 +80,6 @@ const description = "Covering Acomb, York and surrounding villages. See the full
     font-weight: 600;
     box-shadow: var(--shadow-card);
   }
+  .area-card ul { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+  .area-card a { font-weight: 600; }
 </style>

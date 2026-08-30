@@ -59,10 +59,10 @@ const faqSchema = {
     <div class="container narrow">
       <h2>What it costs</h2>
       <ul class="price-list">
-        <li><strong>Call-out / diagnostic:</strong> {siteConfig.minCallOutFee} minimum</li>
-        <li><strong>Unquoted extra work:</strong> £85/hour</li>
+        <li><strong>Prices start from</strong> {siteConfig.minCallOutFee}</li>
         <li>Any repair beyond that is quoted before we start — you agree the price, then we do the work.</li>
       </ul>
+      <p class="area-links">We've now got a dedicated page for every one of the 20 areas we cover — including <a href="/boiler-repairs-woodthorpe/">Woodthorpe</a>, <a href="/boiler-repairs-acomb/">Acomb</a> and <a href="/boiler-repairs-york/">York</a> — see the <a href="/service-areas/">full list of areas</a>.</p>
     </div>
   </section>
 
@@ -77,7 +77,11 @@ const faqSchema = {
     </div>
   </section>
 
-  <CTABand heading="Cold house, hot temper? Let's fix that." />
+  <CTABand
+    heading="Cold house, hot temper? Let's fix that."
+    guideHref="/guides/emergency-boiler-checklist/"
+    guideLabel="Get the emergency checklist"
+  />
 </BaseLayout>
 
 <style>
@@ -97,4 +101,5 @@ const faqSchema = {
   .price-list li { background: var(--color-off-white); border-radius: var(--radius-sm); padding: 0.7em 1em; }
   .review-card { border: none; }
   .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
+  .area-links { margin-top: 1rem; font-size: 0.9rem; color: var(--color-grey-600); }
 </style>
