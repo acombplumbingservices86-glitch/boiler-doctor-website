@@ -45,6 +45,22 @@ export const siteConfig = {
   },
 
   yearsTrading: 18, // Steve started plumbing in 2008 — confirmed directly by Steve, 29 Aug 2026
+
+  // "Big numbers" trust stats — Steve's own idea (30 Aug 2026), from a marketing podcast
+  // on using large, honest figures (years trading, customers served) as a trust signal.
+  // Both figures below are round numbers Steve stated directly, not exact counts — kept
+  // as "+" for that reason, same convention as a "500+ jobs" style claim anywhere else.
+  bigNumbers: {
+    // Steve said: "I'm up to invoice number 4,000 on my new piece of software." Framed as
+    // jobs completed rather than "customers served" — an invoice count isn't the same as a
+    // unique-customer count (repeat customers would inflate that claim), so this is the
+    // honest version of what he actually knows for certain.
+    jobsCompletedDisplay: "4,000+",
+    // Steve said: "over 500 boilers sold" — kept as "installed" here, the natural
+    // equivalent phrase for a heating engineer (selling a boiler always means fitting it).
+    boilersInstalledDisplay: "500+",
+  },
+
   founded: {
     original: "Acomb Plumbing & Heating, 2013",
     rebrand: "The Boiler Doctor, 2020",

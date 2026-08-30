@@ -1,0 +1,60 @@
+---
+// "Big numbers" trust band — Steve's own framing (Aug 2026): big, honest numbers build
+// trust the same way "years of experience" or "customers served" does elsewhere. Every
+// figure here is either already in siteConfig (years trading, reviews) or a figure Steve
+// stated directly and is sourced with a comment on siteConfig.bigNumbers below — nothing
+// here is invented or rounded up beyond what he actually said.
+import { siteConfig } from "../data/siteConfig";
+
+const stats = [
+  // "Since 2008" matches siteConfig.yearsTrading's own sourcing (Steve started plumbing
+  // that year) — not siteConfig.founded.original, which is when the current business name
+  // started (2013) and would give a different, wrong number here.
+  { value: `${siteConfig.yearsTrading}`, label: "Years trading in York", sub: "Since 2008" },
+  { value: siteConfig.bigNumbers.jobsCompletedDisplay, label: "Jobs completed", sub: "And counting" },
+  { value: siteConfig.bigNumbers.boilersInstalledDisplay, label: "Boilers installed", sub: "Across York & the villages" },
+  { value: `${siteConfig.reviews.rating.toFixed(1)}★`, label: `${siteConfig.reviews.count} Google reviews`, sub: "Real customers, real jobs" },
+];
+---
+<section class="section section--navy big-numbers">
+  <div class="container">
+    <div class="grid grid--4 big-numbers__grid">
+      {stats.map((s) => (
+        <div class="big-numbers__stat">
+          <p class="big-numbers__value">{s.value}</p>
+          <p class="big-numbers__label">{s.label}</p>
+          <p class="big-numbers__sub">{s.sub}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .big-numbers { padding: clamp(2rem, 5vw, 3rem) 0; }
+  .big-numbers__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 1.25rem;
+    text-align: center;
+  }
+  @media (min-width: 700px) {
+    .big-numbers__grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .big-numbers__value {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--color-orange-400);
+    line-height: 1;
+    margin: 0 0 0.35em;
+  }
+  .big-numbers__label {
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-white);
+  }
+  .big-numbers__sub {
+    margin: 0.25em 0 0;
+    font-size: 0.85rem;
+    color: var(--color-grey-300);
+  }
+</style>
