@@ -58,6 +58,12 @@ const description =
         <li>Deposit required on jobs over £400 (set out in your written quote); balance due within 7 days of completion</li>
       </ul>
     </div>
+    <div class="container install-gallery">
+      <img src="/images/installs/install-steve-pointing.jpg" alt="Steve from The Boiler Doctor talking a customer through their newly fitted boiler" loading="lazy" />
+      <img src="/images/installs/install-cupboard.jpg" alt="Boiler neatly installed in a kitchen cupboard" loading="lazy" />
+      <img src="/images/installs/install-bathroom.jpg" alt="Boiler installed in a bathroom with tiled floor" loading="lazy" />
+      <img src="/images/installs/install-branded-folder.jpg" alt="Completed boiler installation with The Boiler Doctor's service record folder" loading="lazy" />
+    </div>
   </section>
 
   <section class="section">
@@ -130,4 +136,21 @@ const description =
   .area-links { margin-top: 1rem; font-size: 0.9rem; color: var(--color-grey-600); }
   .review-card { border: none; }
   .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
+  .install-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    max-width: 68ch;
+    margin-top: 1.25rem;
+  }
+  .install-gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .install-gallery { grid-template-columns: 1fr 1fr; }
+  }
 </style>

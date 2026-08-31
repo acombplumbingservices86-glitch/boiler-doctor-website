@@ -1,11 +1,53 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
-import NeedsInput from "../../components/NeedsInput.astro";
 
 const title = "Real Jobs, Real Results | The Boiler Doctor, York";
 const description =
   "Before-and-after photos and real job stories from boiler installs, repairs and heating upgrades across York.";
+
+const galleries = [
+  {
+    heading: "New boiler installations",
+    intro: "A selection of recent fits — different homes, same standard of finish.",
+    items: [
+      { src: "/images/real-work/rw-install-cupboard.jpg", alt: "Boiler neatly installed in a kitchen cupboard" },
+      { src: "/images/real-work/rw-install-bathroom.jpg", alt: "Boiler installed in a bathroom with tiled floor" },
+      { src: "/images/real-work/rw-install-utility.jpg", alt: "Boiler installed in a utility room with matching pipework" },
+      { src: "/images/real-work/rw-install-mug.jpg", alt: "Finished boiler installation with a Boiler Doctor branded mug" },
+      { src: "/images/real-work/rw-install-loft.jpg", alt: "Boiler installed in a loft space" },
+    ],
+  },
+  {
+    heading: "Air conditioning",
+    intro: "Domestic AC installs — indoor and outdoor units, and the install process itself.",
+    items: [
+      { src: "/images/real-work/rw-ac-outdoor.jpg", alt: "Finished outdoor air conditioning condenser unit" },
+      { src: "/images/real-work/rw-ac-minimalist.jpg", alt: "Clean indoor air conditioning unit installed on a plain wall" },
+      { src: "/images/real-work/rw-ac-process.jpg", alt: "Engineer fitting an air conditioning indoor unit" },
+      { src: "/images/real-work/rw-ac-selfie.jpg", alt: "Steve from The Boiler Doctor with a finished air conditioning installation" },
+    ],
+  },
+  {
+    heading: "What we find on servicing and repair jobs",
+    intro: "The kind of thing a missed service or a slow leak leads to — real evidence, not stock photos.",
+    items: [
+      { src: "/images/real-work/rw-repair-heat-exchanger.jpg", alt: "Heat exchanger caked in limescale build-up" },
+      { src: "/images/real-work/rw-repair-strainer.jpg", alt: "Corroded system strainer full of debris" },
+      { src: "/images/real-work/rw-corrosion.jpg", alt: "Corrosion damage found inside a boiler casing during a service" },
+      { src: "/images/real-work/rw-engineer-servicing.jpg", alt: "Engineer carrying out a boiler service" },
+    ],
+  },
+  {
+    heading: "The team and the van",
+    intro: "Same faces, every job.",
+    items: [
+      { src: "/images/real-work/rw-team-van.jpg", alt: "Steve, owner of The Boiler Doctor, in front of the branded company van" },
+      { src: "/images/real-work/rw-van-clean.jpg", alt: "The Boiler Doctor's branded company van" },
+      { src: "/images/real-work/rw-team-kyle.jpg", alt: "Kyle, engineer at The Boiler Doctor, on the job" },
+    ],
+  },
+];
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
@@ -15,15 +57,42 @@ const description =
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container">
-      <NeedsInput label="NEEDS ASSET: this entire page is blocked on real job photos from Steve — currently zero usable images on file. Even phone photos from recent jobs would let this page start taking shape." />
-    </div>
-  </section>
+  {galleries.map((group, i) => (
+    <section class={`section ${i % 2 === 1 ? "section--alt" : ""}`}>
+      <div class="container">
+        <h2>{group.heading}</h2>
+        <p class="group-intro">{group.intro}</p>
+        <div class="photo-grid">
+          {group.items.map((item) => (
+            <img src={item.src} alt={item.alt} loading="lazy" />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
 
   <CTABand heading="Got a job like this? Let's talk." />
 </BaseLayout>
 
 <style>
   .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
+  .group-intro { color: var(--color-grey-600); max-width: 60ch; margin-bottom: 1.25rem; }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.9rem;
+  }
+  .photo-grid img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .photo-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .photo-grid { grid-template-columns: 1fr 1fr; }
+  }
 </style>

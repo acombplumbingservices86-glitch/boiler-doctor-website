@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
-import NeedsInput from "../../components/NeedsInput.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
 import { siteConfig } from "../../data/siteConfig";
 
@@ -42,7 +41,11 @@ const description =
     <div class="container narrow">
       <h2>Not just a boiler company doing AC on the side</h2>
       <p>AC and heating both come down to the same core skill — refrigerant and heat-exchange systems, proper commissioning, and not cutting corners on installation. It's a genuine second specialism here, not an afterthought.</p>
-      <NeedsInput label="NEEDS ASSET: AC-specific case studies, install counts, or before/after photos for proof" />
+    </div>
+    <div class="container ac-gallery">
+      <img src="/images/ac/ac-install-process.jpg" alt="Engineer fitting an air conditioning indoor unit at a York property" loading="lazy" />
+      <img src="/images/ac/ac-indoor-finished.jpg" alt="Finished indoor air conditioning unit installed by The Boiler Doctor" loading="lazy" />
+      <img src="/images/ac/ac-outdoor-finished.jpg" alt="Finished outdoor air conditioning condenser unit installed by The Boiler Doctor" loading="lazy" />
     </div>
   </section>
 
@@ -84,4 +87,21 @@ const description =
   .tick-list li { padding-left: 1.6em; position: relative; }
   .tick-list li::before { content: "✅"; position: absolute; left: 0; }
   .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+  .ac-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    max-width: 68ch;
+    margin-top: -0.5rem;
+  }
+  .ac-gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .ac-gallery { grid-template-columns: 1fr 1fr; }
+  }
 </style>

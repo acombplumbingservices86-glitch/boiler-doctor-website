@@ -61,6 +61,31 @@ const faqSchema = {
 
   <section class="section">
     <div class="container narrow">
+      <h2>What we actually find inside</h2>
+      <p>Real evidence from real repair jobs — this is what years of missed servicing or a slow leak does on the inside.</p>
+    </div>
+    <div class="container evidence-gallery">
+      <figure>
+        <img src="/images/repairs/repair-heat-exchanger.jpg" alt="Heat exchanger removed from a boiler, caked in limescale build-up" loading="lazy" />
+        <figcaption>A heat exchanger caked in limescale — years of hard water build-up, restricting flow.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/repairs/repair-corroded-heat-exchanger.jpg" alt="Corroded heat exchanger fins found during a boiler repair" loading="lazy" />
+        <figcaption>Corrosion on the exchanger fins — usually a sign servicing was missed for a few years running.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/repairs/repair-strainer.jpg" alt="Corroded system strainer removed from a heating system" loading="lazy" />
+        <figcaption>A corroded strainer, full of debris — this is what's actually flowing round your radiators.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/repairs/repair-corroded-component.jpg" alt="Corroded boiler component found during diagnosis" loading="lazy" />
+        <figcaption>A corroded component caught during diagnosis, before it failed completely.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
       <h2>What it costs</h2>
       <ul class="price-list">
         <li><strong>Prices start from</strong> {siteConfig.minCallOutFee}</li>
@@ -106,4 +131,26 @@ const faqSchema = {
   .review-card { border: none; }
   .review-card footer { margin-top: 0.75em; font-weight: 600; color: var(--color-navy-800); }
   .area-links { margin-top: 1rem; font-size: 0.9rem; color: var(--color-grey-600); }
+  .evidence-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: -0.5rem;
+  }
+  .evidence-gallery figure { margin: 0; }
+  .evidence-gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    display: block;
+  }
+  .evidence-gallery figcaption {
+    font-size: 0.82rem;
+    color: var(--color-grey-600);
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 900px) {
+    .evidence-gallery { grid-template-columns: 1fr 1fr; }
+  }
 </style>
