@@ -15,9 +15,9 @@ const description =
 // quotes this used to feature. Text is verbatim from Google, as posted.
 const realReviews = [
   {
-    name: "Rodney Plonker",
-    text: "We had our boiler serviced by Kyle, he was a very professional young man. I always recommend The Boiler Doctor to family and friends as the service is always amazing.",
-    service: "Boiler service",
+    name: "Sam Birt",
+    text: "We've had a boiler replacement and subsequent annual service with The Boiler Doctor, and have always had excellent service. I would highly recommend!",
+    service: "Boiler & service",
   },
   {
     name: "Paul Foster",
@@ -143,17 +143,17 @@ const realReviews = [
       <h2>Meet the team</h2>
       <div class="grid grid--3">
         <div class="card">
-          <NeedsInput label="NEEDS ASSET: photo of Steve" />
+          <img src="/images/team/steve-home.jpg" alt="Steve, owner and lead engineer at The Boiler Doctor, on the job fitting a boiler" class="team-photo" width="360" height="480" loading="lazy" />
           <h3>Steve</h3>
           <p>Owner and lead engineer. Gas Safe registered. Still does the tools every day.</p>
         </div>
         <div class="card">
-          <NeedsInput label="NEEDS ASSET: photo of Kyle" />
+          <img src="/images/team/kyle-team.jpg" alt="Kyle, engineer at The Boiler Doctor, on the job" class="team-photo" width="162" height="360" loading="lazy" />
           <h3>Kyle</h3>
           <p>Engineer, with Steve for 5 years. Fully trained and gas-qualified — named by customers again and again as thorough and friendly on the job.</p>
         </div>
         <div class="card">
-          <NeedsInput label="NEEDS ASSET: photo of Hayden" />
+          <div class="team-avatar" aria-hidden="true">H</div>
           <h3>Hayden</h3>
           <p>Runs the office — usually the first friendly voice you'll hear on the phone.</p>
         </div>
@@ -207,5 +207,27 @@ const realReviews = [
     background: var(--color-off-white);
     border-radius: var(--radius-md);
     padding: 0.9rem 1.1rem;
+  }
+  .team-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .team-avatar {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    background: var(--color-navy-800);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
   }
 </style>

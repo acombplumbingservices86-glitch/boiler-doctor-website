@@ -2,7 +2,6 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
 import BigNumbers from "../../components/BigNumbers.astro";
-import NeedsInput from "../../components/NeedsInput.astro";
 import { siteConfig } from "../../data/siteConfig";
 
 const title = "About The Boiler Doctor | Family-Run Heating Engineers in York";
@@ -38,17 +37,17 @@ const description =
       <h2>Meet the team</h2>
       <div class="grid grid--3">
         <div class="card">
-          <NeedsInput label="NEEDS ASSET: photo of Steve, ideally on-the-job" />
+          <img src="/images/team/steve-about.jpg" alt="Steve, owner and lead engineer at The Boiler Doctor, on the job fitting a boiler" class="team-photo" width="360" height="480" loading="lazy" />
           <h3>Steve</h3>
           <p>Owner and lead engineer. Gas Safe registered (No. {siteConfig.gasSafeNumber}). Still does the tools every day — not just running the business from an office.</p>
         </div>
         <div class="card">
-          <NeedsInput label="NEEDS ASSET: photo of Kyle, ideally on-the-job" />
+          <img src="/images/team/kyle-team.jpg" alt="Kyle, engineer at The Boiler Doctor, on the job" class="team-photo" width="162" height="360" loading="lazy" />
           <h3>Kyle</h3>
           <p>Engineer, with Steve for 5 years. Fully trained and gas-qualified. Regular customers ask for him by name.</p>
         </div>
         <div class="card">
-          <NeedsInput label="NEEDS ASSET: photo of Hayden" />
+          <div class="team-avatar" aria-hidden="true">H</div>
           <h3>Hayden</h3>
           <p>Runs the office. First point of contact by phone for most enquiries — website enquiries get routed straight through to Steve.</p>
         </div>
@@ -98,4 +97,26 @@ const description =
     font-weight: 600;
   }
   .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+  .team-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .team-avatar {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    background: var(--color-navy-800);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+  }
 </style>
