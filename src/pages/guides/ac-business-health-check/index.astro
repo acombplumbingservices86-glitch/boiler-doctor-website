@@ -3,7 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LeadMagnetForm from "../../../components/LeadMagnetForm.astro";
 
 const title = "Free AC Health-Check for Your Business | The Boiler Doctor";
-const description = "Two quick questions and we'll book in a free pre-summer air conditioning health-check for your shop, office or small business.";
+const description = "A few quick questions and we'll book in a free pre-summer air conditioning health-check for your shop, office or small business.";
 
 const steps = [
   {
@@ -18,10 +18,22 @@ const steps = [
     question: "What kind of business is it?",
     options: ["Shop", "Office", "Other small business"],
   },
+  {
+    key: "hasAC",
+    type: "choice",
+    question: "Do you already have air conditioning installed?",
+    options: ["Yes — just needs a service", "Yes — something's not right with it", "No — looking to get it installed"],
+  },
+  {
+    key: "timing",
+    type: "choice",
+    question: "When would you like this sorted?",
+    options: ["ASAP", "Before it gets hot", "Just planning ahead"],
+  },
 ];
 
 const resultBodyHtml = `
-  <p>Noted — <strong>{{answers.units}}</strong> room(s)/unit(s), a <strong>{{answers.role}}</strong>. A service contract keeps things running reliably through the warmer months, rather than finding out a unit's failed on the hottest day of the year.</p>
+  <p>Noted — <strong>{{answers.units}}</strong> room(s)/unit(s), a <strong>{{answers.role}}</strong>, {{answers.hasAC}}, and you're looking at <strong>{{answers.timing}}</strong>. A service contract keeps things running reliably through the warmer months, rather than finding out a unit's failed on the hottest day of the year.</p>
   <p>We'll be in touch to arrange a free health-check visit, working around your trading hours where we can.</p>
 `;
 ---
@@ -29,14 +41,14 @@ const resultBodyHtml = `
   <section class="section">
     <div class="container narrow center">
       <h1>Don't Wait for the Hottest Day to Find Out</h1>
-      <p class="lede">Two quick questions and we'll book in a free pre-summer AC health-check for your business.</p>
+      <p class="lede">A few quick questions and we'll book in a free pre-summer AC health-check for your business.</p>
     </div>
   </section>
   <section class="section section--alt">
     <div class="container">
       <LeadMagnetForm
         magnetId="ac-business-health-check"
-        intro="Takes about 20 seconds. We'll follow up to arrange a visit that fits around your opening hours."
+        intro="Takes about a minute. We'll follow up to arrange a visit that fits around your opening hours."
         steps={steps}
         resultHeading="Good to go"
         resultBodyHtml={resultBodyHtml}

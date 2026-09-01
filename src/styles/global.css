@@ -131,6 +131,15 @@ a { color: var(--color-navy-700); }
 }
 .btn--on-navy:hover { background: rgba(255,255,255,0.12); }
 
+/* WhatsApp's own green — deliberately off-brand here because people recognise
+   it instantly as "message us on WhatsApp" faster than any brand-matched colour would. */
+.btn--whatsapp {
+  background: #25d366;
+  color: var(--color-white);
+  border-color: #25d366;
+}
+.btn--whatsapp:hover { background: #1ebc59; border-color: #1ebc59; }
+
 .btn--block { width: 100%; }
 
 /* Trust strip */
@@ -198,6 +207,7 @@ a { color: var(--color-navy-700); }
 }
 .sticky-bar a:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.14); }
 .sticky-bar a.sticky-bar__book { background: var(--color-orange-500); }
+.sticky-bar a.sticky-bar__whatsapp { background: #25d366; }
 
 .visually-hidden {
   position: absolute;

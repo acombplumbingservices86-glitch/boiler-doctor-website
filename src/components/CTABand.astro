@@ -18,7 +18,7 @@ const { heading, subheading, guideHref, guideLabel } = Astro.props;
       <a href="/book-online/" class="btn btn--primary">Book Online</a>
       <a href={siteConfig.phoneHref} class="btn btn--on-navy">Call {siteConfig.phoneDisplay}</a>
       {siteConfig.whatsappReady && (
-        <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`} class="btn btn--on-navy">WhatsApp Us</a>
+        <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`} class="btn btn--whatsapp">WhatsApp Us</a>
       )}
       {guideHref && <a href={guideHref} class="btn btn--on-navy btn--guide">{guideLabel ?? "Get the free guide"}</a>}
     </div>

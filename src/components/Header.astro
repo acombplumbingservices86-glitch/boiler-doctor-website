@@ -4,8 +4,8 @@ import { siteConfig, primaryNav } from "../data/siteConfig";
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="/" class="site-header__logo">
-      {siteConfig.businessName}
-      <span class="visually-hidden">— home</span>
+      <span class="site-header__logo-dark">The Boiler</span> <span class="site-header__logo-accent">Doctor</span>
+      <span class="visually-hidden">— {siteConfig.businessName}, home</span>
     </a>
 
     <nav class="site-header__nav" aria-label="Primary">
@@ -82,10 +82,11 @@ import { siteConfig, primaryNav } from "../data/siteConfig";
   .site-header__logo {
     font-weight: 800;
     font-size: 1.15rem;
-    color: var(--color-navy-900);
     text-decoration: none;
     white-space: nowrap;
   }
+  .site-header__logo-dark { color: var(--color-navy-900); }
+  .site-header__logo-accent { color: var(--color-orange-600); }
   .site-header__nav { display: none; }
   .site-header__nav ul {
     display: flex;
@@ -134,7 +135,10 @@ import { siteConfig, primaryNav } from "../data/siteConfig";
   .mobile-nav {
     border-top: 1px solid var(--color-grey-100);
     padding: 1.25rem;
+    padding-bottom: calc(1.25rem + var(--sticky-bar-height, 60px));
     background: var(--color-white);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
   .mobile-nav ul {
     list-style: none;

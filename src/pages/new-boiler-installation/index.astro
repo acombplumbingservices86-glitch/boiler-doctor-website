@@ -7,10 +7,16 @@ import { siteConfig } from "../../data/siteConfig";
 
 const priceGuideSteps = [
   {
+    key: "systemType",
+    type: "choice",
+    question: "What type of system do you have?",
+    options: ["Combi boiler", "System boiler (with a cylinder)", "Regular / heat-only boiler", "Not sure"],
+  },
+  {
     key: "situation",
     type: "choice",
     question: "What are you looking to do?",
-    options: ["Replace a broken boiler, like-for-like", "Upgrade from a system boiler to a combi", "Not sure yet — just exploring"],
+    options: ["Replace a broken boiler, like-for-like", "Upgrade to a different system type", "Not sure yet — just exploring"],
   },
   {
     key: "bedrooms",
@@ -18,20 +24,33 @@ const priceGuideSteps = [
     question: "How many bedrooms in the property?",
     options: ["1–2", "3–4", "5+"],
   },
+  {
+    key: "bathrooms",
+    type: "choice",
+    question: "How many bathrooms or showers might run at the same time?",
+    options: ["1", "2", "3+"],
+  },
+  {
+    key: "boilerAge",
+    type: "choice",
+    question: "How old is your current boiler?",
+    options: ["Under 10 years", "10–15 years", "15+ years", "No boiler yet"],
+  },
 ];
 
 const priceGuideResultHtml = `
-  <p>Based on what you've told us — <strong>{{answers.situation}}</strong>, {{answers.bedrooms}} bedrooms:</p>
+  <p>Based on what you've told us — <strong>{{answers.systemType}}</strong>, {{answers.situation}}, {{answers.bedrooms}} bedrooms, {{answers.bathrooms}} bathroom(s):</p>
   <ul>
     <li>A <strong>like-for-like combi swap</strong> starts from <strong>£2,000</strong></li>
     <li>A <strong>system-to-combi conversion</strong> starts from <strong>£3,000</strong></li>
+    <li>Typical range for most jobs: <strong>£2,000–£5,000</strong>, depending on what's involved</li>
   </ul>
   <p>That's a solid starting point — the exact number depends on the boiler and what's already in the house. We'll follow up with a proper written quote after a free home visit. No obligation, no pressure to buy bigger than you need.</p>
 `;
 
 const title = "New Boiler Installation in York | Worcester Bosch & Ideal Specialists";
 const description =
-  "From £2,000-£3,000 fitted. Worcester Bosch and Ideal accredited installer. Honest advice on combi vs system, no pressure. Call 01904 206190.";
+  "New boilers from £2,000, typically £2,000-£5,000 fitted. Worcester Bosch and Ideal accredited installer. Honest advice, no pressure. Call 01904 206190.";
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
@@ -54,12 +73,12 @@ const description =
       <ul class="price-list">
         <li><strong>Like-for-like combi swap:</strong> from £2,000</li>
         <li><strong>System-to-combi conversion:</strong> from £3,000</li>
-        <li>Typical range £2,000–£3,000 depending on the job</li>
-        <li>Deposit required on jobs over £400 (set out in your written quote); balance due within 7 days of completion</li>
+        <li>Typical range £2,000–£5,000 depending on the job</li>
+        <li>Deposit required on jobs over £1,000 (set out in your written quote); balance due on completion</li>
       </ul>
     </div>
     <div class="container install-gallery">
-      <img src="/images/installs/install-steve-pointing.jpg" alt="Steve from The Boiler Doctor talking a customer through their newly fitted boiler" loading="lazy" />
+      <img src="/images/installs/install-mug.jpg" alt="Finished boiler installation with a Boiler Doctor branded folder and mug" loading="lazy" />
       <img src="/images/installs/install-cupboard.jpg" alt="Boiler neatly installed in a kitchen cupboard" loading="lazy" />
       <img src="/images/installs/install-bathroom.jpg" alt="Boiler installed in a bathroom with tiled floor" loading="lazy" />
       <img src="/images/installs/install-branded-folder.jpg" alt="Completed boiler installation with The Boiler Doctor's service record folder" loading="lazy" />
@@ -110,10 +129,10 @@ const description =
   <section class="section">
     <div class="container narrow lead-magnet">
       <h2>Not sure what you need yet?</h2>
-      <p>Two quick questions and we'll give you a straight ballpark figure — right here, no waiting on a callback.</p>
+      <p>A few quick questions and we'll give you a straight ballpark figure — right here, no waiting on a callback.</p>
       <LeadMagnetForm
         magnetId="boiler-price-estimate-inline"
-        intro="Takes about 20 seconds. Tell us what you're working with, and we'll give you a straight ballpark."
+        intro="Takes about a minute. Tell us what you're working with, and we'll give you a straight ballpark."
         steps={priceGuideSteps}
         resultHeading="Here's your ballpark"
         resultBodyHtml={priceGuideResultHtml}

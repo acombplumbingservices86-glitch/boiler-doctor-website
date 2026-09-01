@@ -22,10 +22,12 @@ const year = new Date().getFullYear();
         <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a><br />
         <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a>
       </p>
-      <p>
-        <a href={siteConfig.socials.facebook}>Facebook</a> ·{" "}
-        <a href={siteConfig.socials.youtube}>YouTube</a>
-      </p>
+      <div class="site-footer__socials">
+        {siteConfig.socials.facebook && <a href={siteConfig.socials.facebook}><span aria-hidden="true">📘</span> Facebook</a>}
+        {siteConfig.socials.youtube && <a href={siteConfig.socials.youtube}><span aria-hidden="true">▶️</span> YouTube</a>}
+        {siteConfig.socials.instagram && <a href={siteConfig.socials.instagram}><span aria-hidden="true">📷</span> Instagram</a>}
+        {siteConfig.socials.tiktok && <a href={siteConfig.socials.tiktok}><span aria-hidden="true">🎵</span> TikTok</a>}
+      </div>
     </div>
 
     <div>
@@ -79,6 +81,8 @@ const year = new Date().getFullYear();
   }
   .site-footer__list { list-style: none; margin: 0; padding: 0; }
   .site-footer__list li { margin-bottom: 0.4em; }
+  .site-footer__socials { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 0.75rem; }
+  .site-footer__socials a { font-weight: 700; font-size: 0.95rem; }
   .site-footer__bottom {
     border-top: 1px solid rgba(255,255,255,0.12);
     padding: 1.25rem 0;

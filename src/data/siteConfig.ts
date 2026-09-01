@@ -84,7 +84,15 @@ export const siteConfig = {
   socials: {
     facebook: "https://www.facebook.com/theboilerdoctor.york",
     youtube: "https://www.youtube.com/channel/UC0wXZNqGd02o_QrISh7Ot3g",
+    // Steve mentioned Instagram and TikTok accounts (28 Aug feedback) — add the URLs here once
+    // he sends them and they'll pick up automatically on the Contact page's "Follow along" section.
+    instagram: "",
+    tiktok: "",
   },
+
+  // Specific YouTube videos Steve wants linked from the Contact page (podcast appearances,
+  // how-to videos e.g. topping up boiler pressure) — add {label, url} entries once he sends links.
+  featuredVideos: [] as { label: string; url: string }[],
 
   bookingUrl:
     "https://book.servicem8.com/request_service_online_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b",

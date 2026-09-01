@@ -35,6 +35,45 @@ const description = "Get in touch by phone, WhatsApp or email. We usually reply 
     </div>
   </section>
 
+  <section class="section section--alt">
+    <div class="container narrow">
+      <h2>Follow along</h2>
+      <p>Boiler tips, job walkthroughs and the odd podcast appearance — follow The Boiler Doctor for more.</p>
+      <div class="social-links">
+        {siteConfig.socials.facebook && (
+          <a href={siteConfig.socials.facebook} class="social-link social-link--facebook">
+            <span aria-hidden="true">📘</span> Facebook
+          </a>
+        )}
+        {siteConfig.socials.youtube && (
+          <a href={siteConfig.socials.youtube} class="social-link social-link--youtube">
+            <span aria-hidden="true">▶️</span> YouTube
+          </a>
+        )}
+        {siteConfig.socials.instagram && (
+          <a href={siteConfig.socials.instagram} class="social-link social-link--instagram">
+            <span aria-hidden="true">📷</span> Instagram
+          </a>
+        )}
+        {siteConfig.socials.tiktok && (
+          <a href={siteConfig.socials.tiktok} class="social-link social-link--tiktok">
+            <span aria-hidden="true">🎵</span> TikTok
+          </a>
+        )}
+      </div>
+      {siteConfig.featuredVideos.length > 0 && (
+        <div class="featured-videos">
+          <h3>Worth a watch</h3>
+          <ul>
+            {siteConfig.featuredVideos.map((v) => (
+              <li><a href={v.url}>{v.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </section>
+
   <section class="section">
     <div class="container narrow fine-print">
       <p>
@@ -50,4 +89,22 @@ const description = "Get in touch by phone, WhatsApp or email. We usually reply 
   .contact-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   .narrow { max-width: 68ch; }
   .fine-print { font-size: 0.85rem; color: var(--color-grey-600); }
+  .social-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 700;
+    font-size: 0.98rem;
+    padding: 0.75em 1.25em;
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-navy-800);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+  }
+  .social-link:hover { background: var(--color-grey-100); }
+  .featured-videos { margin-top: 2rem; }
+  .featured-videos ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .featured-videos li { background: var(--color-white); border-radius: var(--radius-sm); padding: 0.7em 1em; box-shadow: var(--shadow-card); }
 </style>
