@@ -39,7 +39,9 @@ const schema = {
   // NEEDS STEVE: openingHoursSpecification needs confirmed days (siteConfig.officeHours
   // only has the time, "8:00am – 5:00pm", no days) — add once confirmed rather than
   // assume Mon–Fri for what may be a 7-day emergency callout business.
-  "sameAs": [siteConfig.socials.facebook, siteConfig.socials.youtube],
+  // Built from every populated siteConfig.socials entry so a newly added profile (Instagram,
+  // TikTok) picks up here automatically — don't hardcode individual platforms again.
+  "sameAs": Object.values(siteConfig.socials).filter(Boolean),
 };
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

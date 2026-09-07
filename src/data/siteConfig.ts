@@ -84,9 +84,7 @@ export const siteConfig = {
   socials: {
     facebook: "https://www.facebook.com/theboilerdoctor.york",
     youtube: "https://www.youtube.com/channel/UC0wXZNqGd02o_QrISh7Ot3g",
-    // Instagram still pending from Steve — add the URL here once he sends it and it'll pick up
-    // automatically on the Contact page's "Follow along" section.
-    instagram: "",
+    instagram: "https://www.instagram.com/theboilerdoctoryork/",
     tiktok: "https://www.tiktok.com/@theboilerdoctoryork",
   },
   tiktokHandle: "theboilerdoctoryork", // used to embed the live "recent videos" creator feed on the Contact page
