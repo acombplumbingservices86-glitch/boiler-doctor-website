@@ -1,0 +1,219 @@
+{
+ "meta": {
+  "description": "Short-tail (head-term) target keywords from The-Boiler-Doctor-SEO-Keyword-Strategy.xlsx, built from real call-volume data. Read by the automated blog-drafting task so every new article naturally works in 2-3 relevant target phrases and links to the matching hub/service page for its topic \u2014 never keyword-stuff, weave them into real sentences.",
+  "source": "The-Boiler-Doctor-SEO-Keyword-Strategy.xlsx (Steve's Drive folder), Short-Tail Keywords sheet",
+  "last_updated": "2026-09-07"
+ },
+ "keywords": [
+  {
+   "keyword": "boiler breakdown York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "Highest (41% of all calls are emergencies)",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "emergency boiler repair York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "Highest",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "boiler not working York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "Highest",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "no heating York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "Highest",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "no hot water York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "High (2% of calls, but high urgency)",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "emergency plumber York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "High",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "same day boiler repair York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "High",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "boiler service York",
+   "search_intent": "Commercial",
+   "priority": "High (23.5% of calls)",
+   "target_page": "/boiler-servicing/"
+  },
+  {
+   "keyword": "annual boiler service York",
+   "search_intent": "Commercial",
+   "priority": "High",
+   "target_page": "/boiler-servicing/"
+  },
+  {
+   "keyword": "gas safety certificate York",
+   "search_intent": "Commercial",
+   "priority": "Medium-high (3% of calls, low price sensitivity)",
+   "target_page": "/gas-safety-landlords/"
+  },
+  {
+   "keyword": "landlord gas certificate York",
+   "search_intent": "Commercial \u2014 B2B",
+   "priority": "Medium-high",
+   "target_page": "/gas-safety-landlords/"
+  },
+  {
+   "keyword": "CP12 certificate York",
+   "search_intent": "Commercial \u2014 B2B",
+   "priority": "Medium-high",
+   "target_page": "/gas-safety-landlords/"
+  },
+  {
+   "keyword": "new boiler York",
+   "search_intent": "Commercial \u2014 high value",
+   "priority": "High (8% of calls, highest-value job)",
+   "target_page": "/new-boiler-installation/"
+  },
+  {
+   "keyword": "boiler installation York",
+   "search_intent": "Commercial \u2014 high value",
+   "priority": "High",
+   "target_page": "/new-boiler-installation/"
+  },
+  {
+   "keyword": "boiler replacement York",
+   "search_intent": "Commercial \u2014 high value",
+   "priority": "High",
+   "target_page": "/new-boiler-installation/"
+  },
+  {
+   "keyword": "boiler quote York",
+   "search_intent": "Commercial \u2014 high value",
+   "priority": "High (17.8% of calls are quote requests)",
+   "target_page": "/new-boiler-installation/"
+  },
+  {
+   "keyword": "boiler finance York",
+   "search_intent": "Commercial \u2014 high value",
+   "priority": "Medium",
+   "target_page": "/new-boiler-installation/"
+  },
+  {
+   "keyword": "boiler pressure low York",
+   "search_intent": "Informational/transactional",
+   "priority": "Medium (6.6% of calls)",
+   "target_page": "/advice-centre/why-is-my-boiler-losing-pressure/"
+  },
+  {
+   "keyword": "boiler leaking York",
+   "search_intent": "Transactional \u2014 urgent",
+   "priority": "Medium (6% of calls)",
+   "target_page": "/boiler-repairs-breakdowns/"
+  },
+  {
+   "keyword": "radiator not heating York",
+   "search_intent": "Transactional",
+   "priority": "Medium (7.5% of calls)",
+   "target_page": "/central-heating-radiators/"
+  },
+  {
+   "keyword": "thermostat not working York",
+   "search_intent": "Transactional",
+   "priority": "Medium (12.3% of calls)",
+   "target_page": "/controls-smart-thermostats/"
+  },
+  {
+   "keyword": "Hive thermostat install York",
+   "search_intent": "Commercial \u2014 upsell",
+   "priority": "Medium",
+   "target_page": "/controls-smart-thermostats/"
+  },
+  {
+   "keyword": "smart thermostat York",
+   "search_intent": "Commercial \u2014 upsell",
+   "priority": "Medium",
+   "target_page": "/controls-smart-thermostats/"
+  },
+  {
+   "keyword": "boiler care plan York",
+   "search_intent": "Commercial \u2014 subscription",
+   "priority": "Medium (11.7% of calls)",
+   "target_page": "/boiler-care-plans/"
+  },
+  {
+   "keyword": "boiler cover York",
+   "search_intent": "Commercial \u2014 subscription",
+   "priority": "Medium",
+   "target_page": "/boiler-care-plans/"
+  },
+  {
+   "keyword": "air conditioning installation York",
+   "search_intent": "Commercial",
+   "priority": "Seasonal \u2014 push Apr\u2013Jul (no call-transcript data yet for AC)",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "air conditioning York",
+   "search_intent": "Commercial",
+   "priority": "Seasonal \u2014 push Apr\u2013Jul",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "air con engineer York",
+   "search_intent": "Commercial",
+   "priority": "Seasonal \u2014 push Apr\u2013Jul",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "split system air conditioning York",
+   "search_intent": "Commercial",
+   "priority": "Seasonal \u2014 push Apr\u2013Jul",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "multi split air conditioning York",
+   "search_intent": "Commercial",
+   "priority": "Seasonal \u2014 push Apr\u2013Jul",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "air conditioning servicing York",
+   "search_intent": "Commercial",
+   "priority": "Seasonal \u2014 push ahead of summer, spring contract renewals",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "commercial air conditioning York",
+   "search_intent": "Commercial \u2014 B2B",
+   "priority": "Seasonal \u2014 B2B, push spring for summer readiness",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "office air conditioning York",
+   "search_intent": "Commercial \u2014 B2B",
+   "priority": "Seasonal \u2014 B2B",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "F-Gas registered engineer York",
+   "search_intent": "Commercial \u2014 trust signal",
+   "priority": "Steady \u2014 low volume, high trust value",
+   "target_page": "/air-conditioning/"
+  },
+  {
+   "keyword": "air conditioning repair York",
+   "search_intent": "Transactional",
+   "priority": "Seasonal \u2014 spikes in a heatwave",
+   "target_page": "/air-conditioning/"
+  }
+ ]
+}
