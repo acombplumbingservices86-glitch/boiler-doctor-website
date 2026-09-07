@@ -90,8 +90,22 @@ export const siteConfig = {
   tiktokHandle: "theboilerdoctoryork", // used to embed the live "recent videos" creator feed on the Contact page
 
   // Specific YouTube videos Steve wants linked from the Contact page (podcast appearances,
-  // how-to videos e.g. topping up boiler pressure) — add {label, url} entries once he sends links.
-  featuredVideos: [] as { label: string; url: string }[],
+  // how-to videos). Supplied directly by Steve, 7 Sep 2026.
+  featuredVideos: [
+    { label: "A Day in the Life of The Boiler Doctor", url: "https://youtu.be/0AUBse66koI" },
+    { label: "New Boiler Install: Start to Finish", url: "https://youtu.be/1bEOut6ufmQ" },
+    { label: "Ideal Vogue: How to Top Up Your Boiler Pressure", url: "https://youtu.be/MjtD3mES4rU" },
+    { label: "Worcester 4000 Boiler Review", url: "https://youtu.be/V4DrsNXTSZM" },
+    { label: "Worcester 2000 Boiler Review", url: "https://youtu.be/iX7tdO0HFdw" },
+    { label: "Worcester 8000 Boiler Review", url: "https://youtu.be/2fBHFa2mLfY" },
+    { label: "How to Remove a Radiator: Step by Step", url: "https://youtu.be/wpPe5Hy1cxk" },
+    { label: "Heat Pumps Explained — Podcast with Daman Blakemore", url: "https://youtu.be/nbil-6ybeuM" },
+    { label: "Solar and Battery Storage — with Craig Hepburn", url: "https://youtu.be/c-P3AMwZuAU" },
+    { label: "Keeping Your Home Warm — with Andrew Bell, Windows & uPVC Specialist", url: "https://youtu.be/0CD4KjC35W8" },
+    { label: "How to Solder a Copper Pipe", url: "https://youtu.be/6_nm4m5IFW8" },
+    { label: "What Is an Expansion Vessel?", url: "https://youtu.be/vOpk1SGCl0I" },
+    { label: "How to Change a Radiator Valve Head", url: "https://youtu.be/vXUW8rUUWrI" },
+  ] as { label: string; url: string }[],
 
   bookingUrl:
     "https://book.servicem8.com/request_service_online_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b",
