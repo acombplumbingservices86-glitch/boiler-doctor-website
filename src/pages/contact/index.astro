@@ -71,6 +71,23 @@ const description = "Get in touch by phone, WhatsApp or email. We usually reply 
           </ul>
         </div>
       )}
+      {siteConfig.tiktokHandle && (
+        <div class="tiktok-embed-wrap">
+          <h3>Recent TikToks</h3>
+          <blockquote
+            class="tiktok-embed"
+            cite={`https://www.tiktok.com/@${siteConfig.tiktokHandle}`}
+            data-unique-id={siteConfig.tiktokHandle}
+            data-embed-type="creator"
+            style="max-width: 780px; min-width: 288px;"
+          >
+            <section>
+              <a target="_blank" href={`https://www.tiktok.com/@${siteConfig.tiktokHandle}?refer=creator_embed`}>@{siteConfig.tiktokHandle}</a>
+            </section>
+          </blockquote>
+          <script is:inline async src="https://www.tiktok.com/embed.js"></script>
+        </div>
+      )}
     </div>
   </section>
 
@@ -107,4 +124,5 @@ const description = "Get in touch by phone, WhatsApp or email. We usually reply 
   .featured-videos { margin-top: 2rem; }
   .featured-videos ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
   .featured-videos li { background: var(--color-white); border-radius: var(--radius-sm); padding: 0.7em 1em; box-shadow: var(--shadow-card); }
+  .tiktok-embed-wrap { margin-top: 2rem; }
 </style>
