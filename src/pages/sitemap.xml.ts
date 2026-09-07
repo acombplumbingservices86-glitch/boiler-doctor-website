@@ -28,6 +28,8 @@ const staticPages = [
   "/advice-centre/do-i-need-annual-service/",
   "/advice-centre/cp12-landlord-certificate/",
   "/advice-centre/signs-you-need-power-flush/",
+  "/advice-centre/boiler-broken-who-to-call/",
+  "/advice-centre/elderly-relative-boiler-breakdown/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

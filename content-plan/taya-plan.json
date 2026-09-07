@@ -23,10 +23,10 @@
    "evidence": "Emergency/Urgent Breakdown is 41% of all calls (2,293/5,539) \u2014 the single largest category",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "boiler-broken-who-to-call",
+   "published_path": "/advice-centre/boiler-broken-who-to-call/",
+   "drafted_date": "2026-09-07"
   },
   {
    "id": 2,
@@ -41,10 +41,10 @@
    "evidence": "18.6% of ALL calls (677/5,539) mention elderly/vulnerable family \u2014 the single biggest trust signal in the dataset",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "elderly-relative-boiler-breakdown",
+   "published_path": "/advice-centre/elderly-relative-boiler-breakdown/",
+   "drafted_date": "2026-09-07"
   },
   {
    "id": 3,

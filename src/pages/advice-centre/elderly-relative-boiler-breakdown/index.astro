@@ -1,0 +1,35 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Boiler Breakdown and an Elderly Relative Living Alone? Here's What We Do Differently | The Boiler Doctor, York";
+const description = "Calling about a parent's boiler, not your own? Here's how we handle it differently when it's an elderly relative living alone, and what you can do to help before we get there.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>Boiler Breakdown and an Elderly Relative Living Alone? Here's What We Do Differently</h1>
+  <p>If you're calling us about your mum or dad's boiler rather than your own, you're not the exception — it's one of the most common calls we get. An adult son or daughter, ringing on behalf of a parent who's on their own and can't face dealing with a cold house, or simply doesn't want the hassle of it themselves. Here's what changes when that's the situation.</p>
+
+  <h2>We know it's a different kind of stressful</h2>
+  <p>When it's your own boiler, it's inconvenient. When it's your elderly mum or dad's, and you're not there, it's genuinely worrying — especially in winter, when a cold house isn't just uncomfortable, it's a real health risk for someone older. We take that seriously, and we treat these calls with a bit more urgency, not less.</p>
+
+  <h2>What we do differently</h2>
+  <ul>
+    <li><strong>We're patient, on the phone and on the doorstep.</strong> No jargon, no rushing — if your parent is the one answering the door, we explain what we're doing and why in plain English, the same as we would to you.</li>
+    <li><strong>We'll happily deal with you, not just them.</strong> If you want to be the point of contact — arranging access, being told what we've found, sorting payment — just say so when you call. We're used to it.</li>
+    <li><strong>We work around them, not the other way round.</strong> If your parent has a routine, mobility issues, or just doesn't love having a stranger in the house, tell us in advance. It genuinely helps us turn up prepared rather than catching anyone off guard.</li>
+    <li><strong>Same team, every time.</strong> It's Steve or Kyle who come out — not a rotating cast of subcontractors your parent has never met before.</li>
+  </ul>
+
+  <h2>What helps us before we even arrive</h2>
+  <ol>
+    <li>Let us know if there's a key safe, a neighbour with a spare key, or anything else about getting in if your parent struggles to answer the door quickly.</li>
+    <li>If you know the make of the boiler, or roughly how old it is, that helps us come prepared with the right parts more often than not.</li>
+    <li>Give your parent a heads-up that we're coming, and roughly when — a stranger turning up unannounced is unsettling for anyone, more so if they're on their own.</li>
+    <li>Leave us your own number as well as theirs, so we can update you directly if that's easier for everyone.</li>
+  </ol>
+
+  <h2>If it's genuinely urgent</h2>
+  <p>No heat and no hot water is uncomfortable for most people. For someone older, especially in winter, it can become a real safety issue faster than you'd think. If your parent has no heating at all and it's cold, don't wait it out — treat it as the emergency it is and call us straight away. We prioritise these.</p>
+
+  <p>Call us on <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> — tell us it's for a relative and what's going on, and we'll take it from there.</p>
+</ArticleLayout>

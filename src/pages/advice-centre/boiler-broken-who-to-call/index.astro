@@ -1,0 +1,36 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Boiler Broken? Here's Exactly Who You Should Be Calling in York | The Boiler Doctor, York";
+const description = "Boiler stopped working and not sure who to call — a plumber, an engineer, the manufacturer? Here's the honest, straight answer, and what happens once you do.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>Boiler Broken? Here's Exactly Who You Should Be Calling in York</h1>
+  <p>When the heating goes off or the hot water suddenly disappears, most people don't stop to work out which trade actually fixes a boiler — you just want someone who can, and fast. So here's the straight answer, no messing about, plus what to actually expect once you've made the call.</p>
+
+  <h2>A boiler is a job for a heating engineer, not "a plumber"</h2>
+  <p>Plumbers and heating engineers overlap, but they're not the same thing. A plumber deals with pipework, taps, drains and general water systems. A boiler is a gas appliance — so fixing one, safely and legally, means you need someone who's specifically trained and registered to work on gas appliances, not just pipes.</p>
+  <p>That's the bit a lot of people don't realise until they've already had someone round who couldn't actually touch the boiler itself.</p>
+
+  <h2>Why "Gas Safe registered" isn't just a nice-to-have</h2>
+  <p>In the UK, it's the law: only a Gas Safe registered engineer can legally work on a gas boiler. It's not a badge companies put on their van for show — every registered engineer has their own licence number, and you can check it yourself on the Gas Safe Register before you let anyone near your boiler. Ours is 570248, and we'd always encourage you to check any engineer's, not just ours.</p>
+  <p>This matters most when you're panicking a bit and just want the first available person — it's worth those extra thirty seconds to check.</p>
+
+  <h2>Who actually turns up when you call us</h2>
+  <p>We're a small, family-run team — {siteConfig.yearsTrading} years in the trade between us, based right here in {siteConfig.address.city}. When you call, it's genuinely Steve or Kyle who comes out, not a subcontractor we've never met either. If you've used us before, you might already know one of them by name.</p>
+  <p>Boiler breakdowns are, by a distance, the single biggest reason people call us — so it's not a niche problem you've somehow found yourself with. We see it constantly, especially once the weather turns.</p>
+
+  <h2>What actually happens once you call</h2>
+  <ul>
+    <li>You'll speak to a real person — Hayden runs the office and usually picks up, or it comes straight through to Steve.</li>
+    <li>We'll ask a few quick questions about what's happening (no heat, no hot water, strange noises, a leak) so we know how urgent it genuinely is.</li>
+    <li>We aim for same-day or next-day response on breakdowns, because we're local rather than dispatched in from somewhere across the county.</li>
+    <li>Call-outs start from {siteConfig.minCallOutFee}, agreed upfront — no vague "diagnostic fee" that turns into something bigger once someone's stood in your kitchen.</li>
+  </ul>
+
+  <h2>If you're not sure it's even an emergency</h2>
+  <p>Genuinely — just call and tell us what's happening. A lot of people worry about "wasting our time" over something that turns out to be simple, or worry about sounding dramatic over something that turns out to be serious. Either way, we'd rather you called and asked than sat there cold wondering.</p>
+
+  <p>Give us a ring on <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or drop us a WhatsApp on <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and tell us what your boiler's doing — we'll take it from there.</p>
+</ArticleLayout>
