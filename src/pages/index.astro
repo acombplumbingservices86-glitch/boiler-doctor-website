@@ -32,28 +32,58 @@ const realReviews = [
 ---
 <BaseLayout title={title} description={description}>
   <!-- Hero -->
-  <section class="section hero">
-    <div class="container hero__inner">
-      <div>
-        <h1>York's Boiler Doctor — Fixed Fast, Fitted Right</h1>
-        <p class="hero__subhead">
-          Family-run heating engineers trusted by {siteConfig.reviews.count} five-star reviews
-          across Acomb, York and the surrounding villages. No hard sell, no jargon — just honest
-          advice and a job done right.
-        </p>
-        <div class="hero__actions">
-          <a href="/book-online/" class="btn btn--primary">Book Online</a>
-          <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
-        </div>
-      </div>
-      <div class="hero__media">
-        <img src="/images/team/hero-steve-van.jpg" alt="Steve, owner of The Boiler Doctor, standing in front of the branded company van" class="hero-photo" width="1100" height="825" />
+  <section class="section hero hero--video">
+    <div class="hero__media" aria-hidden="true">
+      <video
+        class="hero__video"
+        id="hero-video"
+        poster="/images/hero/hero-poster.jpg"
+        muted
+        loop
+        playsinline
+        preload="none"
+      >
+        <source src="/videos/hero-arrival.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <h1>York's Boiler Doctor — Fixed Fast, Fitted Right</h1>
+      <p class="hero__subhead">
+        Family-run heating engineers trusted by {siteConfig.reviews.count} five-star reviews
+        across Acomb, York and the surrounding villages. No hard sell, no jargon — just honest
+        advice and a job done right.
+      </p>
+      <div class="hero__actions">
+        <a href="/book-online/" class="btn btn--primary">Book Online</a>
+        <a href={siteConfig.phoneHref} class="btn btn--secondary">Call {siteConfig.phoneDisplay}</a>
       </div>
     </div>
+  </section>
+
+  <div class="trust-bar">
     <div class="container">
       <TrustStrip />
     </div>
-  </section>
+  </div>
+
+  <script>
+    (function () {
+      const video = document.getElementById("hero-video");
+      if (!video) return;
+      const canAutoplay =
+        window.matchMedia("(min-width: 768px)").matches &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!canAutoplay) return;
+      video.setAttribute("preload", "auto");
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {
+          /* Autoplay blocked by the browser — the poster frame stays in place, no harm done. */
+        });
+      }
+    })();
+  </script>
 
   <BigNumbers />
 
@@ -168,28 +198,49 @@ const realReviews = [
 </BaseLayout>
 
 <style>
-  .hero__inner {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-    grid-template-columns: 1fr;
-  }
-  @media (min-width: 900px) {
-    .hero__inner { grid-template-columns: 1.1fr 0.9fr; }
-  }
-  .hero__subhead { font-size: 1.1rem; color: var(--color-grey-600); max-width: 42ch; }
-  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
-  .hero__media {
-    border-radius: var(--radius-lg);
+  .hero--video {
+    position: relative;
+    isolation: isolate;
     overflow: hidden;
+    min-height: clamp(520px, 88vh, 760px);
     display: flex;
+    align-items: center;
+    padding: 0;
   }
-  .hero-photo {
+  .hero--video .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--color-navy-900);
+  }
+  .hero__video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
     display: block;
-    border-radius: var(--radius-lg);
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(100deg, rgba(11, 31, 58, 0.88) 0%, rgba(11, 31, 58, 0.62) 42%, rgba(11, 31, 58, 0.28) 75%),
+      linear-gradient(0deg, rgba(11, 31, 58, 0.55) 0%, rgba(11, 31, 58, 0) 35%);
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    max-width: 640px;
+    padding: clamp(3rem, 9vw, 5rem) 0;
+  }
+  .hero__content h1 { color: #fff; }
+  .hero__subhead { font-size: 1.15rem; color: rgba(255, 255, 255, 0.92); max-width: 42ch; }
+  .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .trust-bar {
+    background: var(--color-off-white);
+    border-bottom: 1px solid var(--color-grey-100);
   }
   .service-tile { text-decoration: none; color: inherit; display: block; }
   .service-tile__link { color: var(--color-orange-600); font-weight: 700; font-size: 0.9rem; }
