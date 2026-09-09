@@ -4,7 +4,17 @@ import { siteConfig, primaryNav } from "../data/siteConfig";
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="/" class="site-header__logo">
-      <span class="site-header__logo-dark">The Boiler</span> <span class="site-header__logo-accent">Doctor</span>
+      <img
+        src="/images/logo-icon.png"
+        alt=""
+        class="site-header__logo-icon"
+        width="41"
+        height="48"
+        loading="eager"
+      />
+      <span class="site-header__logo-text">
+        <span class="site-header__logo-dark">The Boiler</span> <span class="site-header__logo-accent">Doctor</span>
+      </span>
       <span class="visually-hidden">— {siteConfig.businessName}, home</span>
     </a>
 
@@ -80,10 +90,19 @@ import { siteConfig, primaryNav } from "../data/siteConfig";
     padding-block: 0.85rem;
   }
   .site-header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     font-weight: 800;
     font-size: 1.15rem;
     text-decoration: none;
     white-space: nowrap;
+  }
+  .site-header__logo-icon {
+    height: 40px;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
   }
   .site-header__logo-dark { color: var(--color-navy-900); }
   .site-header__logo-accent { color: var(--color-orange-600); }
