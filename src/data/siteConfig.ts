@@ -11,7 +11,7 @@ export const siteConfig = {
   // stopgap) — until then, the forms still work and show a result, they
   // just aren't captured anywhere. Fill in and every lead-magnet page picks
   // it up automatically, no other changes needed.
-  leadWebhookUrl: "",
+  leadWebhookUrl: "https://services.leadconnectorhq.com/hooks/9G8OseNUvGKUurUb2bTu/webhook-trigger/8baa0d92-f319-49f1-823a-5abd4c9200f1",
   legalName: "The Boiler Doctor York Limited",
   companyNumber: "13104837",
   vatNumber: "366 8000 94",
