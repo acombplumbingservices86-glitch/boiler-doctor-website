@@ -39,9 +39,14 @@ export const siteConfig = {
 
   reviews: {
     rating: 5.0,
-    count: 384,
+    count: 400,
+    // Real Google count was 395 as of 9 Sep 2026; Steve asked for copy to say
+    // "over 400" / "400+" since he expects to cross it by the time this is live.
+    // countLabel is the compact tag form (stat tiles, page titles); prose
+    // components write "over" around the plain count themselves.
+    countLabel: "400+",
     // Pull fresh again right before launch — this figure moves daily.
-    asOf: "2026-08-28",
+    asOf: "2026-09-09",
   },
 
   yearsTrading: 18, // Steve started plumbing in 2008 — confirmed directly by Steve, 29 Aug 2026

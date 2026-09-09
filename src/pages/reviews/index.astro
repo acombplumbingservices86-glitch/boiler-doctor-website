@@ -5,9 +5,9 @@ import CTABand from "../../components/CTABand.astro";
 import NeedsInput from "../../components/NeedsInput.astro";
 import { siteConfig } from "../../data/siteConfig";
 
-const title = `${siteConfig.reviews.count} Five-Star Reviews | The Boiler Doctor, York`;
+const title = `${siteConfig.reviews.countLabel} Five-Star Reviews | The Boiler Doctor, York`;
 const description =
-  "Real reviews from real customers across York. 5.0 stars from 384 Google reviews. Read what people actually say about working with us.";
+  "Real reviews from real customers across York. 5.0 stars from over 400 Google reviews. Read what people actually say about working with us.";
 
 // Full written-review set from "09 Real Google Reviews Sample.csv" — Steve's own sample pull
 // from Google. All 38 reviews with written text are shown below, verbatim as posted (including
@@ -59,7 +59,7 @@ const reviews = [
 <BaseLayout title={title} description={description}>
   <section class="section">
     <div class="container">
-      <h1>{siteConfig.reviews.count} Five-Star Reviews. Real Names, Real Jobs.</h1>
+      <h1>{siteConfig.reviews.countLabel} Five-Star Reviews. Real Names, Real Jobs.</h1>
       <p class="lede">Every review below is genuine — pulled straight from Google, nothing written by us and nothing hand-picked to hide the bad ones (there aren't any yet, but if there ever are, they'll be here too).</p>
       <TrustStrip />
     </div>

@@ -7,7 +7,7 @@ import { siteConfig, serviceTiles } from "../data/siteConfig";
 
 const title = "Boiler Repairs, Servicing & Installation in York | The Boiler Doctor";
 const description =
-  "Family-run boiler and heating engineers in York. 5.0 stars from 384 real Google reviews. Same trade, same faces — Steve and Kyle, on your doorstep. Call 01904 206190.";
+  "Family-run boiler and heating engineers in York. 5.0 stars from over 400 real Google reviews. Same trade, same faces — Steve and Kyle, on your doorstep. Call 01904 206190.";
 
 // Curated from the full 38-review set on /reviews/ — deliberately picked to show the
 // three core services (service, repair, install) rather than the two plumbing-only
@@ -50,7 +50,7 @@ const realReviews = [
     <div class="container hero__content">
       <h1>York's Boiler Doctor — Fixed Fast, Fitted Right</h1>
       <p class="hero__subhead">
-        Family-run heating engineers trusted by {siteConfig.reviews.count} five-star reviews
+        Family-run heating engineers trusted by over {siteConfig.reviews.count} five-star reviews
         across Acomb, York and the surrounding villages. No hard sell, no jargon — just honest
         advice and a job done right.
       </p>
@@ -137,7 +137,7 @@ const realReviews = [
           </blockquote>
         ))}
       </div>
-      <p><a href="/reviews/">Read all {siteConfig.reviews.count} reviews →</a></p>
+      <p><a href="/reviews/">Read {siteConfig.reviews.countLabel} reviews →</a></p>
     </div>
   </section>
 
