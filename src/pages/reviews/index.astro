@@ -2,7 +2,6 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
 import CTABand from "../../components/CTABand.astro";
-import NeedsInput from "../../components/NeedsInput.astro";
 import { siteConfig } from "../../data/siteConfig";
 
 const title = `${siteConfig.reviews.countLabel} Five-Star Reviews | The Boiler Doctor, York`;
@@ -86,7 +85,7 @@ const reviews = [
     <div class="container narrow">
       <h2>Leave a review</h2>
       <p>Had a good experience? A review helps other people in York find us just as easily as you did.</p>
-      <NeedsInput label="NEEDS STEVE: the direct Google 'write a review' link for the business profile (Google Business Profile → Ask for reviews → Get link) — swap in here rather than a general search link." />
+      <a href="https://g.page/r/CQsH3CDFhb02EBM/review" class="btn btn--primary" target="_blank" rel="noopener">Leave us a review</a>
     </div>
   </section>
 

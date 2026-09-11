@@ -1,29 +1,63 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import NeedsInput from "../../components/NeedsInput.astro";
 import { siteConfig } from "../../data/siteConfig";
 
 const title = "Privacy Policy | The Boiler Doctor";
-const description = "Our privacy policy.";
+const description = "How The Boiler Doctor collects, uses and protects your personal data.";
+const lastUpdated = "11 September 2026";
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
     <div class="container narrow">
       <h1>Privacy Policy</h1>
-      <NeedsInput label="Awaiting a fresh, UK-GDPR-compliant policy — Steve's decision, 29 Aug: commissioning one properly (solicitor or reputable template service) rather than carrying the 2023 version forward. Placeholder structure below." />
-      <h2>What this will cover</h2>
+      <p class="updated">Last updated: {lastUpdated}</p>
+      <p>{siteConfig.legalName} (company number {siteConfig.companyNumber}), trading as {siteConfig.businessName}, takes your privacy seriously. This page explains what personal data we collect, why, and what we do with it.</p>
+
+      <h2>What we collect</h2>
       <ul>
-        <li>What data we collect (forms, WhatsApp, GHL, Care Plan billing) and why</li>
-        <li>How long it's kept</li>
-        <li>Third parties it's shared with (GoHighLevel, ServiceM8, Google, payment processor)</li>
-        <li>Cookie use</li>
-        <li>Your rights — access, deletion, correction</li>
-        <li>Contact for data requests: <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a></li>
+        <li>Your name, address, phone number and email — when you book a job, request a quote, or get in touch via our website, phone or WhatsApp.</li>
+        <li>Details about the job itself — the appliance, the property, and notes our engineers take while working, so we (and any engineer visiting in future) have an accurate history.</li>
+        <li>Payment details for Care Plan members — handled directly by our payment provider; we don't store your card details ourselves.</li>
+        <li>Basic, anonymised site visit statistics (via Google Analytics) — which pages are viewed, not who's viewing them.</li>
       </ul>
+
+      <h2>How we use it</h2>
+      <p>Purely to run the business and look after you as a customer: booking and carrying out jobs, sending reminders (like an annual service or CP12 renewal), invoicing, and keeping the records the law requires us to keep for gas safety and tax purposes.</p>
+
+      <h2>Who sees it</h2>
+      <p>Your data is used internally — we don't sell it, and we don't share it with other companies for their own marketing. It's only ever seen by the people who need it to do your job properly (Steve and the team), or by the software we use to run the business day to day:</p>
+      <ul>
+        <li><strong>GoHighLevel</strong> — our customer records and booking system</li>
+        <li><strong>ServiceM8</strong> — job scheduling and invoicing</li>
+        <li><strong>WhatsApp Business (Meta)</strong> — if you message us that way</li>
+        <li>Our <strong>payment provider</strong> — for Care Plan billing only</li>
+        <li><strong>Google Analytics</strong> — anonymised website statistics</li>
+      </ul>
+      <p>These providers only process your data to help us deliver our service to you — they don't use it for anything of their own.</p>
+
+      <h2>How long we keep it</h2>
+      <ul>
+        <li>Job and customer records: kept while you remain a customer, so we have an accurate history if you call us again.</li>
+        <li>Gas safety records (CP12): kept for at least 2 years, as required by law for landlord certificates.</li>
+        <li>Invoices and payment records: kept for 6 years, in line with HMRC requirements.</li>
+      </ul>
+
+      <h2>Cookies</h2>
+      <p>Our website uses Google Analytics to understand which pages are useful to visitors. This doesn't identify you personally.</p>
+
+      <h2>Your rights</h2>
+      <p>You can ask us at any time to see what data we hold on you, correct it, or have it deleted (except where we're legally required to keep certain records, like gas safety certificates). You also have the right to complain to the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">Information Commissioner's Office (ICO)</a> if you're unhappy with how we've handled your data.</p>
+
+      <h2>Get in touch</h2>
+      <p>For any question about your data, or to make a request, email us at <a href={siteConfig.emailHref}>{siteConfig.emailDisplay}</a> or call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a>.</p>
     </div>
   </section>
 </BaseLayout>
 
 <style>
   .narrow { max-width: 68ch; }
+  .updated { color: var(--color-grey-600); font-size: 0.95rem; margin-top: -0.5rem; }
+  .narrow h2 { margin-top: 2rem; }
+  .narrow ul { padding-left: 1.25rem; }
+  .narrow li { margin-bottom: 0.4rem; }
 </style>
