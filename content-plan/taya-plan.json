@@ -59,10 +59,10 @@
    "evidence": "48 calls (1.3%) describe being let down; quote: \"I've been let down by three people... I needed it doing last week\"",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "who-actually-fixes-your-boiler",
+   "published_path": "/advice-centre/who-actually-fixes-your-boiler/",
+   "drafted_date": "2026-09-11"
   },
   {
    "id": 4,
@@ -77,10 +77,10 @@
    "evidence": "Emergency/Urgent Breakdown is 41% of all calls (2,293) \u2014 not all are genuine same-hour emergencies",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "is-it-a-boiler-emergency",
+   "published_path": "/advice-centre/is-it-a-boiler-emergency/",
+   "drafted_date": "2026-09-11"
   },
   {
    "id": 5,

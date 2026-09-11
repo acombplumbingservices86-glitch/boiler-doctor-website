@@ -30,6 +30,8 @@ const staticPages = [
   "/advice-centre/signs-you-need-power-flush/",
   "/advice-centre/boiler-broken-who-to-call/",
   "/advice-centre/elderly-relative-boiler-breakdown/",
+  "/advice-centre/who-actually-fixes-your-boiler/",
+  "/advice-centre/is-it-a-boiler-emergency/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

@@ -1,0 +1,39 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Is My Boiler Problem a Real Emergency? A Straight Answer Before You Panic-Call | The Boiler Doctor, York";
+const description = "Not sure if your boiler fault is a genuine emergency or something that can wait? An honest, no-upsell guide to help you work out how urgent it really is.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>Is My Boiler Problem a Real Emergency? A Straight Answer Before You Panic-Call</h1>
+  <p>Something's gone wrong with your boiler and you're stood there wondering: is this a "drop everything and call now" situation, or can it actually wait until tomorrow? It's one of the most common questions we get asked, and we'd rather give you an honest answer than have you pay for an out-of-hours <a href="/boiler-repairs-breakdowns/">emergency boiler repair</a> for something that could've waited — or, worse, sit it out overnight when it genuinely shouldn't wait.</p>
+
+  <h2>What's a genuine emergency</h2>
+  <p>These are the ones we'd always say: call now, don't wait.</p>
+  <ul>
+    <li><strong>No heating and no hot water at all, in cold weather.</strong> Especially if there's anyone elderly, very young, or unwell in the house — <a href="/boiler-repairs-breakdowns/">no heating in York</a> during a cold snap isn't just uncomfortable, it can become a genuine health risk quickly.</li>
+    <li><strong>Any smell of gas.</strong> This one isn't a "call us" situation at all — turn off your gas supply at the meter if it's safe to do so, don't use any switches or naked flames, get everyone out, and call the National Gas Emergency number on 0800 111 999 straight away. Sort that first, always, before you think about ringing an engineer.</li>
+    <li><strong>Water pouring or spraying, not just dripping.</strong> Shut the water off at the stopcock if you can get to it safely, then call us.</li>
+    <li><strong>A carbon monoxide alarm going off.</strong> Get out, get fresh air, and call the Gas Emergency number — same as a gas smell.</li>
+  </ul>
+
+  <h2>What usually isn't — and can wait until normal hours</h2>
+  <ul>
+    <li><strong>Hot water that's a bit cooler or slower than usual</strong>, but heating is otherwise working fine.</li>
+    <li><strong>A pressure gauge that's crept down slightly</strong> rather than dropped off a cliff — worth keeping an eye on, not usually worth a middle-of-the-night callout on its own.</li>
+    <li><strong>A single radiator not heating up</strong> while the rest of the house is fine.</li>
+    <li><strong>An intermittent noise</strong> that isn't accompanied by any loss of heat or hot water.</li>
+    <li><strong>A very slow, small drip</strong> that isn't getting worse and isn't near anything electrical.</li>
+  </ul>
+  <p>None of these mean ignore it — they just mean it's genuinely fine to book it in for the next available slot rather than pay an out-of-hours rate for something that isn't going anywhere.</p>
+
+  <h2>The grey area in between</h2>
+  <p>Most calls we get aren't as clear-cut as the lists above, and that's completely normal. If you're not sure, the honest test we'd suggest is this: is anyone in the house cold, or at risk, right now — or is it just annoying? If it's the former, treat it as urgent. If it's the latter, it's usually fine to wait a bit, even if it's frustrating in the meantime.</p>
+
+  <h2>What actually happens when you call, either way</h2>
+  <p>We ask a few quick questions — what's happening, how long it's been going on, and whether anyone in the house is vulnerable to the cold — so we can judge genuine urgency rather than just going off a panicked first sentence. If it needs same day boiler repair, we'll say so and get you in. If it can genuinely wait, we'll tell you that too, rather than talking you into an emergency callout you didn't need. Call-outs start from {siteConfig.minCallOutFee}, agreed upfront either way, so there's no surprise once someone's stood in your kitchen.</p>
+
+  <h2>Still not sure? Just call</h2>
+  <p>Honestly, if you're stuck weighing it up, that's what the phone's for — tell us what's going on and we'll help you work out how urgent it genuinely is, not how urgent it sounds. Call us on <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll take it from there.</p>
+</ArticleLayout>

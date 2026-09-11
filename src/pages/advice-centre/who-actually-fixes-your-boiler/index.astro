@@ -1,0 +1,31 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "No Subcontractors, No Surprises — Who Actually Fixes Your Boiler When You Call Us | The Boiler Doctor, York";
+const description = "Worried the person who quotes you won't be the one who turns up? Here's exactly who fixes your boiler when you call us, and how to check with anyone.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>No Subcontractors, No Surprises — Who Actually Fixes Your Boiler When You Call Us</h1>
+  <p>It's a fair question, and more people ask it than you'd think: if we quote you for a job, is it actually us doing it — or does it get handed off to someone else once you've said yes? With an <a href="/boiler-repairs-breakdowns/">emergency boiler repair</a>, you're letting someone into your house at short notice, often when you're already a bit stressed about it. You deserve to know who that's going to be before they knock.</p>
+
+  <h2>Why this question comes up so much</h2>
+  <p>Because it happens, more than it should. Plenty of bigger firms — especially the national ones — take the booking themselves, then farm the actual job out to a subcontractor you've never spoken to and have no relationship with. Sometimes that subcontractor does a fine job. Sometimes they're rushed, unfamiliar with what you were promised on the phone, and gone again before you've even got their name straight. We hear about it constantly from people who've been caught out before — "I've been let down by three people already, and I needed it doing last week" is a phrase that comes up more than you'd think.</p>
+
+  <h2>Who actually turns up when you call us</h2>
+  <p>Steve or Kyle. That's the whole answer. Between us we've got {siteConfig.yearsTrading} years in the trade, based right here in {siteConfig.address.city}, and we're the ones who diagnose the fault, quote the job, and fix it — not a stranger booked in on our behalf. Hayden runs the office and is usually the voice you'll speak to first, but she's not sending you a name she's never met either. We're a small, family-run outfit, and after {siteConfig.bigNumbers.jobsCompletedDisplay} jobs, a fair few of our customers already know one of us by name.</p>
+
+  <h2>What "no subcontractors" actually means for you</h2>
+  <ul>
+    <li><strong>Continuity.</strong> Whoever diagnoses the fault is the one who fixes it — no re-explaining the problem to somebody new halfway through.</li>
+    <li><strong>Accountability.</strong> If something's not quite right afterwards, you're calling the same people who did the work, not chasing a call centre trying to track down whoever they sent out that day.</li>
+    <li><strong>A Gas Safe number you can actually check.</strong> Ours is {siteConfig.gasSafeNumber} — look it up on the Gas Safe Register before we arrive if you want to. We'd always encourage anyone to check, with any engineer.</li>
+    <li><strong>Someone who actually knows York.</strong> We're not dispatched in from somewhere across the county — we live and work here, which is a big part of why we can usually get you a same day boiler repair, or next-day at the latest.</li>
+  </ul>
+
+  <h2>How to check before you book anyone — not just us</h2>
+  <p>This isn't really about us versus everyone else — it's a fair question to put to any tradesperson before you commit. Ask outright: "Will it be you doing the work, or is this being subcontracted?" A straight answer, given without hesitation, tells you a lot. A vague one is worth paying attention to too — especially for a <a href="/boiler-repairs-breakdowns/">boiler breakdown</a> where you might be letting someone into the house the same day you first spoke to them.</p>
+
+  <h2>If your boiler's playing up</h2>
+  <p>If it's stopped working and you want to know exactly who's coming before they arrive, just ask us when you call — we'll tell you straight, Steve or Kyle, no guessing games and no rotating cast of names. Call us on <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or drop a WhatsApp to <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll get you booked in.</p>
+</ArticleLayout>
