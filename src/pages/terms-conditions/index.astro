@@ -1,25 +1,70 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import NeedsInput from "../../components/NeedsInput.astro";
 
 const title = "Terms & Conditions | The Boiler Doctor";
-const description = "Our terms and conditions.";
+const description = "Our terms and conditions for boiler, heating and air conditioning work carried out by The Boiler Doctor.";
+const lastUpdated = "11 September 2026";
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
     <div class="container narrow">
       <h1>Terms &amp; Conditions</h1>
-      <NeedsInput label="NEEDS STEVE: confirm these are complete and current before publishing as the legal basis for every job." />
+      <p class="updated">Last updated: {lastUpdated}</p>
+      <p>These terms apply to all work carried out by The Boiler Doctor (Steve Thompson, Gas Safe and F-Gas registered), covering boiler, heating, air conditioning and general plumbing work booked with us. By booking a job, you're agreeing to these terms.</p>
+
+      <h2>Quotes and pricing</h2>
       <ul>
-        <li>Workmanship warranty: 12 months from invoice date</li>
-        <li>Deposit required on jobs over £400 (amount set out in your written quote)</li>
-        <li>Balance due on completion, payable within 7 days</li>
-        <li>Prices start from £100 + VAT; any work beyond the call-out is quoted and agreed before we start</li>
+        <li>Call-out and diagnostic visits start from £100 + VAT.</li>
+        <li>Any work beyond the initial call-out is quoted and agreed with you before we start — we won't carry out extra work without your go-ahead.</li>
+        <li>Written quotes for larger jobs (like a new boiler installation) are valid for 30 days unless stated otherwise.</li>
       </ul>
+
+      <h2>Deposits and payment</h2>
+      <ul>
+        <li>A deposit is required on jobs over £400, with the amount set out in your written quote.</li>
+        <li>The balance is due on completion of the work, payable within 7 days.</li>
+        <li>We accept card and bank transfer. Late payment may incur reasonable admin charges for repeated chasing.</li>
+      </ul>
+
+      <h2>Access and getting ready for your appointment</h2>
+      <p>Please make sure we can get to the boiler, cylinder or unit we're working on, and that pets are kept somewhere safe during the visit. If we can't gain access at the agreed time and haven't heard from you, a missed-appointment charge may apply.</p>
+
+      <h2>Cancelling or rescheduling</h2>
+      <ul>
+        <li>Let us know as early as possible if you need to move or cancel an appointment — we'll always try to be flexible.</li>
+        <li>If you booked online or over the phone (rather than in person), you have the usual 14-day cooling-off period under the Consumer Contracts Regulations 2013 to cancel for a full refund. If you ask us to start work within that 14 days, you're agreeing we can begin straight away, and you may be charged for any work already done if you then cancel.</li>
+        <li>Deposits may not be refundable where materials have already been ordered specifically for your job.</li>
+      </ul>
+
+      <h2>Our workmanship guarantee</h2>
+      <ul>
+        <li>All work carried out by us is guaranteed for 12 months from the invoice date, covering our workmanship.</li>
+        <li>Parts and appliances (such as a new boiler) carry the manufacturer's own warranty on top of this — we'll register it for you where that's part of the service, and let you know the terms that apply.</li>
+        <li>The guarantee doesn't cover faults caused by misuse, lack of servicing, other tradespeople's work, or normal wear and tear.</li>
+      </ul>
+
+      <h2>Parts and materials</h2>
+      <p>We use trusted suppliers and manufacturer-approved parts. Where a specific brand or model isn't available, we'll agree a suitable equivalent with you first.</p>
+
+      <h2>Gas and safety compliance</h2>
+      <p>All gas work is carried out by a Gas Safe registered engineer, and air conditioning work by an F-Gas registered engineer, in line with current UK safety regulations. Landlord gas safety records (CP12) are issued in line with legal requirements.</p>
+
+      <h2>Liability</h2>
+      <p>We carry public liability insurance and take care to protect your property while we work. We're not responsible for pre-existing faults, hidden pipework issues, or damage arising from problems that couldn't reasonably have been spotted before starting the job. Nothing in these terms limits your legal rights as a consumer.</p>
+
+      <h2>Complaints</h2>
+      <p>If something's not right, please get in touch straight away so we can put it right — most issues are sorted quickly with a follow-up visit. You can reach us by phone or email using the details on our <a href="/contact/">contact page</a>.</p>
+
+      <h2>Governing law</h2>
+      <p>These terms are governed by the law of England and Wales.</p>
     </div>
   </section>
 </BaseLayout>
 
 <style>
   .narrow { max-width: 68ch; }
+  .updated { color: var(--color-grey-600); font-size: 0.95rem; margin-top: -0.5rem; }
+  .narrow h2 { margin-top: 2rem; }
+  .narrow ul { padding-left: 1.25rem; }
+  .narrow li { margin-bottom: 0.4rem; }
 </style>
