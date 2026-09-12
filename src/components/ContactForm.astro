@@ -1,0 +1,134 @@
+---
+// Basic contact form — posts as JSON to the same GHL inbound webhook the
+// lead-magnet forms use (siteConfig.leadWebhookUrl), tagged formType:
+// "contact" plus the chosen service interest so it can be filtered/routed
+// in GHL. Stopgap until a dedicated GHL form/pipeline replaces it.
+import { siteConfig } from "../data/siteConfig";
+
+const serviceOptions = [
+  "Boiler repair / breakdown",
+  "Boiler servicing",
+  "New boiler installation",
+  "Boiler Care Plan",
+  "Air conditioning",
+  "Landlord gas safety certificate",
+  "Something else",
+];
+---
+<form class="contact-form" id="contact-form">
+  <label>
+    <span>Name</span>
+    <input type="text" name="name" required autocomplete="name" />
+  </label>
+  <div class="contact-form__row">
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required autocomplete="email" />
+    </label>
+    <label>
+      <span>Phone</span>
+      <input type="tel" name="phone" required autocomplete="tel" />
+    </label>
+  </div>
+  <label>
+    <span>What do you need?</span>
+    <select name="serviceInterest" required>
+      <option value="" disabled selected>Choose one</option>
+      {serviceOptions.map((opt) => <option value={opt}>{opt}</option>)}
+    </select>
+  </label>
+  <label>
+    <span>Message</span>
+    <textarea name="message" rows="4" required></textarea>
+  </label>
+  <button type="submit" class="btn btn--primary contact-form__submit">Send message</button>
+  <p class="contact-form__status" role="status" aria-live="polite"></p>
+</form>
+
+<script define:vars={{ webhookUrl: siteConfig.leadWebhookUrl }}>
+  (function () {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+    const status = form.querySelector(".contact-form__status");
+    const submitBtn = form.querySelector(".contact-form__submit");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = {
+        formType: "contact",
+        sourcePage: "/contact/",
+        submittedAt: new Date().toISOString(),
+        answers: {
+          name: fd.get("name"),
+          email: fd.get("email"),
+          phone: fd.get("phone"),
+          serviceInterest: fd.get("serviceInterest"),
+          message: fd.get("message"),
+        },
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+      status.textContent = "";
+      status.classList.remove("is-error");
+
+      try {
+        if (!webhookUrl) throw new Error("No webhook configured");
+        const res = await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error("Webhook responded with " + res.status);
+        form.reset();
+        form.hidden = true;
+        status.hidden = false;
+        status.textContent = "Thanks — that's sent through to us. We usually reply the same day.";
+      } catch (err) {
+        console.warn("Contact form webhook failed:", err);
+        status.classList.add("is-error");
+        status.textContent = `Sorry, that didn't send. Please call us on ${siteConfig.phoneDisplay} or email ${siteConfig.emailDisplay} instead.`;
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send message";
+      }
+    });
+  })();
+</script>
+
+<style>
+  .contact-form { display: grid; gap: 1rem; }
+  .contact-form__row { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 480px) {
+    .contact-form__row { grid-template-columns: 1fr; }
+  }
+  .contact-form label { display: grid; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--color-grey-600); }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.75em 0.9em;
+    border: 2px solid var(--color-grey-100);
+    border-radius: var(--radius-sm);
+    background: var(--color-off-white);
+    color: var(--color-grey-900);
+  }
+  .contact-form textarea { resize: vertical; }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-orange-400);
+    background: var(--color-white);
+  }
+  .contact-form__submit { justify-self: start; }
+  .contact-form__status {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-success);
+  }
+  .contact-form__status:empty { display: none; }
+  .contact-form__status.is-error { color: var(--color-orange-600); }
+</style>
