@@ -180,14 +180,13 @@ a { color: var(--color-navy-700); }
 /* Sticky mobile CTA bar */
 .sticky-bar {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: var(--sticky-bar-height);
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  height: calc(var(--sticky-bar-height) - 0.6rem);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background: var(--color-navy-900);
-  box-shadow: var(--shadow-sticky);
+  gap: 0.5rem;
   z-index: 50;
 }
 @media (min-width: 900px) {
@@ -204,8 +203,10 @@ a { color: var(--color-navy-700); }
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  background: var(--color-navy-900);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sticky);
 }
-.sticky-bar a:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.14); }
 .sticky-bar a.sticky-bar__book { background: var(--color-orange-500); }
 .sticky-bar a.sticky-bar__whatsapp { background: #25d366; }
 
