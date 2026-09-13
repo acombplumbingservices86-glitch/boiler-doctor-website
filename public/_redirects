@@ -45,7 +45,7 @@
 /terms-conditions  /terms-conditions/  301
 /testimonials  /reviews/  301
 /thermostats-plumber  /controls-smart-thermostats/  301
-/prices  /  301
+/prices  /advice-centre/new-boiler-cost/  301
 /gas-leak-plumber  /gas-safety-landlords/  301
 
 # --- Added: remaining old-site redirects from the migration analysis
@@ -115,4 +115,12 @@
 /video/boiler-doctor-podcast-energy-efficiency-episode-2  /about/  301
 /video/overcoming-life-challenges-inspiring-men-talk-stephen-kinsella  /about/  301
 # Generic 'plumber in York' page — no direct equivalent; see plumbing-scope note in the workbook.
-/york-plumber  /  301
+# Sent to /service-areas/ rather than the homepage — closer to what the old page was about.
+# Steve to confirm (analytics dashboard review, Sep 2026): build this out as a proper landing
+# page instead, or leave it retired as a redirect.
+/york-plumber  /service-areas/  301
+
+# Analytics dashboard review (Sep 2026) — dead old-site addresses still getting hits/impressions.
+/bathroom-renovation  /about/  301
+# Old Facebook cross-post stub pages (boiler-doctor-XXX slugs) — wildcard catches all of them.
+/facebook-post/*  /advice-centre/  301

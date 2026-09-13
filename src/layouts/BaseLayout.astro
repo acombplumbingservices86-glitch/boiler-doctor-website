@@ -42,6 +42,55 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       gtag("js", new Date());
       gtag("config", gaId);
     </script>
+
+    {siteConfig.metaPixelId && (
+      <>
+        <script define:vars={{ pixelId: siteConfig.metaPixelId }}>
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', pixelId);
+          fbq('track', 'PageView');
+        </script>
+        <noscript>
+          <img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${siteConfig.metaPixelId}&ev=PageView&noscript=1`} />
+        </noscript>
+      </>
+    )}
+
+    <!--
+      Shared lead-tracking helper. Fires a GA4 "generate_lead" event (and a
+      Meta "Lead" event, once metaPixelId is set) for every way someone
+      contacts us: the contact form (called from ContactForm.astro on a
+      successful submit), and any tel:/mailto: link anywhere on the site —
+      header, footer, /contact/, /book-online/, all covered automatically
+      since this listens on the whole document rather than per-component.
+    -->
+    <script define:vars={{ hasPixel: !!siteConfig.metaPixelId }}>
+      window.trackLead = function (method) {
+        try {
+          if (window.gtag) {
+            window.gtag("event", "generate_lead", { method });
+          }
+          if (hasPixel && window.fbq) {
+            window.fbq("track", "Lead", { content_name: method });
+          }
+        } catch (err) {
+          console.warn("trackLead failed:", err);
+        }
+      };
+
+      document.addEventListener("click", function (e) {
+        const link = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+        if (!link) return;
+        window.trackLead(link.getAttribute("href").startsWith("tel:") ? "phone" : "email");
+      });
+    </script>
   </head>
   <body>
     <a href="#main" class="visually-hidden">Skip to content</a>

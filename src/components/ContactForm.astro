@@ -81,6 +81,7 @@ const serviceOptions = [
           body: JSON.stringify(payload),
         });
         if (!res.ok) throw new Error("Webhook responded with " + res.status);
+        if (window.trackLead) window.trackLead("form");
         form.reset();
         form.hidden = true;
         status.hidden = false;
