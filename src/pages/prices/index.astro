@@ -11,32 +11,29 @@ const description =
 const prices = [
   {
     name: "Annual Boiler Service",
-    price: "£100",
-    unit: "+ VAT",
+    price: "£120",
     blurb: "Keeps your manufacturer's warranty valid and catches small faults before they become breakdowns.",
     href: "/boiler-servicing/",
     linkLabel: "See what's included",
   },
   {
     name: "Boiler Repair / Breakdown",
-    price: "£100",
-    unit: "+ VAT call-out",
+    price: "£120",
+    unit: "call-out",
     blurb: "Covers the visit and diagnosis. Any parts needed are priced and agreed with you before we start — never a surprise on the invoice.",
     href: "/boiler-repairs-breakdowns/",
     linkLabel: "See how repairs work",
   },
   {
     name: "New Boiler Installation",
-    price: "From £2,000",
-    unit: "+ VAT",
-    blurb: "A like-for-like combi swap starts from £2,000. A system-to-combi conversion, where more pipework's involved, starts from £3,000. Most jobs land between £2,000 and £5,000.",
+    price: "From £2,500",
+    blurb: "A like-for-like combi swap starts from £2,500. A system-to-combi conversion, where more pipework's involved, starts from £3,500. Most jobs land between £2,500 and £6,000.",
     href: "/new-boiler-installation/",
     linkLabel: "See the full cost breakdown",
   },
   {
     name: "Radiator Installation",
-    price: "From £200",
-    unit: "+ VAT",
+    price: "From £240",
     blurb: "A like-for-like radiator swap — same position, same pipework. Bigger jobs (extra radiators, moved pipework, upgrades) are priced once we've seen the room.",
     href: "/central-heating-radiators/",
     linkLabel: "See radiator & heating work",
@@ -45,7 +42,7 @@ const prices = [
     name: "Air Conditioning Installation",
     price: "From £1,500",
     unit: "0% VAT until 31 Mar 2027",
-    blurb: "Covers a single split system, supplied and fitted. Qualifying systems (fixed, and capable of both heating and cooling) are zero-rated for VAT until 31 March 2027 — after that, VAT reverts to 5%.",
+    blurb: "Covers a single split system, supplied and fitted. Qualifying systems (fixed, and capable of both heating and cooling) are zero-rated for VAT until 31 March 2027 — after that, the rate rises, so the price here may need a small update nearer the time.",
     href: "/air-conditioning/",
     linkLabel: "See what we install",
   },
@@ -82,13 +79,13 @@ const prices = [
         {prices.map((item) => (
           <div class="card price-card">
             <h3>{item.name}</h3>
-            <p class="price-card__price">{item.price} <span>{item.unit}</span></p>
+            <p class="price-card__price">{item.price} {item.unit && <span>{item.unit}</span>}</p>
             <p class="price-card__blurb">{item.blurb}</p>
             <a href={item.href}>{item.linkLabel} →</a>
           </div>
         ))}
       </div>
-      <p class="price-note">All prices exclude VAT unless stated otherwise. Standard rate (20%) applies except where noted. Deposit required on jobs over £1,000 (set out in your written quote); balance due on completion.</p>
+      <p class="price-note">All prices shown are what you pay — no VAT to add on top. Deposit required on jobs over £1,000 (set out in your written quote); balance due on completion.</p>
     </div>
   </section>
 

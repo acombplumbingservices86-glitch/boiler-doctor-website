@@ -89,7 +89,7 @@ export const siteConfig = {
 
   officeHours: "8:00am – 5:00pm", // confirmed directly by Steve, 29 Aug
 
-  minCallOutFee: "£100 + VAT",
+  minCallOutFee: "£120",
   warranty: "12 months from invoice date",
 
   socials: {
