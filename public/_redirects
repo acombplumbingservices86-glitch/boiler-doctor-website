@@ -40,12 +40,14 @@
 /privacy-policy  /privacy-policy/  301
 /radiator-valves-plumber  /central-heating-radiators/  301
 /radiators-plumber  /central-heating-radiators/  301
-/services  /  301
+/services  /new-boiler-installation/  301
 /stop-tap-plumber  /about/  301
 /terms-conditions  /terms-conditions/  301
 /testimonials  /reviews/  301
 /thermostats-plumber  /controls-smart-thermostats/  301
-/prices  /advice-centre/new-boiler-cost/  301
+# Analytics dashboard follow-up (Sep 2026) — retargeted from the pricing article
+# to the installation service page; see note near the bottom of this file.
+/prices  /new-boiler-installation/  301
 /gas-leak-plumber  /gas-safety-landlords/  301
 
 # --- Added: remaining old-site redirects from the migration analysis
@@ -90,7 +92,9 @@
 /my-videos  /about/  301
 /my-work/boiler-installation-york  /real-work/  301
 # Duplicate-looking old URL (note the '-0' suffix).
-/my-work/boiler-installation-york-0  /real-work/  301
+# Analytics dashboard follow-up (Sep 2026) — retargeted to the York installation
+# page instead of the generic case-studies page (more relevant subject match).
+/my-work/boiler-installation-york-0  /new-boiler-installation-york/  301
 /my-work/gas-regulations-update  /real-work/  301
 /my-work/meet-wife-wearing-my-merch  /real-work/  301
 /my-work/new-boiler-installation-acomb  /real-work/  301
@@ -124,3 +128,7 @@
 /bathroom-renovation  /about/  301
 # Old Facebook cross-post stub pages (boiler-doctor-XXX slugs) — wildcard catches all of them.
 /facebook-post/*  /advice-centre/  301
+
+# Analytics dashboard follow-up #2 (Sep 2026) — more dead/mismatched addresses still getting hits.
+/get-boiler-installation-quote-online  /book-online/  301
+/blog/combi-boilers  /advice-centre/combi-vs-system-boiler/  301
