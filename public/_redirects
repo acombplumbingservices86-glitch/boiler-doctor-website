@@ -45,9 +45,7 @@
 /terms-conditions  /terms-conditions/  301
 /testimonials  /reviews/  301
 /thermostats-plumber  /controls-smart-thermostats/  301
-# Analytics dashboard follow-up (Sep 2026) — retargeted from the pricing article
-# to the installation service page; see note near the bottom of this file.
-/prices  /new-boiler-installation/  301
+# /prices is now a real page (src/pages/prices/) — redirect removed, Sep 2026.
 /gas-leak-plumber  /gas-safety-landlords/  301
 
 # --- Added: remaining old-site redirects from the migration analysis
