@@ -32,6 +32,8 @@ const staticPages = [
   "/advice-centre/elderly-relative-boiler-breakdown/",
   "/advice-centre/who-actually-fixes-your-boiler/",
   "/advice-centre/is-it-a-boiler-emergency/",
+  "/advice-centre/emergency-boiler-callout-cost/",
+  "/advice-centre/engineer-on-the-way/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

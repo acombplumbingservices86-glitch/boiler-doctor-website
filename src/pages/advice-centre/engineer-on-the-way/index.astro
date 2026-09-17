@@ -1,0 +1,43 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Boiler Broken and the Engineer's On the Way? Do These Things First | The Boiler Doctor, York";
+const description = "Waiting on an emergency boiler repair in York? Here's what's genuinely safe to do while you wait, and what to leave to a Gas Safe engineer.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>Boiler Broken and the Engineer's On the Way? Do These Things First</h1>
+  <p>You've made the call, you've got someone booked, and now you're just sat there with no heating in York and a house that's getting colder by the hour. It's a horrible feeling, especially with young kids or an elderly relative in the house. Here's what's genuinely worth doing while you wait — and what's best left alone until the engineer arrives.</p>
+
+  <h2>Hold on to the heat you've already got</h2>
+  <ul>
+    <li>Close doors on any rooms you're not using, so what warmth is left doesn't spread out and disappear</li>
+    <li>Shut curtains and blinds once it gets dark — a surprising amount of heat is lost through glass</li>
+    <li>Layer up with blankets and extra clothing rather than relying on one room to keep everyone warm</li>
+    <li>If you've got a safe electric heater, use it in the room where everyone's gathering, rather than trying to heat the whole house</li>
+  </ul>
+
+  <h2>No hot water but no heating fault otherwise?</h2>
+  <p>If it's specifically no hot water in York rather than a full breakdown, boiling a kettle for washing up or a flannel wash gets you through until we're there. It's not pleasant, but it's a genuine short-term workaround that doesn't need anyone touching the boiler itself.</p>
+
+  <h2>If there's water where there shouldn't be</h2>
+  <p>A dripping or leaking boiler is one of the few things worth acting on before the engineer arrives, because water damage gets worse the longer it's left. If you can safely reach your stopcock, turning off the water supply will stop things getting worse. What you shouldn't do is open up the boiler casing or try to get at anything inside it — that's exactly the kind of job that has to be left to a Gas Safe registered engineer, every time, no exceptions.</p>
+
+  <h2>Don't try to fix the boiler itself</h2>
+  <p>It's tempting to have a go, especially if you've watched a video online, but any work on the gas-carrying parts of a boiler is a genuinely dangerous thing to get wrong — and it's also illegal for anyone who isn't Gas Safe registered to touch. The one exception most people can safely do themselves is reading the pressure gauge on the front, which at least gives the engineer useful information before they've even walked in the door. Beyond that, leave the inside of the boiler alone and let a <a href="/boiler-repairs-breakdowns/">boiler not working</a> situation stay a job for the professionals.</p>
+
+  <h2>Keep an eye on anyone vulnerable in the house</h2>
+  <p>If there's an elderly relative, a baby, or anyone unwell in the house, cold isn't just uncomfortable for them — it's a genuine risk, and it's worth checking on them more often than usual until the heating's back on. If you're arranging the repair on behalf of a parent who lives alone, it's worth telling the engineer that when you book, so they know to be extra mindful when they arrive.</p>
+
+  <h2>Have this ready for when we get there</h2>
+  <p>A few quick details speed the whole visit up:</p>
+  <ol>
+    <li>Your boiler's make and model, usually on a sticker on the front or side</li>
+    <li>Any error code showing on the display</li>
+    <li>Roughly when it stopped working, and whether anything unusual happened just before (a power cut, a noise, bleeding a radiator)</li>
+    <li>Whether it's no heating, no hot water, or both</li>
+  </ol>
+
+  <h2>Still waiting and getting worried?</h2>
+  <p>If things change while you're waiting — the leak's getting worse, someone vulnerable is struggling with the cold, or you're just not sure anymore whether it can wait — call us back and tell us. We'd always rather you rang again than sat it out. Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll help you work out what to do next.</p>
+</ArticleLayout>

@@ -95,10 +95,10 @@
    "evidence": "Actual pricing (\u00a3100+VAT minimum); cost transparency is the highest-value TAYA content type for any trade business",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "emergency-boiler-callout-cost",
+   "published_path": "/advice-centre/emergency-boiler-callout-cost/",
+   "drafted_date": "2026-09-17"
   },
   {
    "id": 6,
@@ -113,10 +113,10 @@
    "evidence": "Freezing/no-heat language in 91 calls (2.5%) plus 42 calls mentioning young children being cold",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "engineer-on-the-way",
+   "published_path": "/advice-centre/engineer-on-the-way/",
+   "drafted_date": "2026-09-17"
   },
   {
    "id": 7,
