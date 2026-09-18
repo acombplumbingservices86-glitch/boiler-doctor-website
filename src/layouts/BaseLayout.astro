@@ -50,43 +50,32 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       gtag("config", gaId);
     </script>
 
-    {siteConfig.metaPixelId && (
-      <>
-        <script define:vars={{ pixelId: siteConfig.metaPixelId }}>
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', pixelId);
-          fbq('track', 'PageView');
-        </script>
-        <noscript>
-          <img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${siteConfig.metaPixelId}&ev=PageView&noscript=1`} />
-        </noscript>
-      </>
-    )}
+    <!--
+      Meta Pixel now lives inside the GTM container (GTM-5BSW3SWP), not here —
+      Steve is configuring it directly in Tag Manager, so there's no
+      hardcoded fbq() install on the page. Keeping both would double-fire
+      PageView/Lead events into the same pixel.
+    -->
 
     <!--
-      Shared lead-tracking helper. Fires a GA4 "generate_lead" event (and a
-      Meta "Lead" event, once metaPixelId is set) for every way someone
-      contacts us: the contact form (called from ContactForm.astro on a
-      successful submit), and any tel:/mailto: link anywhere on the site —
-      header, footer, /contact/, /book-online/, all covered automatically
-      since this listens on the whole document rather than per-component.
+      Shared lead-tracking helper. Fires a GA4 "generate_lead" event directly,
+      and pushes a "generate_lead" event into the GTM dataLayer (with a
+      lead_method field) for every way someone contacts us: the contact form
+      (called from ContactForm.astro on a successful submit), and any
+      tel:/mailto: link anywhere on the site — header, footer, /contact/,
+      /book-online/, all covered automatically since this listens on the
+      whole document rather than per-component. Set up a Custom Event
+      trigger on "generate_lead" in GTM to fire the Meta "Lead" tag (and
+      anything else) off this.
     -->
-    <script define:vars={{ hasPixel: !!siteConfig.metaPixelId }}>
+    <script>
+      window.dataLayer = window.dataLayer || [];
       window.trackLead = function (method) {
         try {
           if (window.gtag) {
             window.gtag("event", "generate_lead", { method });
           }
-          if (hasPixel && window.fbq) {
-            window.fbq("track", "Lead", { content_name: method });
-          }
+          window.dataLayer.push({ event: "generate_lead", lead_method: method });
         } catch (err) {
           console.warn("trackLead failed:", err);
         }

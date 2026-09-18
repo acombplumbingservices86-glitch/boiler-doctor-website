@@ -6,11 +6,10 @@ export const siteConfig = {
   businessName: "The Boiler Doctor",
   gaMeasurementId: "G-SHP5WPXQ3E", // GA4 property, added 2026-08-29
 
-  // Meta (Facebook) Pixel ID. Left empty on purpose — the analytics dashboard
-  // review (Sep 2026) references a pixel ending "921487" from the old site,
-  // but the full ID was never carried over into this build. Pixel code in
-  // BaseLayout only loads once this is filled in. Ask Steve for the full ID.
-  metaPixelId: "",
+  // Meta (Facebook) Pixel: no ID field here — Steve is configuring the
+  // pixel (ID 599318878761668, set up 18 Sep 2026) directly inside the
+  // GTM-5BSW3SWP container in Tag Manager, not hardcoded into the site.
+  // See BaseLayout.astro's trackLead() for how lead events reach GTM.
 
   // Lead-magnet form submissions POST here as JSON. Empty until Steve wires
   // up a GHL inbound webhook (or a 2-minute Zapier "Catch Hook" as a
