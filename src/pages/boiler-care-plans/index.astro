@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
+import { siteConfig } from "../../data/siteConfig";
 
 const title = "Boiler Care Plans from £12.99/month | The Boiler Doctor, York";
 const description =
@@ -72,7 +73,14 @@ const plans = [
             <ul>
               {plan.features.map((f) => <li>{f}</li>)}
             </ul>
-            <a href={plan.joinUrl} class="btn btn--primary btn--block" rel="noopener">Join {plan.name}</a>
+            <button
+              type="button"
+              class="btn btn--primary btn--block js-join-plan"
+              data-plan-name={plan.name}
+              data-pay-url={plan.joinUrl}
+            >
+              Join {plan.name}
+            </button>
           </div>
         ))}
       </div>
@@ -83,7 +91,67 @@ const plans = [
     heading="Pick your plan, we'll take it from there."
     subheading="Questions first? Call or WhatsApp us any time — no obligation."
   />
+
+  <div class="plan-modal-backdrop" id="planModalBackdrop" hidden>
+    <div class="plan-modal" role="dialog" aria-modal="true" aria-labelledby="planModalTitle">
+      <button type="button" class="plan-modal__close" id="planModalClose" aria-label="Close">&times;</button>
+      <h2 id="planModalTitle">Joining <span id="planModalPlanName">a plan</span></h2>
+      <p class="plan-modal__question">Have you already had your boiler serviced by Steve or The Boiler Doctor?</p>
+      <div class="plan-modal__actions">
+        <a id="planModalNo" href="#" class="btn btn--secondary">
+          No — I need to book my first service
+        </a>
+        <a id="planModalYes" href="#" class="btn btn--primary">
+          Yes — take me to payment
+        </a>
+      </div>
+      <p class="plan-modal__note">
+        New to a plan? Book your first annual service and your first month's payment comes
+        straight off that invoice on the day — so signing up costs you nothing extra.
+      </p>
+    </div>
+  </div>
 </BaseLayout>
+
+<script define:vars={{ bookingUrl: siteConfig.carePlanBookingUrl }}>
+  const backdrop = document.getElementById("planModalBackdrop");
+  const closeBtn = document.getElementById("planModalClose");
+  const planNameEl = document.getElementById("planModalPlanName");
+  const noBtn = document.getElementById("planModalNo");
+  const yesBtn = document.getElementById("planModalYes");
+  let lastFocused = null;
+
+  function openModal(planName, payUrl) {
+    planNameEl.textContent = planName;
+    noBtn.href = bookingUrl;
+    yesBtn.href = payUrl;
+    lastFocused = document.activeElement;
+    backdrop.hidden = false;
+    closeBtn.focus();
+    document.addEventListener("keydown", onKeydown);
+  }
+
+  function closeModal() {
+    backdrop.hidden = true;
+    document.removeEventListener("keydown", onKeydown);
+    if (lastFocused) lastFocused.focus();
+  }
+
+  function onKeydown(e) {
+    if (e.key === "Escape") closeModal();
+  }
+
+  document.querySelectorAll(".js-join-plan").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openModal(btn.dataset.planName, btn.dataset.payUrl);
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  backdrop.addEventListener("click", (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+</script>
 
 <style>
   .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 48ch; }
@@ -96,4 +164,42 @@ const plans = [
   .plan-card ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; display: grid; gap: 0.4rem; }
   .plan-card li { padding-left: 1.4em; position: relative; font-size: 0.92rem; }
   .plan-card li::before { content: "✓"; position: absolute; left: 0; color: var(--color-success); font-weight: 700; }
+
+  .plan-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 31, 58, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 100;
+  }
+  .plan-modal-backdrop[hidden] { display: none; }
+  .plan-modal {
+    position: relative;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    max-width: 30rem;
+    width: 100%;
+    padding: 2rem 1.75rem 1.75rem;
+  }
+  .plan-modal h2 { margin: 0 0 0.75rem; font-size: 1.3rem; color: var(--color-navy-900); }
+  .plan-modal__question { font-weight: 600; color: var(--color-navy-800); margin: 0 0 1.25rem; }
+  .plan-modal__actions { display: grid; gap: 0.6rem; }
+  .plan-modal__note { font-size: 0.85rem; color: var(--color-grey-600); margin: 1.25rem 0 0; line-height: 1.5; }
+  .plan-modal__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.9rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-grey-600);
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+  .plan-modal__close:hover { color: var(--color-navy-900); }
 </style>

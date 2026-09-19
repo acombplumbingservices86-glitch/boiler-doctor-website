@@ -120,6 +120,16 @@ export const siteConfig = {
   bookingUrl:
     "https://book.servicem8.com/request_service_online_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b",
 
+  // Direct link to the "Care Plan - Join & Book Your First Service" ServiceM8 booking
+  // service (published 19 Sep 2026) — asks which plan they're joining, boiler type,
+  // make/model, age, and working-order, in one go. Used by the Care Plans page's
+  // "have you already had your service?" question to route new customers to book their
+  // first service before they pay. NOTE: confirm this link resolves to that specific
+  // service (not just the generic "How can we help?" list) before relying on it — as of
+  // publish time ServiceM8's public booking page hadn't picked the new service up yet.
+  carePlanBookingUrl:
+    "https://book.servicem8.com/request_service_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b#01a0bb92-b7cd-7f71-ad86-c57c44aaf7eb",
+
   serviceAreas: [
     "Acomb", "Bishopthorpe", "Clifton", "Copmanthorpe", "Dringhouses", "Fulford",
     "Haxby", "Holgate", "Huntington", "Knapton", "Poppleton", "Rawcliffe",
