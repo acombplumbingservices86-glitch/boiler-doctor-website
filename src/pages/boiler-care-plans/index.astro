@@ -18,6 +18,7 @@ const plans = [
       "Boiler health report",
       "Free CO alarm",
     ],
+    joinUrl: "https://link.fastpaydirect.com/payment-link/6aae23539f7ff2c808a76766",
   },
   {
     name: "On Call",
@@ -30,6 +31,7 @@ const plans = [
       "Free 3D-printed radiator key",
     ],
     highlight: true,
+    joinUrl: "https://link.fastpaydirect.com/payment-link/6aae241df426560dbc2f121d",
   },
   {
     name: "House Call",
@@ -45,6 +47,7 @@ const plans = [
       "Dedicated phone line",
       "Branded mug",
     ],
+    joinUrl: "https://link.fastpaydirect.com/payment-link/6aae2507f426560dbc2f121e",
   },
 ];
 ---
@@ -69,7 +72,7 @@ const plans = [
             <ul>
               {plan.features.map((f) => <li>{f}</li>)}
             </ul>
-            <a href="/contact/" class="btn btn--primary btn--block">Join {plan.name}</a>
+            <a href={plan.joinUrl} class="btn btn--primary btn--block" rel="noopener">Join {plan.name}</a>
           </div>
         ))}
       </div>
