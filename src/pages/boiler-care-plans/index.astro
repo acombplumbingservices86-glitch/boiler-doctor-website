@@ -20,6 +20,7 @@ const plans = [
       "Free CO alarm",
     ],
     joinUrl: "https://link.fastpaydirect.com/payment-link/6aae23539f7ff2c808a76766",
+    bookingUrl: siteConfig.carePlanBookingUrls.checkup,
   },
   {
     name: "On Call",
@@ -33,6 +34,7 @@ const plans = [
     ],
     highlight: true,
     joinUrl: "https://link.fastpaydirect.com/payment-link/6aae241df426560dbc2f121d",
+    bookingUrl: siteConfig.carePlanBookingUrls.onCall,
   },
   {
     name: "House Call",
@@ -49,6 +51,7 @@ const plans = [
       "Branded mug",
     ],
     joinUrl: "https://link.fastpaydirect.com/payment-link/6aae2507f426560dbc2f121e",
+    bookingUrl: siteConfig.carePlanBookingUrls.houseCall,
   },
 ];
 ---
@@ -78,6 +81,7 @@ const plans = [
               class="btn btn--primary btn--block js-join-plan"
               data-plan-name={plan.name}
               data-pay-url={plan.joinUrl}
+              data-booking-url={plan.bookingUrl}
             >
               Join {plan.name}
             </button>
@@ -113,7 +117,7 @@ const plans = [
   </div>
 </BaseLayout>
 
-<script define:vars={{ bookingUrl: siteConfig.carePlanBookingUrl }}>
+<script>
   const backdrop = document.getElementById("planModalBackdrop");
   const closeBtn = document.getElementById("planModalClose");
   const planNameEl = document.getElementById("planModalPlanName");
@@ -121,7 +125,7 @@ const plans = [
   const yesBtn = document.getElementById("planModalYes");
   let lastFocused = null;
 
-  function openModal(planName, payUrl) {
+  function openModal(planName, payUrl, bookingUrl) {
     planNameEl.textContent = planName;
     noBtn.href = bookingUrl;
     yesBtn.href = payUrl;
@@ -143,7 +147,7 @@ const plans = [
 
   document.querySelectorAll(".js-join-plan").forEach((btn) => {
     btn.addEventListener("click", () => {
-      openModal(btn.dataset.planName, btn.dataset.payUrl);
+      openModal(btn.dataset.planName, btn.dataset.payUrl, btn.dataset.bookingUrl);
     });
   });
 

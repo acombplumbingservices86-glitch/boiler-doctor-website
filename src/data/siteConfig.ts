@@ -120,15 +120,22 @@ export const siteConfig = {
   bookingUrl:
     "https://book.servicem8.com/request_service_online_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b",
 
-  // Direct link to the "Care Plan - Join & Book Your First Service" ServiceM8 booking
-  // service (published 19 Sep 2026) — asks which plan they're joining, boiler type,
-  // make/model, age, and working-order, in one go. Used by the Care Plans page's
-  // "have you already had your service?" question to route new customers to book their
-  // first service before they pay. NOTE: confirm this link resolves to that specific
-  // service (not just the generic "How can we help?" list) before relying on it — as of
-  // publish time ServiceM8's public booking page hadn't picked the new service up yet.
-  carePlanBookingUrl:
-    "https://book.servicem8.com/request_service_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b#01a0bb92-b7cd-7f71-ad86-c57c44aaf7eb",
+  // Direct links to the 3 plan-specific "Join & Book Your First Service" ServiceM8
+  // booking services (The Checkup published 19 Sep 2026, On Call and House Call
+  // published 19 Sep 2026 as part of splitting the original single shared booking
+  // service into one per plan — see git history for the reasoning). Each asks boiler
+  // type, make/model, age and working-order — no "which plan are you joining?"
+  // question, since the customer already picked a specific plan on the Care Plans
+  // page. Used by the Care Plans page's "have you already had your service?" question
+  // to route new customers to book their first service before they pay.
+  carePlanBookingUrls: {
+    checkup:
+      "https://book.servicem8.com/request_service_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b#01a0bb92-b7cd-7f71-ad86-c57c44aaf7eb",
+    onCall:
+      "https://book.servicem8.com/request_service_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b#01a0bbce-00e2-7f71-ad86-e77ac4b98bdb",
+    houseCall:
+      "https://book.servicem8.com/request_service_booking?strVendorUUID=507d1fa8-ca7a-4df9-834f-1dfacd6e748b#01a0bbd0-2071-7f71-ad87-363dba5d2b0b",
+  },
 
   serviceAreas: [
     "Acomb", "Bishopthorpe", "Clifton", "Copmanthorpe", "Dringhouses", "Fulford",
