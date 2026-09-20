@@ -50,6 +50,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <script define:vars={{ gaId: siteConfig.gaMeasurementId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
+      // Astro compiles this define:vars block into an IIFE, so a bare
+      // `function gtag(){}` stays local to that IIFE and never becomes
+      // window.gtag — silently breaking any later code (e.g. trackLead()
+      // below) that calls window.gtag(...) directly. Expose it explicitly.
+      window.gtag = gtag;
       gtag("js", new Date());
       gtag("config", gaId);
     </script>
