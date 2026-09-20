@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "amplify:redirects": "node scripts/generate-amplify-redirects.mjs",
+    "amplify:redirects:check": "node scripts/generate-amplify-redirects.mjs --check"
   },
   "dependencies": {
     "astro": "^5.0.0"

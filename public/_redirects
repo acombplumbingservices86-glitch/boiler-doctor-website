@@ -1,6 +1,12 @@
 # The Boiler Doctor — 301 redirect map
 # Generated from 04 Old URL Inventory.csv / 11 Master Sitemap.csv (Phase Four build).
 # Cloudflare Pages _redirects syntax: /old-path  /new-path  301
+#
+# IMPORTANT (Sep 2026): production now runs on AWS Amplify Hosting, which does
+# NOT read this file — it has its own separate redirect list in the Amplify
+# console. This file is still the source of truth for editing, but after
+# changing it you MUST run `npm run amplify:redirects` and follow
+# infra/README.md to keep Amplify in sync, or the change won't take effect live.
 
 /about  /about/  301
 /air-conditioning-york  /air-conditioning/  301

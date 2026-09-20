@@ -1,0 +1,35 @@
+name: Check Amplify redirects are in sync
+
+# public/_redirects (Cloudflare/Netlify-style syntax) is kept in this repo as
+# the readable source of truth for redirects, but production is served from
+# AWS Amplify Hosting, which has its OWN separate redirect list edited in the
+# Amplify console — it does not read this file. infra/amplify-redirects.json
+# is the generated Amplify-format mirror of public/_redirects; this workflow
+# fails the build if someone edits public/_redirects without regenerating it,
+# so a stale Amplify config can't slip through unnoticed.
+#
+# See infra/README.md for the full workflow, including the manual step of
+# pasting infra/amplify-redirects.json into the Amplify console.
+
+on:
+  push:
+    paths:
+      - 'public/_redirects'
+      - 'infra/amplify-redirects.json'
+      - 'scripts/generate-amplify-redirects.mjs'
+  pull_request:
+    paths:
+      - 'public/_redirects'
+      - 'infra/amplify-redirects.json'
+      - 'scripts/generate-amplify-redirects.mjs'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify infra/amplify-redirects.json matches public/_redirects
+        run: npm run amplify:redirects:check

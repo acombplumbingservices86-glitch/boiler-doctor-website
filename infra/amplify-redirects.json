@@ -1,0 +1,502 @@
+[
+  {
+    "source": "/about",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/air-conditioning-york",
+    "status": "301",
+    "target": "/air-conditioning/"
+  },
+  {
+    "source": "/areas-i-cover",
+    "status": "301",
+    "target": "/service-areas/"
+  },
+  {
+    "source": "/bathroom-installation-plumber",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/bathroom-renovation-plumber",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/blog/addressing-customer-concerns-future-gas-boilers-and-parts-availability",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/blog/how-choose-best-combi-boiler-your-home-comprehensive-guide",
+    "status": "301",
+    "target": "/advice-centre/combi-vs-system-boiler/"
+  },
+  {
+    "source": "/blog/how-improve-boiler-efficiency-and-save-energy-bills",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/blog/importance-regular-boiler-maintenance-longevity-and-performance",
+    "status": "301",
+    "target": "/advice-centre/do-i-need-annual-service/"
+  },
+  {
+    "source": "/blog/signs-your-boiler-needs-repair-what-york-homeowners-should-look",
+    "status": "301",
+    "target": "/boiler-repairs-breakdowns/"
+  },
+  {
+    "source": "/blog/understanding-power-flushing-what-it-and-why-your-central-heating-system-needs-it",
+    "status": "301",
+    "target": "/advice-centre/signs-you-need-power-flush/"
+  },
+  {
+    "source": "/blogs",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/boiler-installation-acomb-plumber",
+    "status": "301",
+    "target": "/new-boiler-installation-acomb/"
+  },
+  {
+    "source": "/boiler-installation-york",
+    "status": "301",
+    "target": "/new-boiler-installation-york/"
+  },
+  {
+    "source": "/boiler-installations-plumber",
+    "status": "301",
+    "target": "/new-boiler-installation/"
+  },
+  {
+    "source": "/boiler-pressure-plumber",
+    "status": "301",
+    "target": "/advice-centre/why-is-my-boiler-losing-pressure/"
+  },
+  {
+    "source": "/boiler-repair-york",
+    "status": "301",
+    "target": "/boiler-repairs-york/"
+  },
+  {
+    "source": "/boiler-repairs-plumber",
+    "status": "301",
+    "target": "/boiler-repairs-breakdowns/"
+  },
+  {
+    "source": "/boiler-service-acomb-plumber",
+    "status": "301",
+    "target": "/boiler-servicing-acomb/"
+  },
+  {
+    "source": "/boiler-service-acomb-york",
+    "status": "301",
+    "target": "/boiler-servicing-acomb/"
+  },
+  {
+    "source": "/boiler-service-plumber",
+    "status": "301",
+    "target": "/boiler-servicing/"
+  },
+  {
+    "source": "/boiler-upgrade-plumber",
+    "status": "301",
+    "target": "/new-boiler-installation/"
+  },
+  {
+    "source": "/book-your-boiler-service-online",
+    "status": "301",
+    "target": "/book-online/"
+  },
+  {
+    "source": "/booking",
+    "status": "301",
+    "target": "/book-online/"
+  },
+  {
+    "source": "/care-plans",
+    "status": "301",
+    "target": "/boiler-care-plans/"
+  },
+  {
+    "source": "/cloudy-warm-water-plumber",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/contact",
+    "status": "301",
+    "target": "/contact/"
+  },
+  {
+    "source": "/gas-safety-inspection-plumber",
+    "status": "301",
+    "target": "/gas-safety-landlords/"
+  },
+  {
+    "source": "/hard-water-acomb-plumber",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/how-top-boiler-plumber",
+    "status": "301",
+    "target": "/advice-centre/why-is-my-boiler-losing-pressure/"
+  },
+  {
+    "source": "/how-unblock-sink-plumber",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/main-services-list",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/my-work",
+    "status": "301",
+    "target": "/real-work/"
+  },
+  {
+    "source": "/plumber-acomb-plumber",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/power-flushing-plumber",
+    "status": "301",
+    "target": "/power-flushing/"
+  },
+  {
+    "source": "/privacy-policy",
+    "status": "301",
+    "target": "/privacy-policy/"
+  },
+  {
+    "source": "/radiator-valves-plumber",
+    "status": "301",
+    "target": "/central-heating-radiators/"
+  },
+  {
+    "source": "/radiators-plumber",
+    "status": "301",
+    "target": "/central-heating-radiators/"
+  },
+  {
+    "source": "/services",
+    "status": "301",
+    "target": "/new-boiler-installation/"
+  },
+  {
+    "source": "/stop-tap-plumber",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/terms-conditions",
+    "status": "301",
+    "target": "/terms-conditions/"
+  },
+  {
+    "source": "/testimonials",
+    "status": "301",
+    "target": "/reviews/"
+  },
+  {
+    "source": "/thermostats-plumber",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
+    "source": "/prices",
+    "status": "301",
+    "target": "/prices/"
+  },
+  {
+    "source": "/gas-leak-plumber",
+    "status": "301",
+    "target": "/gas-safety-landlords/"
+  },
+  {
+    "source": "/taxonomy/term/534",
+    "status": "301",
+    "target": "/new-boiler-installation-acomb/"
+  },
+  {
+    "source": "/taxonomy/term/535",
+    "status": "301",
+    "target": "/new-boiler-installation-york/"
+  },
+  {
+    "source": "/taxonomy/term/536",
+    "status": "301",
+    "target": "/new-boiler-installation-skelton/"
+  },
+  {
+    "source": "/taxonomy/term/537",
+    "status": "301",
+    "target": "/new-boiler-installation-rawcliffe/"
+  },
+  {
+    "source": "/taxonomy/term/538",
+    "status": "301",
+    "target": "/new-boiler-installation-clifton/"
+  },
+  {
+    "source": "/taxonomy/term/539",
+    "status": "301",
+    "target": "/new-boiler-installation-poppleton/"
+  },
+  {
+    "source": "/taxonomy/term/540",
+    "status": "301",
+    "target": "/new-boiler-installation-haxby/"
+  },
+  {
+    "source": "/taxonomy/term/541",
+    "status": "301",
+    "target": "/new-boiler-installation-wigginton/"
+  },
+  {
+    "source": "/taxonomy/term/542",
+    "status": "301",
+    "target": "/new-boiler-installation-bishopthorpe/"
+  },
+  {
+    "source": "/taxonomy/term/543",
+    "status": "301",
+    "target": "/new-boiler-installation-copmanthorpe/"
+  },
+  {
+    "source": "/taxonomy/term/544",
+    "status": "301",
+    "target": "/new-boiler-installation-strensall/"
+  },
+  {
+    "source": "/taxonomy/term/545",
+    "status": "301",
+    "target": "/new-boiler-installation-huntington/"
+  },
+  {
+    "source": "/taxonomy/term/546",
+    "status": "301",
+    "target": "/new-boiler-installation-fulford/"
+  },
+  {
+    "source": "/taxonomy/term/547",
+    "status": "301",
+    "target": "/new-boiler-installation-dringhouses/"
+  },
+  {
+    "source": "/taxonomy/term/548",
+    "status": "301",
+    "target": "/new-boiler-installation-holgate/"
+  },
+  {
+    "source": "/taxonomy/term/549",
+    "status": "301",
+    "target": "/new-boiler-installation-woodthorpe/"
+  },
+  {
+    "source": "/taxonomy/term/550",
+    "status": "301",
+    "target": "/new-boiler-installation-knapton/"
+  },
+  {
+    "source": "/taxonomy/term/551",
+    "status": "301",
+    "target": "/new-boiler-installation-rufforth/"
+  },
+  {
+    "source": "/taxonomy/term/552",
+    "status": "301",
+    "target": "/new-boiler-installation-tockwith/"
+  },
+  {
+    "source": "/taxonomy/term/553",
+    "status": "301",
+    "target": "/new-boiler-installation-selby/"
+  },
+  {
+    "source": "/albums",
+    "status": "301",
+    "target": "/real-work/"
+  },
+  {
+    "source": "/facebook-posts",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/free-guide-choosing-boiler.html",
+    "status": "301",
+    "target": "/advice-centre/new-boiler-cost/"
+  },
+  {
+    "source": "/frequently-asked-questions",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/heat-loss-calculator",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/heating-engineer-acomb-plumber",
+    "status": "301",
+    "target": "/new-boiler-installation-acomb/"
+  },
+  {
+    "source": "/heating-tips-plumber",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/helpsheets",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/hydrogen-boilers-plumber",
+    "status": "301",
+    "target": "/new-boiler-installation/"
+  },
+  {
+    "source": "/my-videos",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/my-work/boiler-installation-york",
+    "status": "301",
+    "target": "/real-work/"
+  },
+  {
+    "source": "/my-work/boiler-installation-york-0",
+    "status": "301",
+    "target": "/new-boiler-installation-york/"
+  },
+  {
+    "source": "/my-work/gas-regulations-update",
+    "status": "301",
+    "target": "/real-work/"
+  },
+  {
+    "source": "/my-work/meet-wife-wearing-my-merch",
+    "status": "301",
+    "target": "/real-work/"
+  },
+  {
+    "source": "/my-work/new-boiler-installation-acomb",
+    "status": "301",
+    "target": "/real-work/"
+  },
+  {
+    "source": "/my-work/smart-thermostat-installation-york",
+    "status": "301",
+    "target": "/real-work/"
+  },
+  {
+    "source": "/nest-thermostats-plumber",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
+    "source": "/open-therm-technology-plumber",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
+    "source": "/opentherm-plumber",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
+    "source": "/plumbing-tips-plumber",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/programmer-plumber",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
+    "source": "/pump-plumber",
+    "status": "301",
+    "target": "/boiler-repairs-breakdowns/"
+  },
+  {
+    "source": "/smart-thermostat-plumber",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
+    "source": "/team-members",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/timer-plumber",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
+    "source": "/video/2-years-vs-7-years-vs-12-years-running-business",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/video/boiler-doctor-podcast-energy-efficiency",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/video/boiler-doctor-podcast-energy-efficiency-episode-2",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/video/overcoming-life-challenges-inspiring-men-talk-stephen-kinsella",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/york-plumber",
+    "status": "301",
+    "target": "/service-areas/"
+  },
+  {
+    "source": "/bathroom-renovation",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/bathroom-renovation/",
+    "status": "301",
+    "target": "/about/"
+  },
+  {
+    "source": "/facebook-post/<*>",
+    "status": "301",
+    "target": "/advice-centre/"
+  },
+  {
+    "source": "/get-boiler-installation-quote-online",
+    "status": "301",
+    "target": "/book-online/"
+  },
+  {
+    "source": "/blog/combi-boilers",
+    "status": "301",
+    "target": "/advice-centre/combi-vs-system-boiler/"
+  }
+]
