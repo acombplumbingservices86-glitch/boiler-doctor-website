@@ -7,7 +7,7 @@
    "published"
   ],
   "selection_rule": "Pick the next N rows with status == not_started, ordered by phase_num ascending, then priority (High before Med before Low), then id ascending. Skip any row with content_type == \"Internal Link Fix\" when selecting posts to draft \u2014 handle it as a one-off site-hygiene task instead, separately, if its status is still not_started.",
-  "last_updated": "2026-09-07"
+  "last_updated": "2026-09-18"
  },
  "rows": [
   {
@@ -131,10 +131,10 @@
    "evidence": "Direct quote: \"There's no heat or hot water at the minute\" \u2014 recurring exact phrasing in real calls",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "no-heating-no-hot-water",
+   "published_path": "/advice-centre/no-heating-no-hot-water/",
+   "drafted_date": "2026-09-18"
   },
   {
    "id": 8,
@@ -149,10 +149,10 @@
    "evidence": "Emergency/Urgent Breakdown is the single largest category at 41% of all calls (2,293)",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "boiler-stopped-no-warning",
+   "published_path": "/advice-centre/boiler-stopped-no-warning/",
+   "drafted_date": "2026-09-18"
   },
   {
    "id": 9,

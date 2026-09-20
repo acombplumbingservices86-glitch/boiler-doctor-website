@@ -1,0 +1,41 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "No Heating, No Hot Water, Nothing — What's Actually Going On With Your Boiler | The Boiler Doctor, York";
+const description = "Boiler giving you no heating and no hot water in York? Here's what usually causes both to fail together, what to check first, and when to call us.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>No Heating, No Hot Water, Nothing — What's Actually Going On With Your Boiler</h1>
+  <p>There's a difference between "my radiators aren't warming up" and "there's nothing coming out of any tap and the house is freezing." When both heating and hot water disappear at the same time, it usually means the boiler itself has stopped, rather than one small part playing up. Here's what tends to cause it, and what's worth checking before you pick up the phone.</p>
+
+  <h2>Why both go out together</h2>
+  <p>Most homes in York run on a combi boiler, which heats water for your taps and your radiators from the same unit, on demand. There's no separate tank doing one job and the boiler doing the other. So when the boiler stops, both stop with it. Older system or regular boilers work slightly differently, with a hot water cylinder in the airing cupboard, but the boiler still has to fire to heat the water going into that cylinder. If the boiler's down, the cylinder just sits there with whatever heat it had left, which doesn't last long. Either way, a boiler not working in York almost always means both heating and hot water go at once, not one or the other.</p>
+
+  <h2>The usual causes</h2>
+  <ul>
+    <li><strong>No power reaching the boiler</strong> — a tripped switch, a blown fuse, or the isolator switch next to the boiler having been knocked off</li>
+    <li><strong>The boiler's locked out on a fault</strong> — the display shows an error code, or in some cases just goes blank</li>
+    <li><strong>Pressure's dropped too low</strong> — most boilers won't fire at all below about 1 bar, so a slow leak that's gone unnoticed can eventually take the whole system down</li>
+    <li><strong>A frozen condensate pipe</strong> — the plastic pipe that carries condensation outside can freeze solid in a cold snap, which causes the boiler to lock out as a safety measure</li>
+    <li><strong>No gas reaching the boiler</strong> — rarer, but worth ruling out if your hob or other gas appliances have also stopped working</li>
+  </ul>
+
+  <h2>What you can safely check yourself</h2>
+  <ol>
+    <li>Look at the pressure gauge on the front. If it's below 1 bar, that on its own could explain everything</li>
+    <li>Check the fuse spur or isolator switch near the boiler, and your consumer unit, for anything tripped</li>
+    <li>See if there's an error code on the display, and note it down for whoever comes out</li>
+    <li>If it's cold outside, check whether the condensate pipe (usually a white plastic pipe running out through an external wall) has ice on it. If you can reach it safely, pouring a jug of warm (not boiling) water over it sometimes clears a freeze</li>
+    <li>Try another gas appliance, like the hob, to rule out a wider supply problem</li>
+  </ol>
+  <p>What's not worth doing is opening up the boiler casing or having a go at anything past the front panel. That's a job for a Gas Safe registered engineer every time, no exceptions, whatever's gone wrong inside.</p>
+
+  <h2>If a reset doesn't hold</h2>
+  <p>Most boilers have a reset button, and pressing it once is usually fine if you know where it is and what it does. If the boiler fires back up and keeps running, you've probably fixed it. If it locks out again within a few hours, or keeps repeating the same fault code, that reset isn't going to fix anything long-term, it's just telling the boiler to try again with the same underlying problem still there. At that point it's worth booking someone in rather than resetting it every evening for a week.</p>
+
+  <p>A sudden total shutdown can come from something as simple as a failed pump or ignition part giving out after years of use, or it can be down to pressure that's been dropping so gradually you hadn't noticed. If low pressure looks like the culprit, our guide on <a href="/advice-centre/why-is-my-boiler-losing-pressure/">why boilers lose pressure</a> covers what's usually behind it.</p>
+
+  <h2>Ready to get it looked at</h2>
+  <p>If you've been through the checks above and you're still sat with no heating and no hot water in York, get in touch and tell us what the gauge is showing and what the display says. That alone often gives us a good idea of what we're dealing with before an engineer's even set off. For everything about how our <a href="/boiler-repairs-breakdowns/">boiler breakdown</a> callouts work, that page has the full picture. Otherwise, call us on <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll get someone out to you.</p>
+</ArticleLayout>

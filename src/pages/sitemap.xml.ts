@@ -34,6 +34,8 @@ const staticPages = [
   "/advice-centre/is-it-a-boiler-emergency/",
   "/advice-centre/emergency-boiler-callout-cost/",
   "/advice-centre/engineer-on-the-way/",
+  "/advice-centre/no-heating-no-hot-water/",
+  "/advice-centre/boiler-stopped-no-warning/",
   "/service-areas/",
   "/book-online/",
   "/contact/",
