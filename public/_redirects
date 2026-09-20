@@ -45,7 +45,11 @@
 /terms-conditions  /terms-conditions/  301
 /testimonials  /reviews/  301
 /thermostats-plumber  /controls-smart-thermostats/  301
-# /prices is now a real page (src/pages/prices/) — redirect removed, Sep 2026.
+# /prices is now a real page (src/pages/prices/). The bare /prices (no
+# trailing slash) was still falling through to the homepage live on site —
+# Cloudflare wasn't adding the trailing slash the way the other clean-URL
+# pages get it. Redirect it explicitly instead of relying on that.
+/prices  /prices/  301
 /gas-leak-plumber  /gas-safety-landlords/  301
 
 # --- Added: remaining old-site redirects from the migration analysis
@@ -123,7 +127,12 @@
 /york-plumber  /service-areas/  301
 
 # Analytics dashboard review (Sep 2026) — dead old-site addresses still getting hits/impressions.
+# Live-site check (Sep 2026): the bare path was actually landing on
+# /bathroom-renovation/ (trailing slash added) before this rule got a
+# chance to match, then 404ing there since nothing covered that exact
+# path. Covering both forms explicitly instead of relying on match order.
 /bathroom-renovation  /about/  301
+/bathroom-renovation/  /about/  301
 # Old Facebook cross-post stub pages (boiler-doctor-XXX slugs) — wildcard catches all of them.
 /facebook-post/*  /advice-centre/  301
 
