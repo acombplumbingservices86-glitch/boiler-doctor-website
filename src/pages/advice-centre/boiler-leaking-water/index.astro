@@ -1,0 +1,38 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Boiler Leaking Water? Here's What's Actually Dripping and How Serious It Is | The Boiler Doctor, York";
+const description = "Spotted a drip or a puddle under your boiler in York? Here's where it's likely coming from, how urgent it is, and what's safe to check yourself.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>Boiler Leaking Water? Here's What's Actually Dripping and How Serious It Is</h1>
+  <p>A boiler leak rarely announces itself. It's a small patch on the floor you notice on your way past, a bit of staining on the wall behind the pipework, or a drip you can hear more than see. It's not always excessive. That's what makes people unsure whether it's worth calling anyone about at all.</p>
+
+  <h2>Where the water's actually coming from</h2>
+  <p>"The boiler's leaking" can mean a few different things depending on where the water's showing up. Outside the house, a steady drip from a white plastic pipe on an exterior wall is usually the pressure relief valve doing its job, which points to pressure being too high rather than a fault with the pipe itself. Under or behind the boiler, water can be coming from a worn internal seal, the pump, or a joint that's loosened slightly over time. At a radiator, it's often the valve itself rather than anything to do with the boiler at all. Working out which one you're dealing with is most of the battle, and it's usually obvious once you know what to look for.</p>
+
+  <h2>The usual culprits</h2>
+  <ul>
+    <li><strong>The pressure relief valve venting outside</strong> — normal if it's occasional, a sign of a genuine problem if it's constant or the system pressure is unusually high</li>
+    <li><strong>A worn seal or gasket inside the boiler</strong> — these degrade with age, especially on older units, and tend to show as a slow, persistent drip rather than a sudden gush</li>
+    <li><strong>A loose or corroded pipe joint</strong> — can happen anywhere along the system, not just at the boiler, and sometimes only shows up as damp rather than an actual puddle</li>
+    <li><strong>The pump seal</strong> — a common wear point on boilers that have been running for several years</li>
+    <li><strong>A radiator valve</strong> — worth ruling out before assuming the boiler itself is the problem, since the fix is usually simpler</li>
+  </ul>
+
+  <h2>Is it urgent, or can it wait?</h2>
+  <p>A slow drip that's stayed roughly the same for a few days isn't usually an emergency, though it's still worth getting looked at before it gets worse or the pressure drops far enough to shut the boiler down. What does need calling in straight away: water pooling anywhere near electrics or the boiler's own wiring, a leak that's clearly getting worse day to day, or one that's come with a sudden pressure drop and the heating's stopped working alongside it. If in doubt, treat it as urgent. A boiler not working in York on top of a leak is a much worse evening than a leak on its own.</p>
+
+  <h2>What you can safely check yourself</h2>
+  <ol>
+    <li>Look at the pressure gauge. If it's climbing above the green zone or has dropped well below it, that tells you something's changed</li>
+    <li>Try to trace exactly where the water's appearing from — boiler casing, a specific pipe, a radiator valve — and how much</li>
+    <li>Put something under the drip to catch it and check back in an hour, so you know if it's getting worse</li>
+    <li>Check whether the leak lines up with the outside pressure relief pipe, which points to a pressure issue rather than a mechanical fault</li>
+  </ol>
+  <p>What's not worth doing is opening the boiler casing or trying to tighten anything inside it yourself. Gas-carrying components are a job for a Gas Safe registered engineer every time, whatever the leak turns out to be.</p>
+
+  <h2>Getting it sorted</h2>
+  <p>Tell us where the water's coming from and roughly how much when you call, and we'll usually have a fair idea of what we're dealing with before anyone sets off. Our <a href="/boiler-repairs-breakdowns/">boiler repair and breakdown</a> team covers York and the surrounding villages, and a leak is one of the more common callouts we get. Call us on <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll take it from there.</p>
+</ArticleLayout>

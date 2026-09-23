@@ -36,6 +36,8 @@ const staticPages = [
   "/advice-centre/engineer-on-the-way/",
   "/advice-centre/no-heating-no-hot-water/",
   "/advice-centre/boiler-stopped-no-warning/",
+  "/advice-centre/boiler-leaking-water/",
+  "/advice-centre/thermostat-keeps-going-offline/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

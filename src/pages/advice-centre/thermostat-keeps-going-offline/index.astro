@@ -1,0 +1,33 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Thermostat Keeps Dropping Offline? Why It Happens — and When It Means the Boiler's Actually Fine | The Boiler Doctor, York";
+const description = "Smart thermostat losing connection in York? Here's why it drops offline, what usually causes it, and how to tell whether the boiler itself is fine.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>Thermostat Keeps Dropping Offline? Why It Happens — and When It Means the Boiler's Actually Fine</h1>
+  <p>Thermostat and controls issues make up one of the biggest reasons people call us — more than most other things we get asked about. A lot of the time, the boiler underneath is running exactly as it should. It's the little box on the wall, or the app on your phone, that's lost the plot.</p>
+
+  <h2>Why the thermostat keeps dropping off your WiFi</h2>
+  <p>A smart thermostat like Hive relies on your home WiFi to talk to its app, and that connection is a lot more fragile than people expect. Router firmware updates, a change of broadband provider, the thermostat sitting too far from the router, or your router simply rebooting overnight can all knock it offline. None of that touches the boiler itself. The thermostat's job is to tell the boiler when to fire, and if that signal drops, the boiler doesn't know anything's changed. It just carries on doing whatever it was last told to do.</p>
+
+  <h2>How to tell which one's actually the problem</h2>
+  <p>The quickest check is whether your radiators are still warming up on their usual schedule despite the app showing "offline" or "no connection." If the heating's still coming on and going off roughly when it should, the boiler's working fine and this is a WiFi or app issue. If the heating's not responding at all, on or off, that's a different problem and worth a call.</p>
+  <p>It's a strange thing to explain to someone who's just opened the app and seen a red warning symbol, but the thermostat losing its connection and the boiler losing its mind are two separate events, and only one of them affects whether your house stays warm. Most homes with a dropped connection carry on heating exactly as scheduled, sometimes for days, before anyone notices the app's stopped talking to it. If your radiators feel right when you put a hand on them, that's usually all the reassurance you need while you sort the WiFi side out.</p>
+
+  <h2>What usually fixes it</h2>
+  <ul>
+    <li><strong>Restart your router</strong> — sounds too simple, but it clears the majority of dropped connections</li>
+    <li><strong>Check the thermostat's signal strength</strong> — most smart thermostat apps show a WiFi signal indicator somewhere in the settings, and a weak one usually means it's too far from the router</li>
+    <li><strong>Update the app</strong> — an out-of-date app can lose sync with the thermostat even when the WiFi connection itself is fine</li>
+    <li><strong>Check your broadband provider hasn't changed your router</strong> — a new router means the thermostat needs setting up on the network again from scratch</li>
+    <li><strong>Power-cycle the thermostat's receiver</strong> — the small box usually near the boiler that the thermostat actually talks to, not just the wall unit itself</li>
+  </ul>
+
+  <h2>When it's worth calling us instead</h2>
+  <p>If you've tried the above and it still won't reconnect, or the heating itself has stopped responding to the thermostat at all rather than just losing its WiFi link, that's when it's worth getting someone out. Sometimes the receiver near the boiler has failed rather than anything on the WiFi side, and that's not something to keep resetting week after week hoping it holds. We fit and support <a href="/controls-smart-thermostats/">smart thermostats and controls</a> across York, Hive included, and can tell fairly quickly over the phone whether it's a connection issue or the hardware itself.</p>
+
+  <h2>Get in touch</h2>
+  <p>Tell us what the app's showing, whether the radiators are still coming on regardless, and roughly how long it's been playing up, and we'll point you in the right direction before booking anyone in if it's not needed. Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a>.</p>
+</ArticleLayout>

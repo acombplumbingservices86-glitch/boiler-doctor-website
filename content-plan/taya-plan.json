@@ -7,7 +7,7 @@
    "published"
   ],
   "selection_rule": "Pick the next N rows with status == not_started, ordered by phase_num ascending, then priority (High before Med before Low), then id ascending. Skip any row with content_type == \"Internal Link Fix\" when selecting posts to draft \u2014 handle it as a one-off site-hygiene task instead, separately, if its status is still not_started.",
-  "last_updated": "2026-09-18"
+  "last_updated": "2026-09-23"
  },
  "rows": [
   {
@@ -23,7 +23,7 @@
    "evidence": "Emergency/Urgent Breakdown is 41% of all calls (2,293/5,539) \u2014 the single largest category",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "boiler-broken-who-to-call",
    "published_path": "/advice-centre/boiler-broken-who-to-call/",
    "drafted_date": "2026-09-07"
@@ -41,7 +41,7 @@
    "evidence": "18.6% of ALL calls (677/5,539) mention elderly/vulnerable family \u2014 the single biggest trust signal in the dataset",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "elderly-relative-boiler-breakdown",
    "published_path": "/advice-centre/elderly-relative-boiler-breakdown/",
    "drafted_date": "2026-09-07"
@@ -59,7 +59,7 @@
    "evidence": "48 calls (1.3%) describe being let down; quote: \"I've been let down by three people... I needed it doing last week\"",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "who-actually-fixes-your-boiler",
    "published_path": "/advice-centre/who-actually-fixes-your-boiler/",
    "drafted_date": "2026-09-11"
@@ -77,7 +77,7 @@
    "evidence": "Emergency/Urgent Breakdown is 41% of all calls (2,293) \u2014 not all are genuine same-hour emergencies",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "is-it-a-boiler-emergency",
    "published_path": "/advice-centre/is-it-a-boiler-emergency/",
    "drafted_date": "2026-09-11"
@@ -95,7 +95,7 @@
    "evidence": "Actual pricing (\u00a3100+VAT minimum); cost transparency is the highest-value TAYA content type for any trade business",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "emergency-boiler-callout-cost",
    "published_path": "/advice-centre/emergency-boiler-callout-cost/",
    "drafted_date": "2026-09-17"
@@ -113,7 +113,7 @@
    "evidence": "Freezing/no-heat language in 91 calls (2.5%) plus 42 calls mentioning young children being cold",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "engineer-on-the-way",
    "published_path": "/advice-centre/engineer-on-the-way/",
    "drafted_date": "2026-09-17"
@@ -131,7 +131,7 @@
    "evidence": "Direct quote: \"There's no heat or hot water at the minute\" \u2014 recurring exact phrasing in real calls",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "no-heating-no-hot-water",
    "published_path": "/advice-centre/no-heating-no-hot-water/",
    "drafted_date": "2026-09-18"
@@ -149,7 +149,7 @@
    "evidence": "Emergency/Urgent Breakdown is the single largest category at 41% of all calls (2,293)",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "drafted_pending_push",
+   "status": "published",
    "slug": "boiler-stopped-no-warning",
    "published_path": "/advice-centre/boiler-stopped-no-warning/",
    "drafted_date": "2026-09-18"
@@ -167,10 +167,10 @@
    "evidence": "Leak/Water Leak is 318 calls (6%); quote: \"It's dripping water... not excessively, but you know\"",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "boiler-leaking-water",
+   "published_path": "/advice-centre/boiler-leaking-water/",
+   "drafted_date": "2026-09-23"
   },
   {
    "id": 10,
@@ -185,10 +185,10 @@
    "evidence": "Thermostat/Controls is the 2nd-largest category at 447 calls (12.3%); quote: \"The thermostat keeps going offline\"",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "thermostat-keeps-going-offline",
+   "published_path": "/advice-centre/thermostat-keeps-going-offline/",
+   "drafted_date": "2026-09-23"
   },
   {
    "id": 11,
