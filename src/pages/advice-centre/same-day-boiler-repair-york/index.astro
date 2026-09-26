@@ -1,0 +1,36 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Same-Day Boiler Repair in York — Who's Actually Available Today | The Boiler Doctor, York";
+const description = "Boiler down and searching for same-day help in York? Here's who actually comes out, how we decide who gets seen first, and what to say when you call.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="September 2026">
+  <h1>Same-Day Boiler Repair in York — Who's Actually Available Today</h1>
+  <p>Typing "emergency boiler repair York" into your phone at 7am with no heating on is a specific kind of stressful. You don't want a call centre reading a script, and you don't want to be told to wait a week for someone to look at it. You want to know who's actually free, today, and whether they're any good.</p>
+
+  <h2>What "same day" really means</h2>
+  <p>We won't pretend every single job gets seen within the hour, because that's not how a small local team works and anyone who promises it is probably about to disappoint you. What we can tell you is how it actually plays out. A <a href="/boiler-repairs-breakdowns/">same day boiler repair</a> is the goal for anyone with no heating, no hot water, or a leak, and most days we manage it. If we can't fit you in, we'll say so on the phone rather than leave you waiting on a van that isn't coming.</p>
+
+  <h2>Who's actually turning up</h2>
+  <p>It's Steve or Kyle, not a subcontractor picked off a list who's never set foot in your street before. Both are York-based, both know the area, and both have been doing this job for years rather than weeks. That matters more than it sounds. An engineer who's already fitted boilers in Acomb, Haxby, or Fulford tends to know the quirks of the housing stock before they've even taken their boots off.</p>
+
+  <h2>How to actually get seen today</h2>
+  <p>The fastest route is a phone call during office hours ({siteConfig.officeHours}), with a bit of detail ready: what the boiler's doing (or not doing), any error code on the display, and whether it's affecting hot water, heating, or both. That five minutes of information usually tells us more than a full page of guesswork, and it's often what separates a boiler not working call that gets sorted same day from one that has to wait for parts. If it's outside office hours, a WhatsApp message to <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> gets picked up first thing, and you're already in the queue by the time the phones open.</p>
+
+  <h2>What decides who gets there first</h2>
+  <p>On a busy winter morning, not everyone can be first. This is roughly how the day sorts itself out:</p>
+  <ul>
+    <li>No heat or hot water at all, especially with an elderly relative, a baby, or someone unwell in the house</li>
+    <li>A leak that's actively getting worse or anywhere near electrics</li>
+    <li>No hot water on its own, which is unpleasant but rarely as urgent as no heating in the middle of winter</li>
+    <li>A boiler that's making a noise or acting up but still keeping the house warm, which can usually hold until the next available slot</li>
+  </ul>
+  <p>Tell us where you actually sit on that list. We'd rather prioritise properly than have everyone say it's an emergency and end up guessing.</p>
+
+  <h2>If today isn't possible</h2>
+  <p>Sometimes every slot is already booked before your call comes in, particularly during a cold snap when half of York seems to lose heating at once. If that happens, we'll tell you straight, give you the earliest real slot, and talk you through anything safe to do in the meantime rather than just hang up and leave you guessing. The one thing we won't do is tell you someone's "on the way" when they're not. And if you can actually smell gas, that's not a boiler breakdown call at all. Hang up and ring the National Gas Emergency number on 0800 111 999 straight away.</p>
+
+  <h2>Get someone out today, or the first honest slot we've got</h2>
+  <p>If your boiler's stopped and you want a straight answer on today's availability, call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a>. Tell us what's happening and we'll tell you exactly where you stand before anyone's even set off.</p>
+</ArticleLayout>

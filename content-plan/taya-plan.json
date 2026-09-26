@@ -203,10 +203,10 @@
    "evidence": "Emergency/Urgent Breakdown (41%, 2,293) is overwhelmingly a right-now, local search pattern",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "same-day-boiler-repair-york",
+   "published_path": "/advice-centre/same-day-boiler-repair-york/",
+   "drafted_date": "2026-09-26"
   },
   {
    "id": 12,
@@ -221,10 +221,10 @@
    "evidence": "Leak/Water Leak (318 calls, 6%) combined with desperate/urgent language in 133 calls (3.7%)",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "boiler-leak-turn-off-water",
+   "published_path": "/advice-centre/boiler-leak-turn-off-water/",
+   "drafted_date": "2026-09-26"
   },
   {
    "id": 13,

@@ -38,6 +38,8 @@ const staticPages = [
   "/advice-centre/boiler-stopped-no-warning/",
   "/advice-centre/boiler-leaking-water/",
   "/advice-centre/thermostat-keeps-going-offline/",
+  "/advice-centre/same-day-boiler-repair-york/",
+  "/advice-centre/boiler-leak-turn-off-water/",
   "/service-areas/",
   "/book-online/",
   "/contact/",
