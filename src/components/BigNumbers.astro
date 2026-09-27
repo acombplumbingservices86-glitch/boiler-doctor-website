@@ -7,9 +7,10 @@
 import { siteConfig } from "../data/siteConfig";
 
 const stats = [
-  // "Since 2008" matches siteConfig.yearsTrading's own sourcing (Steve started plumbing
-  // that year) — not siteConfig.founded.original, which is when the current business name
-  // started (2013) and would give a different, wrong number here.
+  // "Since 2008" is deliberate, confirmed with Steve 27 Sep 2026: 2008 is his own
+  // start as a gas engineer, 2013 is when the business itself started (sole trader,
+  // Acomb Plumbing Services — see siteConfig.founded.original). He chose to use the
+  // 2008/18-years figure here too rather than split the copy into two numbers.
   { value: `${siteConfig.yearsTrading}`, label: "Years trading in York", sub: "Since 2008" },
   { value: siteConfig.bigNumbers.jobsCompletedDisplay, label: "Jobs completed", sub: "And counting" },
   { value: siteConfig.bigNumbers.boilersInstalledDisplay, label: "Boilers installed", sub: "Across York & the villages" },

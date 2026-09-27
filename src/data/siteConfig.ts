@@ -35,10 +35,13 @@ export const siteConfig = {
   whatsappReady: true,
 
   address: {
-    line1: "2 Sanderson Court",
-    line2: "Chapelfields, Acomb",
+    line1: "2 Sanderson Court, Bramham Avenue",
+    line2: "Chapelfields",
     city: "York",
     postcode: "YO26 5DX",
+    // Corrected 27 Sep 2026 to match the registered address on Companies House exactly
+    // (was missing "Bramham Avenue" and had "Acomb" added, which isn't part of the formal
+    // address). "Acomb" is still fine to use as the area name in copy elsewhere.
     // Home + business address — legal/footer only, never a hero/trust element (Steve's instruction)
   },
 
@@ -54,7 +57,7 @@ export const siteConfig = {
     asOf: "2026-09-09",
   },
 
-  yearsTrading: 18, // Steve started plumbing in 2008 — confirmed directly by Steve, 29 Aug 2026
+  yearsTrading: 18, // Steve clarified 27 Sep 2026: 2008 is when he started gaining experience as a gas engineer; 2013 is when he set up his own business (see founded.original below). He chose to keep using 18/2008 as the single headline "years" figure everywhere for simplicity, even in "years trading" copy — that's a deliberate call, not an error. Do not "correct" this to 13 without checking with him first.
 
   // "Big numbers" trust stats — Steve's own idea (30 Aug 2026), from a marketing podcast
   // on using large, honest figures (years trading, customers served) as a trust signal.
@@ -72,7 +75,11 @@ export const siteConfig = {
   },
 
   founded: {
-    original: "Acomb Plumbing & Heating, 2013",
+    // Corrected 27 Sep 2026 — Steve's own account of the history: started as a sole
+    // trader under "Acomb Plumbing Services" in Jan 2013, later renamed (still sole
+    // trader) to "Acomb Plumbing & Heating", then incorporated as "The Boiler Doctor
+    // York Limited" in Dec 2020 when he went Ltd and VAT registered.
+    original: "Acomb Plumbing Services, 2013",
     rebrand: "The Boiler Doctor, 2020",
   },
 
