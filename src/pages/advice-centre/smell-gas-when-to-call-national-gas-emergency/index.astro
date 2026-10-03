@@ -1,0 +1,28 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Smell Gas or Worried It's Dangerous? When to Call the National Gas Emergency Line First | The Boiler Doctor, York";
+const description = "The difference between a boiler fault and a genuine gas emergency, and exactly who to call for each — straight from a Gas Safe registered engineer in York.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="October 2026">
+  <h1>Smell Gas or Worried It's Dangerous? When to Call the National Gas Emergency Line First</h1>
+  <p>Most calls we get about a boiler not working are exactly that — a boiler problem. No heat, no hot water, a strange noise, an error code on the display. Normal engineer territory. But every so often someone rings us when they should really be ringing the National Gas Emergency line first, and it's worth being clear about the difference, because getting it right matters more than almost anything else we write about.</p>
+
+  <h2>Call the National Gas Emergency line first if...</h2>
+  <p>If you can smell gas in your home, or outside near a gas meter or pipe, that's not a <a href="/boiler-repairs-breakdowns/">boiler breakdown</a> call. It's a gas emergency, full stop. Stop what you're doing, don't switch any electrics on or off, don't light a match, open some windows and doors if you can do it quickly on your way out, and get everyone out of the property. Then call the National Gas Emergency Service on <strong>0800 111 999</strong>, free, 24 hours a day. They'll talk you through it and send someone out to make the property safe.</p>
+  <p>The same goes if a carbon monoxide alarm goes off, or you've got symptoms that fit carbon monoxide poisoning — headaches, dizziness, nausea, or breathlessness that ease off when you leave the house and come back when you're back inside. CO has no smell at all, which is exactly why it's so dangerous and why every Care Plan we run includes a free alarm as standard.</p>
+
+  <h2>What's actually our job, not theirs</h2>
+  <p>A boiler that's stopped heating, lost pressure, started leaking, or is showing a fault code isn't a gas emergency on its own — it's a job for a Gas Safe registered engineer, which is where we come in. Gas Safe number {siteConfig.gasSafeNumber}, if you ever want to check. There's no gas escaping, nothing to make safe in a hurry, just a fault to diagnose and fix. If that's what's going on, call us on <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> during office hours ({siteConfig.officeHours}) and we'll talk you through getting seen.</p>
+  <p>It's a genuinely common mix-up, and not a daft one to make. If you're ever not sure which side of the line you're on, assume the safer option. The National Gas Emergency line would always rather get a call that turns out to be nothing than miss one that wasn't.</p>
+
+  <h2>What the gas engineer actually checks</h2>
+  <p>When National Grid attends a gas emergency call, their job is narrow and specific: find the leak, isolate it, and make the property safe. They won't repair your boiler or diagnose why it broke down in the first place — that's a separate visit, from us or another Gas Safe registered engineer, once the property's confirmed safe.</p>
+
+  <h2>If you're ever unsure</h2>
+  <p>We'd always rather you called the wrong number than hesitated. If you ring us and it turns out to be a genuine gas escape, we'll tell you straight away to hang up and dial 0800 111 999. If you ring the gas emergency line about a boiler that's simply stopped working, they'll say the same back to you, just the other way round. Nobody gets annoyed about a safety call going to the wrong place first.</p>
+
+  <h2>Boiler trouble, not a gas emergency?</h2>
+  <p>If you've ruled out a gas leak or CO and you're just dealing with a boiler not working York weather has no patience for, call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a>. Tell us what it's doing and we'll get you sorted.</p>
+</ArticleLayout>

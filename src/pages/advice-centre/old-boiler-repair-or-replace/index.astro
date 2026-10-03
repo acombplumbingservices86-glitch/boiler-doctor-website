@@ -1,0 +1,34 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Old Boiler Broken Down Again? When to Repair It and When to Let It Go | The Boiler Doctor, York";
+const description = "An honest repair-or-replace steer for an ageing boiler that keeps breaking down, from a Gas Safe registered engineer in York.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="October 2026">
+  <h1>Old Boiler Broken Down Again? When to Repair It and When to Let It Go</h1>
+  <p>This is one of the harder calls to make honestly, because there's a real cost either way. Fix it again and you might be back here in six months. Replace it and you're spending a lot more upfront for something that was, until this morning, basically working. We'd rather talk you through how we actually decide than just tell you what you want to hear.</p>
+
+  <h2>How old is "old"?</h2>
+  <p>Most boilers are built to last somewhere around 10 to 15 years with proper annual servicing. That's not a hard cut-off — we've kept well-maintained 18-year-old boilers going, and seen neglected 8-year-old ones give up early. Age on its own doesn't decide anything. It's a factor, not the answer.</p>
+
+  <h2>The questions that actually decide it</h2>
+  <ul>
+    <li><strong>What's the repair going to cost, against what a new boiler costs?</strong> If a repair is a few hundred pounds, that's usually worth doing even on an older boiler. If it's creeping toward half the price of replacing it, the maths starts pointing the other way.</li>
+    <li><strong>Is this the first <a href="/boiler-repairs-breakdowns/">boiler breakdown</a> or the third this year?</strong> One fault is bad luck. A pattern of them is usually a boiler telling you it's done.</li>
+    <li><strong>Can we still get parts for it?</strong> Some older models have parts that take longer to source, or have stopped being made altogether. That changes the calculation even if the repair itself would be straightforward.</li>
+    <li><strong>How efficient is it compared to a new one?</strong> An old, tired boiler can cost noticeably more to run than a modern condensing one, which eats into the saving from "just" repairing it.</li>
+  </ul>
+
+  <h2>When repair still makes sense</h2>
+  <p>If the boiler's had a long, mostly trouble-free life, this is its first real fault, parts are easy to get, and the bill is modest, repairing it is usually the right call. We'll always tell you plainly if that's what we think, rather than push a new installation because it's the bigger job. Any repair work carries our standard {siteConfig.warranty} warranty, same as everything else we do.</p>
+
+  <h2>When replacing is the smarter move</h2>
+  <p>If you're on your second or third <a href="/boiler-repairs-breakdowns/">boiler not working</a> call in a year, the parts are hard to find, or the repair bill is getting close to what a new boiler would cost, that's usually the point to stop patching it. A new boiler also comes with a proper manufacturer's warranty of its own, on top of ours, and modern condensing boilers are meaningfully more efficient than anything ten-plus years old.</p>
+
+  <h2>What a new boiler actually costs</h2>
+  <p>So the comparison is a fair one rather than a guess: a <a href="/new-boiler-installation/">new boiler installation</a> typically runs £2,500–£6,000 fitted, depending on the work involved — a straightforward like-for-like combi swap starts from £2,500, a system-to-combi conversion from £3,500. We fit Worcester Bosch and Ideal, both accredited installer schemes, and talk you through the real number for your specific setup before anything's agreed, not a ballpark that moves once we're on site.</p>
+
+  <h2>Not sure which side you're on?</h2>
+  <p>Tell us what's broken and how many times it's happened this year, and we'll give you a straight answer on repair versus replace, not whichever one happens to suit us. Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a>.</p>
+</ArticleLayout>
