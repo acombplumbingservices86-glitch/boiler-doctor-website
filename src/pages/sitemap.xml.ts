@@ -42,6 +42,8 @@ const staticPages = [
   "/advice-centre/boiler-leak-turn-off-water/",
   "/advice-centre/smell-gas-when-to-call-national-gas-emergency/",
   "/advice-centre/old-boiler-repair-or-replace/",
+  "/advice-centre/out-of-hours-boiler-emergencies/",
+  "/advice-centre/check-engineer-gas-safe-registered/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

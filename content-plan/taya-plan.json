@@ -8,7 +8,7 @@
    "skipped"
   ],
   "selection_rule": "Pick the next N rows with status == not_started, ordered by phase_num ascending, then priority (High before Med before Low), then id ascending. Skip any row with content_type == \"Internal Link Fix\" when selecting posts to draft — handle it as a one-off site-hygiene task instead, separately, if its status is still not_started.",
-  "last_updated": "2026-10-03"
+  "last_updated": "2026-10-06"
  },
  "rows": [
   {
@@ -295,10 +295,10 @@
    "evidence": "Winter peak months (Dec–Feb, 2,176 calls) and January alone (807 calls) show sustained high demand outside 9-5",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "out-of-hours-boiler-emergencies",
+   "published_path": "/advice-centre/out-of-hours-boiler-emergencies/",
+   "drafted_date": "2026-10-06"
   },
   {
    "id": 17,
@@ -313,10 +313,10 @@
    "evidence": "48 calls (1.3%) describe being let down by a previous engineer; Steve's Gas Safe number (570248) is a concrete differentiator",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "check-engineer-gas-safe-registered",
+   "published_path": "/advice-centre/check-engineer-gas-safe-registered/",
+   "drafted_date": "2026-10-06"
   },
   {
    "id": 18,

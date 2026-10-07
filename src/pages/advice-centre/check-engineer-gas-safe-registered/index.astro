@@ -1,0 +1,39 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Gas Safe Registered — What It Means and How to Check Before You Let Anyone Near Your Boiler | The Boiler Doctor, York";
+const description = "What Gas Safe registration actually covers, how to check an engineer's card is real before they touch your boiler, and why it matters more than a quote.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="October 2026">
+  <h1>Gas Safe Registered — What It Means and How to Check Before You Let Anyone Near Your Boiler</h1>
+  <p>When a <a href="/boiler-repairs-breakdowns/">boiler breakdown</a> has you ringing round for anyone who sounds available, it's easy to just take the first "yes, I can come today" and let them in. Gas work isn't like a dripping tap, though. It's one of the few trades where checking a credential before someone touches your appliance actually matters, so here's what Gas Safe registration means and how to check it, rather than just taking someone's word for it.</p>
+
+  <h2>What Gas Safe registration actually is</h2>
+  <p>Gas Safe Register is the official, legally required list of engineers and businesses qualified to work on gas appliances in the UK. Anyone fitting, servicing, or repairing a gas boiler without being on it is breaking the law, full stop, and working outside what they've actually been trained and assessed to do. It replaced CORGI registration back in 2009, but the idea's the same: you shouldn't have to just hope the person in your kitchen knows what they're doing with a live gas supply.</p>
+
+  <h2>How to actually check someone's card</h2>
+  <p>Every registered engineer carries a Gas Safe ID card with their photo, a unique licence number, an expiry date, and the specific categories of gas work they're qualified for. That last part matters: being registered for gas fires doesn't automatically cover boilers, and being registered for boilers doesn't cover commercial catering equipment. A proper engineer won't mind you asking to see the card, and won't mind you checking it either.</p>
+  <ul>
+    <li>Ask to see the card and actually look at it, don't just glance and nod</li>
+    <li>Check the photo matches the person standing in front of you</li>
+    <li>Note the licence number and check it on the Gas Safe Register website or app</li>
+    <li>Confirm the category covers what you're having done, boiler work specifically, not just "gas safe" in general</li>
+  </ul>
+  <p>It takes about a minute, and it's a minute well spent before anyone opens up a boiler not working York winters have already made cold enough. If someone turns up without a card at all, or gets vague when you ask to see it, that's reason enough to stop there and call someone else. A properly registered engineer has shown that card hundreds of times and won't think twice about it.</p>
+
+  <h2>Why this matters more than a cheap quote</h2>
+  <p>A good number of the calls we get are from people who've been let down before, quoted a price by someone who turned out not to be properly registered, did a rushed job, or simply didn't turn up again. Gas work done badly isn't just a wasted afternoon. A poorly fitted flue or a boiler that hasn't been checked for carbon monoxide risk properly is a real safety issue, not an inconvenience you can live with until next payday. Checking the card isn't being difficult. It's the same thing a careful tradesperson would want you to do.</p>
+
+  <h2>Our number, if you ever want to check</h2>
+  <p>Steve's Gas Safe registration number is {siteConfig.gasSafeNumber}. Look it up on the Gas Safe Register site before we even arrive if that puts your mind at ease. We'd rather you did. We're also F-Gas registered for air conditioning work, which carries its own separate legal checks around handling refrigerant. Same principle either way: ask, and check for yourself.</p>
+
+  <h2>What this doesn't cover</h2>
+  <p>Gas Safe registration tells you someone's qualified and legally allowed to do the work. It doesn't tell you they're reliable, tidy, or any good at explaining what they've found, which is a separate kind of trust built from reviews, word of mouth, and whether they turn up when they say they will. Both things matter. Check the card for the legal and safety side, then check reviews for the rest.</p>
+
+  <h2>Already had someone round who you're not sure about?</h2>
+  <p>If someone's already worked on your boiler and you're now wondering whether they were properly registered, don't try to check the gas side yourself. That's not a DIY job under any circumstances. Get a Gas Safe registered engineer out to look over what was done, confirm it's safe, and put right anything that wasn't. If you've had that experience and want a straight, no-pressure second opinion, we're happy to come and take an honest look.</p>
+
+  <h2>Booking someone you can actually trust</h2>
+  <p>We'd rather you checked the card, checked the reviews, and called us with questions than skipped straight to booking. Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll talk you through exactly who's coming and what they're qualified for before anyone sets foot inside.</p>
+</ArticleLayout>

@@ -1,0 +1,35 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Boiler Broken on a Sunday or Bank Holiday? Here's When We're Actually Answering the Phone | The Boiler Doctor, York";
+const description = "The honest version of our out-of-hours cover: when the phones are staffed, what WhatsApp actually does overnight, and how we sort who gets seen first.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="October 2026">
+  <h1>Boiler Broken on a Sunday or Bank Holiday? Here's When We're Actually Answering the Phone</h1>
+  <p>Boilers have a habit of picking the worst moment to give up. Saturday night, Christmas Day, the one bank holiday Monday you had plans for. Before you start ringing round, here's the honest answer to what actually happens when you contact us outside normal hours, rather than a vague "we're always here for you" that falls apart the second you try it.</p>
+
+  <h2>What happens if you call outside office hours</h2>
+  <p>Our phone lines are staffed {siteConfig.officeHours}. Call outside that window and you'll likely land on voicemail rather than a person, and we'd rather tell you that straight than let you sit there wondering why nobody's picking up. It's not that nobody cares about your <a href="/boiler-repairs-breakdowns/">boiler breakdown</a> at 9pm on a Sunday. It's that a small, local team answering live around the clock usually means a bigger outfit, a call centre, and a lot more cost passed on to you somewhere down the line.</p>
+  <p>That trade-off is worth being upfront about. A two-person outfit, Steve and Kyle, can give you a fixed £120 call-out and someone who actually knows your street, or it can promise a 24-hour switchboard and quietly build that overhead into every invoice. We've chosen the first one.</p>
+
+  <h2>Why WhatsApp is the better move late at night</h2>
+  <p>This is the bit most people don't expect: message us on WhatsApp at <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> any time, and it gets picked up first thing, before the phone lines even open. Tell us what the boiler's doing, any error code showing, and whether it's heating, hot water, or both. By the time we're at our desks, you're already at the front of that morning's queue instead of starting from scratch with a 9am phone call alongside everyone else who's just woken up to the same problem. For an emergency plumber York families can actually reach out of hours, that message is the quickest way in.</p>
+
+  <h2>How we decide who gets to first, once the day starts</h2>
+  <p>When the phones open, not every call can be first. It roughly sorts itself like this:</p>
+  <ul>
+    <li>No heating or no hot water at all, especially where there's an elderly relative, a baby, or someone unwell in the house</li>
+    <li>A leak that's actively getting worse or anywhere near electrics</li>
+    <li>No hot water on its own, which is unpleasant but usually less urgent than a <a href="/advice-centre/no-heating-no-hot-water/">no heating, no hot water</a> situation in the middle of winter</li>
+    <li>A boiler that's making a noise or playing up but still keeping the house warm, which can usually wait for the next slot</li>
+  </ul>
+  <p>If someone vulnerable is affected, say so when you message. It won't change what the job costs, but it does change where you sit on that list.</p>
+
+  <h2>The nights this actually matters most</h2>
+  <p>Winter is when a boiler not working York call stops being an inconvenience and starts being properly uncomfortable. January is reliably the busiest month we see, and the whole run from December through February brings far more breakdowns than any other stretch of the year. If your boiler's getting on a bit, that's exactly when it tends to pick to fail, usually on a Friday night or over a long weekend when it feels like nobody's about.</p>
+
+  <h2>So what should you actually do tonight?</h2>
+  <p>If it's gas you can smell, that's not a boiler job at all. Stop, get out, and call the National Gas Emergency line on 0800 111 999. If it's a standard emergency boiler repair situation, no heat, no hot water, a leak, a strange noise, send us a WhatsApp message now with what's happening. Keep the heating off if there's any doubt about safety, close the door on the room if it's leaking near electrics, and layer up rather than sit shivering waiting for a reply that won't land until morning anyway.</p>
+  <p>We'll have your message waiting when the office opens and give you a straight answer on timing then, rather than a promise at midnight we can't actually keep. Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> during the day, or message <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> any time in between.</p>
+</ArticleLayout>
