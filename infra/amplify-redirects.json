@@ -470,6 +470,11 @@
     "target": "/about/"
   },
   {
+    "source": "/video/what-opentherm-technology",
+    "status": "301",
+    "target": "/controls-smart-thermostats/"
+  },
+  {
     "source": "/york-plumber",
     "status": "301",
     "target": "/service-areas/"
