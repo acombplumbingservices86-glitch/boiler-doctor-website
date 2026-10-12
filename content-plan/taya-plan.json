@@ -8,7 +8,7 @@
    "skipped"
   ],
   "selection_rule": "Pick the next N rows with status == not_started, ordered by phase_num ascending, then priority (High before Med before Low), then id ascending. Skip any row with content_type == \"Internal Link Fix\" when selecting posts to draft — handle it as a one-off site-hygiene task instead, separately, if its status is still not_started.",
-  "last_updated": "2026-10-06"
+  "last_updated": "2026-10-12"
  },
  "rows": [
   {
@@ -331,10 +331,10 @@
    "evidence": "Landlord/Gas Safety Certificate calls: 109 (3%); quote: \"We've got tenants in there so it'll be better if I can arrange it\"",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "landlord-or-tenant-boiler-repair",
+   "published_path": "/advice-centre/landlord-or-tenant-boiler-repair/",
+   "drafted_date": "2026-10-09"
   },
   {
    "id": 19,
@@ -349,10 +349,10 @@
    "evidence": "TAYA transparency principle applied to the £100+VAT minimum callout structure; low price-sensitivity (2.3%) suggests people want clarity not discounts",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "whats-included-emergency-callout",
+   "published_path": "/advice-centre/whats-included-emergency-callout/",
+   "drafted_date": "2026-10-09"
   },
   {
    "id": 20,

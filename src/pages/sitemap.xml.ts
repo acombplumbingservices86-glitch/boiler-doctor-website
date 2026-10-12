@@ -44,6 +44,8 @@ const staticPages = [
   "/advice-centre/old-boiler-repair-or-replace/",
   "/advice-centre/out-of-hours-boiler-emergencies/",
   "/advice-centre/check-engineer-gas-safe-registered/",
+  "/advice-centre/landlord-or-tenant-boiler-repair/",
+  "/advice-centre/whats-included-emergency-callout/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

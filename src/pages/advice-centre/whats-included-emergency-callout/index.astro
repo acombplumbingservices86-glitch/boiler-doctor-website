@@ -1,0 +1,36 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "What You're Really Paying For With an Emergency Callout - No Hidden Extras | The Boiler Doctor, York";
+const description = "Is diagnosis included in a boiler callout, or is that extra too? A plain breakdown of what the £120 fee actually covers and what gets quoted separately.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="October 2026">
+  <h1>What You're Really Paying For With an Emergency Callout - No Hidden Extras</h1>
+  <p>Two questions come up almost every time someone rings about a <a href="/boiler-repairs-breakdowns/">boiler breakdown</a>: is the diagnosis included in that callout fee, or is that billed separately? And once the engineer's found the fault, are parts on top? Fair questions, and ones a lot of companies don't answer until you're already stood in your kitchen. Here's the straight version.</p>
+
+  <h2>Is the diagnosis free, or does that cost extra?</h2>
+  <p>Our call-out fee is {siteConfig.minCallOutFee}, and that figure already includes the diagnosis. It isn't a separate line item, and it isn't something that gets added once the engineer's had a look. An engineer travels out, examines the boiler properly, works out what's actually wrong, and explains it to you in plain terms. That's all covered in the {siteConfig.minCallOutFee}. If the fault turns out to be something quick, a stuck valve, a reset, a pressure top-up, that fee is often the whole bill.</p>
+
+  <h2>So what counts as "extra"?</h2>
+  <p>The only thing that goes beyond the call-out fee is work that goes beyond diagnosis, meaning parts and labour for an actual repair. If your boiler needs a new part fitting, that cost is worked out and written down for you before anyone picks up a tool, not estimated out loud and sorted out afterwards on the invoice. You get a number, you decide whether to go ahead, and only then does the work start. No VAT gets added on top of what's quoted, either. The price you're shown is the price you pay.</p>
+  <p>A few things that typically fall into that "extra" category:</p>
+  <ul>
+    <li>A replacement part, such as a PCB, pump, or diverter valve</li>
+    <li>Labour for a repair that takes longer than a standard diagnostic visit</li>
+    <li>Any further work you specifically ask us to carry out while we're there</li>
+  </ul>
+  <p>What doesn't fall into that category is the visit itself, the time spent working out what's wrong, or a written explanation of the fault. That's the whole point of a fixed call-out price for a <a href="/boiler-repairs-breakdowns/">boiler repair</a>, rather than an hourly rate that keeps running the longer someone stands in your kitchen scratching their head.</p>
+
+  <h2>Why some companies quote lower and charge more later</h2>
+  <p>Plenty of people searching for an emergency boiler repair in York have been caught by a cheap-sounding number that didn't hold up once an engineer was already inside the house and the pressure was on to just say yes. A low headline figure that excludes diagnosis, or treats it as a separate charge, usually just moves the real cost further down the invoice rather than removing it. We'd rather the {siteConfig.minCallOutFee} number you see is the number that actually applies, with anything extra written down and agreed before it's added to anything.</p>
+
+  <h2>What this looks like for a typical no-heating call</h2>
+  <p>Say your heating's gone and there's no hot water in the house either. An engineer comes out, that's the {siteConfig.minCallOutFee}. They find the fault, say a failed diverter valve, and talk you through what's happened. If you want it fixed there and then, the part and labour get priced and agreed before the work starts. If you'd rather think it over, that's fine too, the diagnosis still stands and you've paid for exactly what you got: an honest answer, not a guess over the phone.</p>
+
+  <h2>Want the fuller cost picture first?</h2>
+  <p>This page is about what's included in the callout itself. If you want the wider view on pricing, including when jobs tend to run higher and how a deposit works on bigger repairs, our guide on <a href="/advice-centre/emergency-boiler-callout-cost/">emergency boiler callout prices in York</a> covers that in more detail.</p>
+
+  <h2>Get a straight number before you book</h2>
+  <p>If your boiler's not working and you want to know what you're actually looking at before anyone comes out, call us and tell us what it's doing. We'll give you a realistic steer there and then, not a vague "it depends" designed to get you off the phone. Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll take it from there.</p>
+</ArticleLayout>
