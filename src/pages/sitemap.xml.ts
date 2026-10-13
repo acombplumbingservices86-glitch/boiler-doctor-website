@@ -46,6 +46,8 @@ const staticPages = [
   "/advice-centre/check-engineer-gas-safe-registered/",
   "/advice-centre/landlord-or-tenant-boiler-repair/",
   "/advice-centre/whats-included-emergency-callout/",
+  "/advice-centre/boiler-making-strange-noises/",
+  "/advice-centre/why-boilers-break-down-in-winter/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

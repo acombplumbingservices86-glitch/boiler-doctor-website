@@ -367,10 +367,10 @@
    "evidence": "Boiler Noise is a distinct, named call category: 76 calls (2.1%)",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "boiler-making-strange-noises",
+   "published_path": "/advice-centre/boiler-making-strange-noises/",
+   "drafted_date": "2026-10-13"
   },
   {
    "id": 21,
@@ -385,10 +385,10 @@
    "evidence": "January is the single busiest month (807 calls); winter (Dec–Feb) accounts for 2,176 of all calls",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "why-boilers-break-down-in-winter",
+   "published_path": "/advice-centre/why-boilers-break-down-in-winter/",
+   "drafted_date": "2026-10-13"
   },
   {
    "id": 22,
