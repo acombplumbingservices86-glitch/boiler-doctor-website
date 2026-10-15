@@ -5,11 +5,25 @@ import TrustStrip from "../../components/TrustStrip.astro";
 import BoilerPriceTool from "../../components/BoilerPriceTool.astro";
 import { siteConfig } from "../../data/siteConfig";
 
-const title = "Boiler Price Calculator | Instant Guide Price | The Boiler Doctor";
+const title = "How Much Does a New Boiler Cost in York? | Instant Price Calculator | The Boiler Doctor";
 const description =
-  "Answer a few quick questions and get a recommended boiler and guide price in under a minute — no name, email or phone number needed. Worcester Bosch and Ideal accredited, York.";
+  "How much is a new boiler in York? Get an instant guide price in under a minute, no contact details needed — plus real figures, what affects the cost, and honest advice from a local Gas Safe engineer.";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much is a new boiler in York?", "acceptedAnswer": { "@type": "Answer", "text": "A like-for-like combi swap starts from £2,500. Converting to a different system type (say, system to combi) starts from £3,500. Most jobs we do in York land somewhere between £2,500 and £6,000, depending on the boiler and what's already in the house. Answer five quick questions in the calculator above for a guide price based on your own home." } },
+    { "@type": "Question", "name": "What affects the price of a new boiler?", "acceptedAnswer": { "@type": "Answer", "text": "Mainly four things: whether you're swapping like-for-like or changing system type, the size and brand of boiler your home needs, whether the boiler's moving to a new spot, and anything extra we find on the day — old pipework, an undersized system, that sort of thing. We'll always tell you before doing anything unquoted." } },
+    { "@type": "Question", "name": "Is it cheaper to repair my boiler or replace it?", "acceptedAnswer": { "@type": "Answer", "text": "As a rough rule, if the repair's going to cost more than about half the price of a new boiler, or your boiler's past 10-15 years old, replacing it usually works out better value — you're not pouring money into something on its way out. Under that, a repair's often the sensible call. We'll always give you our honest opinion rather than pushing a new boiler you don't need." } },
+    { "@type": "Question", "name": "How long does it take to fit a new boiler?", "acceptedAnswer": { "@type": "Answer", "text": "Typically one day for a like-for-like swap. A system-to-combi conversion or a boiler that's moving location can take two to three days, depending on the pipework involved." } },
+    { "@type": "Question", "name": "Do I need a combi boiler or a system boiler?", "acceptedAnswer": { "@type": "Answer", "text": "A combi gives you hot water on demand with no tank to run out — it suits most homes with one or two bathrooms. A system boiler keeps a hot water cylinder, which copes better if more than one bathroom might be running at once. Our calculator above will recommend one based on your home; see our full combi vs system comparison for more detail." } },
+    { "@type": "Question", "name": "Can I pay monthly for a new boiler?", "acceptedAnswer": { "@type": "Answer", "text": "We don't run a finance scheme ourselves — we keep pricing straightforward, with a deposit on jobs over £1,000 and the balance due on completion. If spreading the cost matters to you, mention it when we visit and we'll talk you through your options honestly." } }
+  ],
+};
 ---
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <section class="section">
     <div class="container">
       <h1>Your New Boiler Price, in About a Minute</h1>
@@ -36,6 +50,37 @@ const description =
         <li>We'll call or text to book a free home visit and confirm the price in writing</li>
       </ol>
       <p class="area-links">This is a guide price based on typical jobs like yours — your exact price depends on what we find at the free visit. See <a href="/advice-centre/new-boiler-cost/">how we price new boilers</a> or read our <a href="/advice-centre/combi-vs-system-boiler/">combi vs system boiler comparison</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow blog">
+      <h2>How Much Does a New Boiler Cost in York?</h2>
+      <p>That's the question everyone wants a straight answer to, and fair enough — it's a big purchase. So here's the honest version, not a "prices from £X" line buried in small print.</p>
+      <p>A like-for-like combi swap starts from <strong>£2,500</strong>. Converting to a different system — say, an old system boiler to a combi — starts from <strong>£3,500</strong>. Most jobs we do across York and the surrounding villages land somewhere in the <strong>£2,500–£6,000</strong> range, depending on the boiler and what's already in the house. Nationally you'll see figures advertised anywhere from under £2,000 to £6,000+ — ours sit in that range because we size the boiler properly and don't cut corners on the install, not because we're the cheapest number on the page.</p>
+      <p>Want a figure for your actual home rather than a general range? Answer the five questions in the calculator above — it takes about a minute and you don't need to give us any details to see it.</p>
+
+      <h3>What actually changes the price</h3>
+      <ul>
+        <li><strong>Like-for-like vs conversion</strong> — swapping the same type of boiler for a newer version is the cheapest option. Changing the type, like system to combi, means more pipework and more labour.</li>
+        <li><strong>Boiler size and brand</strong> — we fit Worcester Bosch and Ideal. Both have a range of models at different price points, sized to your home's hot water demand rather than the biggest one we can sell you.</li>
+        <li><strong>Where the boiler is, and where it's going</strong> — moving it to a new location costs more than swapping it in the same spot.</li>
+        <li><strong>What we find on the day</strong> — old, worn pipework or an undersized system sometimes needs attention alongside the boiler. We'll always tell you before doing anything unquoted.</li>
+      </ul>
+
+      <h3>Combi or system boiler — which do you need?</h3>
+      <p>A combi gives you hot water on demand with no tank to run out, which suits most homes with one or two bathrooms. A system boiler keeps a hot water cylinder, so it copes better when more than one bathroom might be running at once — bigger families, bigger houses. The calculator above will recommend one based on what you tell us about your home. For the full breakdown, read our <a href="/advice-centre/combi-vs-system-boiler/">combi vs system boiler comparison</a>.</p>
+
+      <h3>Is it worth repairing your old boiler, or replacing it?</h3>
+      <p>Rough rule of thumb: if a repair's going to cost more than about half the price of a new boiler, or your boiler's past 10–15 years old, you're usually better off replacing it — you stop pouring money into something on its way out. Under that, a repair's often the sensible call, and we'll tell you straight if that's the case rather than talking you into a new boiler you don't need yet.</p>
+
+      <h3>How long does fitting a new boiler take?</h3>
+      <p>Typically <strong>one day</strong> for a like-for-like swap. A system-to-combi conversion, or a boiler that's moving location, usually takes two to three days depending on the pipework involved. Either way, you'll know the timeline before we start — it's set out in your written quote.</p>
+
+      <h3>Can you pay monthly for a new boiler?</h3>
+      <p>We don't run a finance scheme ourselves — we keep things simple, with a deposit on jobs over £1,000 and the balance due on completion. If spreading the cost matters to you, mention it at your free visit and we'll talk you through it honestly, rather than steering you toward a finance plan that isn't ours to offer.</p>
+
+      <p class="area-links">Prices and advice here apply across York and the 20 areas we cover — see the <a href="/service-areas/">full list of areas</a>, or read more on <a href="/advice-centre/new-boiler-cost/">how we price new boilers</a> and <a href="/advice-centre/old-boiler-repair-or-replace/">repair vs replace</a>.</p>
     </div>
   </section>
 
