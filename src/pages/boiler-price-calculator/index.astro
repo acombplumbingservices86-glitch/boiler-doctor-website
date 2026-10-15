@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTABand from "../../components/CTABand.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import BoilerPriceTool from "../../components/BoilerPriceTool.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const title = "Boiler Price Calculator | Instant Guide Price | The Boiler Doctor";
+const description =
+  "Answer a few quick questions and get a recommended boiler and guide price in under a minute — no name, email or phone number needed. Worcester Bosch and Ideal accredited, York.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1>Your New Boiler Price, in About a Minute</h1>
+      <p class="lede">Tap your way through a few quick questions and we'll recommend a boiler and give you a guide price — straight away, with no details needed. Want it locked in as a proper quote? That's one extra step, and it's optional.</p>
+    </div>
+    <div class="container">
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container narrow">
+      <BoilerPriceTool />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>How this works</h2>
+      <ol class="process-list">
+        <li>Answer five quick questions by tapping the option that matches your home</li>
+        <li>See your recommended boiler and a guide price immediately — no contact details needed</li>
+        <li>Happy with it? Tap "Get a detailed, fixed quote" and leave your details</li>
+        <li>We'll call or text to book a free home visit and confirm the price in writing</li>
+      </ol>
+      <p class="area-links">This is a guide price based on typical jobs like yours — your exact price depends on what we find at the free visit. See <a href="/advice-centre/new-boiler-cost/">how we price new boilers</a> or read our <a href="/advice-centre/combi-vs-system-boiler/">combi vs system boiler comparison</a>.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Prefer to just talk it through?" subheading="Call us or book a free visit — no pressure, no hard sell." />
+</BaseLayout>
+
+<style>
+  .lede { font-size: 1.1rem; color: var(--color-grey-600); max-width: 56ch; }
+  .narrow { max-width: 68ch; }
+  .process-list { padding-left: 1.2em; display: grid; gap: 0.5rem; }
+  .area-links { margin-top: 1rem; font-size: 0.9rem; color: var(--color-grey-600); }
+</style>
