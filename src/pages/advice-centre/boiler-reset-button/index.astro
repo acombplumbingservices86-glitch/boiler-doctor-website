@@ -1,0 +1,34 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Where's the Reset Button on Your Boiler — and Should You Use It? | The Boiler Doctor, York";
+const description = "Boiler stopped and you've spotted a reset button? Here's what it actually does, where to find it, and when pressing it is safe and when it isn't.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="October 2026">
+  <h1>Where's the Reset Button on Your Boiler — and Should You Actually Use It?</h1>
+  <p>Heating goes off, you have a look at the boiler, and there's a button marked reset staring back at you. Pressing it feels like the obvious first move, and most of the time it is one. A reset button is there to be used. The real question is whether it's the right fix for what's actually gone wrong, or just a way of putting off a call you'll end up making anyway.</p>
+
+  <h2>What the reset button actually does</h2>
+  <p>Boilers are built to shut themselves down the moment something isn't quite right, and that's the safety feature doing its job, not a fault. A reset clears that lockout and lets the boiler try starting up again from scratch, the same way turning a laptop off and back on sorts out plenty of ordinary glitches. If the cause was a one-off blip, a reset is often all it takes. If something's actually failed, the boiler will usually lock out again fairly quickly, sometimes within minutes.</p>
+
+  <h2>Where to find it</h2>
+  <p>This varies by make and model, which is part of why it isn't always obvious. On most modern boilers it's a single button on the front panel, often marked with a reset symbol, a lightning bolt, or simply the word "reset". Older boilers sometimes use a small switch or a dial you turn rather than press. Worcester Bosch, Vaillant and Ideal boilers, the three brands we fit and service most often in York, all label it slightly differently, so if you can't spot it straight away, the model's instruction booklet or a quick search for your exact model number is usually quicker than guessing.</p>
+
+  <h2>Is it safe to press yourself?</h2>
+  <p>Yes, pressing the reset button itself is fine. It's an external control built for exactly this, no different to flicking a light switch, and it doesn't involve opening the casing or touching anything gas-related. What we'd say is press it once, wait a few minutes, and see what happens. Don't keep pressing it over and over hoping it eventually sticks.</p>
+
+  <h2>When to stop and call us instead</h2>
+  <ul>
+    <li><strong>It locks out again straight after resetting</strong> — that's the boiler telling you the same fault is still there, not a reason to keep trying</li>
+    <li><strong>You smell gas, or anything feels off</strong> — don't touch the reset button at all. Get out, get fresh air, and call the National Gas Emergency number on 0800 111 999 before anything else</li>
+    <li><strong>It's reset successfully but keeps cutting out again within a day or two</strong> — a repeated lockout usually points to a developing fault, not bad luck</li>
+    <li><strong>You're not sure which button is actually the reset</strong> — guessing with an unfamiliar control isn't worth it. Leave it and call us instead</li>
+  </ul>
+
+  <h2>If it doesn't fix it</h2>
+  <p>A reset that doesn't hold isn't a sign you've done something wrong. It just means the fault behind it needs an actual look, not another attempt at the same button. Plenty of calls for a <a href="/boiler-repairs-breakdowns/">boiler not working</a> in York start exactly this way: someone's tried the reset, sometimes two or three times, before deciding it's time to call. That's no bad thing. It rules out the quickest possible fix and gives us useful information before we've even arrived. If your boiler's having a full-on breakdown in York rather than a one-off blip, we'd always rather you called after one sensible attempt than kept resetting a fault that needs proper attention.</p>
+
+  <h2>Getting it sorted</h2>
+  <p>Tell us what happened when you reset it, whether it fired up and then cut out again, how long it ran for, and any error code on the display, and we'll have a good idea of what we're dealing with before we even set off. No heating in York on a cold week isn't something we leave hanging. Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a> and we'll take it from there.</p>
+</ArticleLayout>

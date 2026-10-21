@@ -8,7 +8,7 @@
    "skipped"
   ],
   "selection_rule": "Pick the next N rows with status == not_started, ordered by phase_num ascending, then priority (High before Med before Low), then id ascending. Skip any row with content_type == \"Internal Link Fix\" when selecting posts to draft — handle it as a one-off site-hygiene task instead, separately, if its status is still not_started.",
-  "last_updated": "2026-10-12"
+  "last_updated": "2026-10-21"
  },
  "rows": [
   {
@@ -403,10 +403,10 @@
    "evidence": "Leak/Water Leak is 318 calls (6%) — locating the source is a recurring theme",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "boiler-leak-location",
+   "published_path": "/advice-centre/boiler-leak-location/",
+   "drafted_date": "2026-10-21"
   },
   {
    "id": 23,
@@ -421,10 +421,10 @@
    "evidence": "Grounded in the scale of Emergency/Urgent Breakdown calls (41%), where a reset is often tried first",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "boiler-reset-button",
+   "published_path": "/advice-centre/boiler-reset-button/",
+   "drafted_date": "2026-10-21"
   },
   {
    "id": 24,

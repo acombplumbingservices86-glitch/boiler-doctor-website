@@ -48,6 +48,8 @@ const staticPages = [
   "/advice-centre/whats-included-emergency-callout/",
   "/advice-centre/boiler-making-strange-noises/",
   "/advice-centre/why-boilers-break-down-in-winter/",
+  "/advice-centre/boiler-leak-location/",
+  "/advice-centre/boiler-reset-button/",
   "/service-areas/",
   "/book-online/",
   "/contact/",
