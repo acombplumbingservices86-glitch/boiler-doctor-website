@@ -146,8 +146,12 @@
 # /bathroom-renovation/ (trailing slash added) before this rule got a
 # chance to match, then 404ing there since nothing covered that exact
 # path. Covering both forms explicitly instead of relying on match order.
-/bathroom-renovation  /about/  301
-/bathroom-renovation/  /about/  301
+# Updated 22 Oct 2026, Steve's explicit call: was /about/ (bathroom work isn't
+# offered any more, so that was a neutral catch-all) — changed to point toward
+# the core repairs/breakdowns service instead, since it's a more useful landing
+# spot for anyone who was searching for bathroom-related plumbing/heating work.
+/bathroom-renovation  /boiler-repairs-breakdowns/  301
+/bathroom-renovation/  /boiler-repairs-breakdowns/  301
 # Old Facebook cross-post stub pages (boiler-doctor-XXX slugs) — wildcard catches all of them.
 /facebook-post/*  /advice-centre/  301
 

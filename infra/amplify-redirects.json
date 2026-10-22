@@ -487,12 +487,12 @@
   {
     "source": "/bathroom-renovation",
     "status": "301",
-    "target": "/about/"
+    "target": "/boiler-repairs-breakdowns/"
   },
   {
     "source": "/bathroom-renovation/",
     "status": "301",
-    "target": "/about/"
+    "target": "/boiler-repairs-breakdowns/"
   },
   {
     "source": "/facebook-post/<*>",
