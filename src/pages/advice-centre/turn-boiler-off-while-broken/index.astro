@@ -1,0 +1,36 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Should You Turn Your Boiler Off While You Wait for an Engineer? | The Boiler Doctor, York";
+const description = "Boiler playing up and not sure whether to switch it off or leave it running until the engineer arrives? Here's the honest, safety-first answer.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="October 2026">
+  <h1>Should You Turn Your Boiler Off While You Wait for an Engineer? The Honest Answer</h1>
+  <p>You've made the call, you've got a time booked, and now you're stood in front of a boiler that isn't working right, wondering whether to flick it off at the wall or just leave it be until someone turns up. It's a fair question, and we get asked it most days. The honest answer depends entirely on what's actually gone wrong.</p>
+
+  <h2>Most of the time, just leave it alone</h2>
+  <p>For the sort of ordinary <a href="/boiler-repairs-breakdowns/">boiler breakdown</a> we see over and over in York — no heating, no hot water, or a fault code sitting on the display — switching the boiler off and on repeatedly doesn't fix anything, and it can make our job harder when we get there. Boilers lock themselves out for a reason, and clearing that lockout over and over without knowing why it happened just hides the clue. If your boiler isn't dangerous, just not working, leave it as it is. Note down what's showing on the display, when it started, and whether it's affecting heating, hot water, or both. That's more useful to us than a boiler that's been reset five times.</p>
+  <p>A boiler not working York homeowners describe to us is rarely made worse by being left switched on in this state. The thing that actually makes a difference to how comfortable you are until we arrive is managing the house, not the boiler. If there's no heating, close doors to rooms you're not using and layer up rather than keep hammering the reset button.</p>
+
+  <h2>When you should actually switch it off</h2>
+  <p>There are a handful of situations where turning the boiler off at the isolation switch is the right call, and they're mostly about safety rather than the fault itself:</p>
+  <ul>
+    <li>Water is actively leaking from the boiler or the pipework around it, especially anywhere near electrics</li>
+    <li>You can see scorching, smell burning, or hear a noise that's getting rapidly worse rather than staying constant</li>
+    <li>The display is showing an error alongside visible damage, melting, or anything that looks wrong to the eye, not just the readout</li>
+  </ul>
+  <p>In any of those cases, switch it off at the wall if you can reach it safely, and call us. That's different from a boiler quietly refusing to fire up with no heating or no hot water, which can usually just sit there until someone qualified looks at it.</p>
+
+  <h2>The one time it isn't your decision to make</h2>
+  <p>If you can smell gas, this stops being a question about your boiler at all. Don't touch switches, don't flick anything on or off, just get out and call the National Gas Emergency line on 0800 111 999 straight away. We've written a fuller answer on exactly <a href="/advice-centre/smell-gas-when-to-call-national-gas-emergency/">when to call the gas emergency line instead of an engineer</a>, and it's worth five minutes if you're ever unsure where that line sits.</p>
+
+  <h2>Why we'd rather you didn't keep resetting it</h2>
+  <p>We understand the instinct. The reset button is right there and it feels like doing something. But a boiler that needs resetting three or four times in a day is telling you it's got a fault that a reset won't cure, and every reset can wipe information that would have helped us diagnose it faster. We've gone into more detail on <a href="/advice-centre/boiler-reset-button/">where the reset button actually is and when it's safe to use</a>, including the couple of situations where one reset is actually worth trying before you call anyone.</p>
+
+  <h2>Keeping the house warm in the meantime</h2>
+  <p>If it's the depths of winter and there's no heating York weather makes properly uncomfortable, leaving the boiler switched on doesn't warm the house on its own, so don't rely on it. Electric heaters in the rooms you're actually using, extra layers, and keeping an eye on anyone elderly or very young in the house matter far more than what state the boiler's switch is in. We've covered this in more detail in our guide on <a href="/advice-centre/engineer-on-the-way/">what to do while you're waiting for the engineer</a>.</p>
+
+  <h2>Still not sure what you're looking at?</h2>
+  <p>If you're still not sure whether what you're seeing is a "leave it alone" fault or a "switch it off now" one, call us and describe it rather than guess. Phone <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a>, tell us what the boiler's doing and what you can see or smell, and we'll tell you straight whether it's safe to leave until we get there or worth switching off now.</p>
+</ArticleLayout>

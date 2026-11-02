@@ -439,10 +439,10 @@
    "evidence": "Reflected in the scale of breakdown calls (41%) and desperate/urgent language (133 calls, 3.7%)",
    "priority": "Med",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "turn-boiler-off-while-broken",
+   "published_path": "/advice-centre/turn-boiler-off-while-broken/",
+   "drafted_date": "2026-10-23"
   },
   {
    "id": 25,
@@ -457,10 +457,11 @@
    "evidence": "Site already has 20 area pages + the repairs/breakdowns hub covering this exact query — new content would cannibalise them",
    "priority": "N/A - Link Fix",
    "link_to_existing_page": "/boiler-repairs-breakdowns/ hub + 20 area pages",
-   "status": "not_started",
+   "status": "published",
    "slug": null,
    "published_path": null,
-   "drafted_date": null
+   "drafted_date": "2026-10-23",
+   "notes": "Internal-link fix only, 2026-10-23 — added contextual links from the area names already mentioned in /advice-centre/same-day-boiler-repair-york/ (Acomb, Haxby, Fulford) to their respective boiler-repairs-<area> pages, plus a link to the /boiler-repairs-breakdowns/ hub and its full 20-area list. No new page created."
   },
   {
    "id": 26,
@@ -475,10 +476,10 @@
    "evidence": "Landlord/CP12 segment = 109 calls (3%), low price-sensitivity, high-value B2B — legal-responsibility confusion is a common trigger",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "landlord-or-tenant-gas-safety-check",
+   "published_path": "/advice-centre/landlord-or-tenant-gas-safety-check/",
+   "drafted_date": "2026-10-30"
   },
   {
    "id": 27,
@@ -493,10 +494,10 @@
    "evidence": "Elderly/vulnerable mentioned in 18.6% of ALL calls (677) — the single biggest emotional-trigger stat in the dataset",
    "priority": "High",
    "link_to_existing_page": "",
-   "status": "not_started",
-   "slug": null,
-   "published_path": null,
-   "drafted_date": null
+   "status": "drafted_pending_push",
+   "slug": "elderly-parent-boiler-service",
+   "published_path": "/advice-centre/elderly-parent-boiler-service/",
+   "drafted_date": "2026-10-30"
   },
   {
    "id": 28,
