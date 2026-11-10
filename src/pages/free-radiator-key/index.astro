@@ -9,14 +9,14 @@
 // Deliberately standalone (LandingLayout, no header nav/footer nav) so this
 // is the only thing a visitor can do on the page — leave their details.
 //
-// VIDEO: set YOUTUBE_VIDEO_ID below once Steve uploads the bleeding-a-radiator
-// video to YouTube. Until then the page leads with the actual radiator key
-// photo Steve supplied instead, so the page is live and working right now.
+// VIDEO: YOUTUBE_VIDEO_ID is Steve's radiator-bleeding YouTube Short
+// (https://youtube.com/shorts/KUvYnrOgr6w). Falls back to the radiator key
+// photo if this is ever cleared out. Embedded at 9:16 since Shorts are vertical.
 import LandingLayout from "../../layouts/LandingLayout.astro";
 import RadiatorKeyForm from "../../components/RadiatorKeyForm.astro";
 import { siteConfig } from "../../data/siteConfig";
 
-const YOUTUBE_VIDEO_ID = ""; // e.g. "dQw4w9WgXcQ" — paste the video's ID here once it's on YouTube
+const YOUTUBE_VIDEO_ID = "KUvYnrOgr6w"; // Steve's radiator-bleeding YouTube Short, supplied 10 Nov 2026
 ---
 <LandingLayout
   title="Free Radiator Key | The Boiler Doctor, York"
@@ -32,7 +32,7 @@ const YOUTUBE_VIDEO_ID = ""; // e.g. "dQw4w9WgXcQ" — paste the video's ID here
         charge, no catch.
       </p>
 
-      <div class="hero__media">
+      <div class={`hero__media ${YOUTUBE_VIDEO_ID ? "hero__media--video" : ""}`}>
         {YOUTUBE_VIDEO_ID ? (
           <div class="hero__video">
             <iframe
@@ -103,10 +103,13 @@ const YOUTUBE_VIDEO_ID = ""; // e.g. "dQw4w9WgXcQ" — paste the video's ID here
       max-width: 560px;
     }
     .hero__media { margin: 0 auto 1.75rem; max-width: 520px; }
+    /* This video is a YouTube Short (vertical, 9:16) — a narrower, taller
+       frame so it plays full-size instead of letterboxed in a 16:9 box. */
+    .hero__media--video { max-width: 340px; }
     .hero__video {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 9 / 16;
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-card);
