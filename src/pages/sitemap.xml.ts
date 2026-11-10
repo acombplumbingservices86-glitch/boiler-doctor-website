@@ -53,6 +53,8 @@ const staticPages = [
   "/advice-centre/turn-boiler-off-while-broken/",
   "/advice-centre/landlord-or-tenant-gas-safety-check/",
   "/advice-centre/elderly-parent-boiler-service/",
+  "/advice-centre/engineer-not-turned-up/",
+  "/advice-centre/whats-included-boiler-service/",
   "/service-areas/",
   "/book-online/",
   "/contact/",

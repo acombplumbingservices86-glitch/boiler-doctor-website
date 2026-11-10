@@ -1,0 +1,36 @@
+---
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { siteConfig } from "../../../data/siteConfig";
+
+const title = "Engineer Gone Quiet or Not Turned Up? Who to Call Before Your Service | The Boiler Doctor, York";
+const description = "Booked a boiler service and the engineer's stopped answering or just didn't show? Here's what to do next and how we handle it differently in York.";
+---
+<ArticleLayout title={title} description={description} dateUpdated="November 2026">
+  <h1>Engineer Gone Quiet or Not Turned Up? Who to Call When You've Been Let Down Before Your Service</h1>
+  <p>We hear this one a lot, and it's always said the same way: "I've been let down by three people." You booked someone in weeks ago, took the morning off, and now it's gone eleven o'clock and your phone's gone quiet. No text, no call, no boiler sorted. If that's where you are right now, here's what to do, and why it keeps happening with some outfits and not others.</p>
+
+  <h2>Why this happens more than it should</h2>
+  <p>Most of the time it's not malice, it's a diary that was never realistic in the first place. A one-man band books three jobs for the same morning and hopes they'll all run on time. An emergency callout comes in and your routine service gets quietly bumped down the list because it's not "urgent" to them, even though you've already rearranged your day around it. Some outfits simply take on more work than they can deliver and let the smaller jobs slide when things get busy. None of that is your fault, and none of it should be something you have to chase.</p>
+
+  <h2>What to do in the next hour</h2>
+  <ul>
+    <li>Give them one more call and one text, so there's a clear record of trying, then stop waiting.</li>
+    <li>Check your boiler isn't actually broken down in the meantime — a missed service isn't an emergency, but if there's no heat or hot water as well, that changes things.</li>
+    <li>Call someone who'll actually confirm a time, not just a day.</li>
+  </ul>
+  <p>You don't owe a no-show engineer your afternoon as well as your morning. Book the next slot with someone else and move on.</p>
+
+  <h2>Is it worth waiting it out, just this once</h2>
+  <p>Sometimes it's tempting to give someone a second chance, especially if they've done good work for you before. That's fair enough if it's a real one-off, a flat tyre or a family emergency, and they've told you that themselves. It's a different story if this is the second or third time, or if the only reason you know anything's wrong is the silence on your phone rather than them actually calling to explain. A good engineer who's running late will tell you. One who's let the job slide usually won't say anything at all until you chase them.</p>
+
+  <h2>How we do it differently</h2>
+  <p>When you book a boiler service York homeowners can actually plan their day around with us, you get a proper time window, a text when the engineer's on the way, and either Steve or Kyle turning up — not whoever's cheapest that day and not a different face each visit. Both are Gas Safe registered under licence number {siteConfig.gasSafeNumber}, and you're welcome to <a href="/advice-centre/check-engineer-gas-safe-registered/">check that yourself</a> before anyone sets foot inside. We've done this long enough, {siteConfig.yearsTrading} years and counting, to know that turning up when we say we will isn't a nice extra, it's the baseline customers have a right to expect.</p>
+
+  <h2>Booking the service properly this time</h2>
+  <p>An <a href="/boiler-servicing/">annual boiler service York</a> households rely on should be one booking you make once a year and then forget about, not something you have to chase three times to actually happen. We'll give you a realistic window, stick to it, and hand you a written record of what was checked once it's done, so you've got something to show for it beyond a sticker on the boiler.</p>
+
+  <h2>If you'd rather never go through this again</h2>
+  <p>A fair few of the people who call us after being let down end up joining our <a href="/boiler-care-plans/">Care Plan</a> instead of booking a one-off service, mainly so the reminder and the booking happen automatically every year without them having to think about it. It's not the right move for everyone, but if chasing engineers is becoming a yearly habit, it's worth a look.</p>
+
+  <p>Been let down and need it sorting properly this time? Call <a href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a> or WhatsApp <a href={`https://wa.me/${siteConfig.whatsappNumberIntl}`}>{siteConfig.whatsappDisplay}</a>, tell us what happened, and we'll get you booked in with someone who'll actually show up.</p>
+</ArticleLayout>
