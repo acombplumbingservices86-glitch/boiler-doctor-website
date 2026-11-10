@@ -1,0 +1,177 @@
+---
+// Standalone lead-capture form for the "free radiator key" giveaway
+// landing page. Unlike LeadMagnetForm (choice-based, multi-step), this is
+// a single free-text form: name, home address, email, a self-declared
+// homeowner tick-box, and a separate required marketing-consent tick-box
+// (UK GDPR/PECR — Steve chose a clear opt-in checkbox, 10 Nov 2026).
+//
+// POSTs the same JSON shape as every other lead form on the site to
+// siteConfig.leadWebhookUrl, distinguished by magnetId: "radiator-key".
+// Steve tags/branches on that field inside GoHighLevel himself — see the
+// setup notes handed to him alongside this build.
+import { siteConfig } from "../data/siteConfig";
+
+interface Props {
+  sourcePage: string;
+}
+const { sourcePage } = Astro.props;
+---
+<div class="rkf" id="radiator-key-form">
+  <div class="rkf__panel is-active" data-panel="form">
+    <form class="rkf__form">
+      <label>
+        <span>Full name</span>
+        <input type="text" name="name" required autocomplete="name" />
+      </label>
+      <label>
+        <span>House name/number &amp; street</span>
+        <input type="text" name="addressLine1" required autocomplete="address-line1" />
+      </label>
+      <label>
+        <span>Town / City</span>
+        <input type="text" name="city" required autocomplete="address-level2" value="York" />
+      </label>
+      <label>
+        <span>Postcode</span>
+        <input type="text" name="postcode" required autocomplete="postal-code" />
+      </label>
+      <label>
+        <span>Email address</span>
+        <input type="email" name="email" required autocomplete="email" />
+      </label>
+
+      <label class="rkf__check">
+        <input type="checkbox" name="isHomeowner" required />
+        <span>I confirm I'm a homeowner in York</span>
+      </label>
+
+      <label class="rkf__check">
+        <input type="checkbox" name="marketingConsent" required />
+        <span>Yes, keep me posted with boiler &amp; heating offers, tips and reminders by email. You can unsubscribe any time.</span>
+      </label>
+
+      <button type="submit" class="btn btn--primary rkf__submit">Send me my free key</button>
+      <p class="rkf__note">We'll only use your details to post your key and send the odd useful email &mdash; never shared, never spammed.</p>
+    </form>
+  </div>
+
+  <div class="rkf__panel" data-panel="result">
+    <div class="rkf__result-icon">✓</div>
+    <h2 class="rkf__result-heading">Your key's on its way!</h2>
+    <p class="rkf__result-body">
+      Thanks &mdash; we've got your details. We'll pop your free Boiler Doctor radiator key in the post
+      this week, straight to your door. Keep an eye on your letterbox.
+    </p>
+  </div>
+</div>
+
+<script define:vars={{ webhookUrl: siteConfig.leadWebhookUrl, sourcePage }}>
+  (function () {
+    const root = document.getElementById("radiator-key-form");
+    if (!root) return;
+    const panels = Array.from(root.querySelectorAll(".rkf__panel"));
+    const form = root.querySelector(".rkf__form");
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const answers = {
+        name: fd.get("name"),
+        addressLine1: fd.get("addressLine1"),
+        city: fd.get("city"),
+        postcode: fd.get("postcode"),
+        email: fd.get("email"),
+        isHomeowner: fd.get("isHomeowner") === "on",
+        marketingConsent: fd.get("marketingConsent") === "on",
+      };
+
+      const submitBtn = form.querySelector(".rkf__submit");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+
+      const payload = {
+        magnetId: "radiator-key",
+        sourcePage,
+        submittedAt: new Date().toISOString(),
+        answers,
+      };
+
+      if (webhookUrl) {
+        try {
+          await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+        } catch (err) {
+          console.warn("Radiator key webhook failed — continuing anyway:", err);
+        }
+      } else {
+        console.warn("[radiator-key] No leadWebhookUrl configured in siteConfig — this submission was not captured anywhere:", payload);
+      }
+
+      if (window.trackLead) window.trackLead("radiator-key-form");
+
+      panels[0].classList.remove("is-active");
+      panels[1].classList.add("is-active");
+      panels[1].scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  })();
+</script>
+
+<style>
+  .rkf {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 1.75rem 1.5rem 2rem;
+  }
+  .rkf__panel { display: none; animation: rkfFadeIn 0.3s ease; }
+  .rkf__panel.is-active { display: block; }
+  @keyframes rkfFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rkf__form { display: grid; gap: 1rem; }
+  .rkf__form label:not(.rkf__check) { display: grid; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--color-grey-600); }
+  .rkf__form input[type="text"],
+  .rkf__form input[type="email"] {
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.75em 0.9em;
+    border: 2px solid var(--color-grey-100);
+    border-radius: var(--radius-sm);
+    background: var(--color-off-white);
+  }
+  .rkf__form input[type="text"]:focus,
+  .rkf__form input[type="email"]:focus { outline: none; border-color: var(--color-orange-400); background: var(--color-white); }
+  .rkf__check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--color-grey-900);
+    line-height: 1.4;
+    cursor: pointer;
+  }
+  .rkf__check input { margin-top: 0.2rem; width: 1.05em; height: 1.05em; flex-shrink: 0; }
+  .rkf__submit { width: 100%; justify-content: center; margin-top: 0.25rem; }
+  .rkf__note { font-size: 0.72rem; color: var(--color-grey-600); text-align: center; margin: 0.75rem 0 0; }
+  .rkf__result-icon {
+    width: 3rem; height: 3rem;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--color-success);
+    color: var(--color-white);
+    border-radius: 50%;
+    font-size: 1.4rem;
+    margin: 0 auto 1rem;
+  }
+  .rkf__result-heading { text-align: center; margin: 0 0 0.75rem; }
+  .rkf__result-body { text-align: center; color: var(--color-grey-900); line-height: 1.6; margin: 0; }
+
+  @media (max-width: 480px) {
+    .rkf { padding: 1.5rem 1.25rem 1.75rem; border-radius: var(--radius-md); }
+  }
+</style>

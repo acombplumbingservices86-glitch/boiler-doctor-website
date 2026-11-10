@@ -1,0 +1,147 @@
+---
+// Standalone layout for one-off lead-capture landing pages.
+//
+// Deliberately does NOT render Header, Footer, StickyMobileBar or the
+// primary nav — these pages are meant to be self-contained ("all they can
+// do is leave their details"), reached only via a direct link we send out
+// (e.g. a DM reply on Facebook/Instagram), never from site navigation or
+// search. Keeps GTM/GA4 + the shared trackLead() helper so submissions
+// still show up in analytics and ad platforms the same as every other
+// lead form on the site.
+//
+// `noindex` defaults to true here (opposite of BaseLayout) because these
+// pages are distributed privately, not meant to rank — keeps them out of
+// search results and off the main sitemap's radar as thin/duplicate-ish
+// single-purpose content.
+import { siteConfig } from "../data/siteConfig";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+const { title, description, noindex = true } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5BSW3SWP');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#0b1f3a" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/og-image.png", Astro.site).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}></script>
+    <script define:vars={{ gaId: siteConfig.gaMeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", gaId);
+    </script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.trackLead = function (method) {
+        try {
+          if (window.gtag) {
+            window.gtag("event", "generate_lead", { method });
+          }
+          window.dataLayer.push({ event: "generate_lead", lead_method: method });
+        } catch (err) {
+          console.warn("trackLead failed:", err);
+        }
+      };
+    </script>
+  </head>
+  <body class="landing-body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BSW3SWP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="landing-header">
+      <div class="landing-header__inner">
+        <img
+          src="/images/logo-icon.png"
+          alt={siteConfig.businessName}
+          width="34"
+          height="40"
+          loading="eager"
+        />
+        <span class="landing-header__name">
+          <span class="landing-header__name-dark">The Boiler</span> <span class="landing-header__name-accent">Doctor</span>
+        </span>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="landing-footer">
+      <p>
+        {siteConfig.legalName} (Company No. {siteConfig.companyNumber}) · {siteConfig.address.line1}, {siteConfig.address.city} {siteConfig.address.postcode}
+        · <a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+      </p>
+    </footer>
+
+    <style>
+      .landing-body { padding-bottom: 0; }
+      .landing-header {
+        background: var(--color-navy-900);
+        padding: 0.9rem 1.25rem;
+      }
+      .landing-header__inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .landing-header__name {
+        font-weight: 800;
+        font-size: 1.05rem;
+        letter-spacing: 0.01em;
+      }
+      .landing-header__name-dark { color: var(--color-white); }
+      .landing-header__name-accent { color: var(--color-orange-400); }
+      .landing-footer {
+        padding: 1.5rem 1.25rem 2.5rem;
+        text-align: center;
+      }
+      .landing-footer p {
+        margin: 0;
+        font-size: 0.75rem;
+        color: var(--color-grey-600);
+        max-width: 640px;
+        margin: 0 auto;
+        line-height: 1.5;
+      }
+      .landing-footer a { color: var(--color-grey-600); text-decoration: underline; }
+    </style>
+  </body>
+</html>

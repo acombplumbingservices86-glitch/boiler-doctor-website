@@ -1,0 +1,162 @@
+---
+// Standalone lead-capture landing page: free radiator key giveaway.
+// Built per Steve's brief, 10 Nov 2026 — tied to a Facebook/Instagram video
+// showing how to bleed a radiator. People comment/reply "KEY" on the post,
+// Steve's team DMs them this link, they leave their details here and get a
+// Boiler Doctor radiator key posted out free (see /topics/branding.md: this
+// mirrors Steve's Oct 2026 "reply key" radiator key holder offer).
+//
+// Deliberately standalone (LandingLayout, no header nav/footer nav) so this
+// is the only thing a visitor can do on the page — leave their details.
+//
+// VIDEO: set YOUTUBE_VIDEO_ID below once Steve uploads the bleeding-a-radiator
+// video to YouTube. Until then the page leads with the actual radiator key
+// photo Steve supplied instead, so the page is live and working right now.
+import LandingLayout from "../../layouts/LandingLayout.astro";
+import RadiatorKeyForm from "../../components/RadiatorKeyForm.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const YOUTUBE_VIDEO_ID = ""; // e.g. "dQw4w9WgXcQ" — paste the video's ID here once it's on YouTube
+---
+<LandingLayout
+  title="Free Radiator Key | The Boiler Doctor, York"
+  description="Watch how to bleed your own radiator, then get a free Boiler Doctor radiator key posted straight to your door — York homeowners only."
+>
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">York homeowners only &middot; while stocks last</p>
+      <h1 class="hero__heading">Get a free radiator key posted to your door</h1>
+      <p class="hero__sub">
+        Watch Steve show you exactly how to bleed a cold radiator in under two minutes &mdash;
+        then pop your details below and we'll post you a free Boiler Doctor radiator key, no
+        charge, no catch.
+      </p>
+
+      <div class="hero__media">
+        {YOUTUBE_VIDEO_ID ? (
+          <div class="hero__video">
+            <iframe
+              src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
+              title="How to bleed a radiator — The Boiler Doctor"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        ) : (
+          <img
+            src="/images/radiator-key.jpg"
+            alt="The Boiler Doctor free radiator key"
+            class="hero__photo"
+            width="900"
+            height="675"
+          />
+        )}
+      </div>
+
+      <ul class="hero__trust">
+        <li>Gas Safe registered</li>
+        <li>{siteConfig.reviews.countLabel} 5-star reviews</li>
+        <li>{siteConfig.yearsTrading}+ years in York</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="form-section__inner">
+      <h2 class="form-section__heading">Claim your free radiator key</h2>
+      <p class="form-section__sub">Fill in your details and we'll get one in the post to you this week.</p>
+      <RadiatorKeyForm sourcePage="/free-radiator-key/" />
+    </div>
+  </section>
+
+  <style>
+    .hero {
+      background: var(--color-navy-900);
+      color: var(--color-white);
+      padding: clamp(2rem, 5vw, 3.5rem) 1.25rem clamp(2.5rem, 6vw, 4rem);
+    }
+    .hero__inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero__eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-orange-400);
+      margin: 0 0 0.75rem;
+    }
+    .hero__heading {
+      color: var(--color-white);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      text-wrap: balance;
+      margin: 0 0 1rem;
+    }
+    .hero__sub {
+      font-size: 1.05rem;
+      color: var(--color-grey-300);
+      line-height: 1.6;
+      margin: 0 auto 2rem;
+      max-width: 560px;
+    }
+    .hero__media { margin: 0 auto 1.75rem; max-width: 520px; }
+    .hero__video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .hero__video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .hero__photo {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+    }
+    .hero__trust {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+      margin: 0;
+      padding: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-grey-300);
+    }
+    .hero__trust li { display: flex; align-items: center; }
+    .hero__trust li::before {
+      content: "✓";
+      color: var(--color-orange-400);
+      margin-right: 0.4em;
+      font-weight: 800;
+    }
+
+    .form-section {
+      padding: clamp(2.5rem, 6vw, 4rem) 1.25rem;
+      background: var(--color-off-white);
+    }
+    .form-section__inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-section__heading { margin: 0 0 0.5rem; }
+    .form-section__sub {
+      color: var(--color-grey-600);
+      margin: 0 0 1.75rem;
+    }
+  </style>
+</LandingLayout>
