@@ -8,7 +8,7 @@
       "skipped"
     ],
     "selection_rule": "Pick the next N rows with status == not_started, ordered by phase_num ascending, then priority (High before Med before Low), then id ascending. Skip any row with content_type == \"Internal Link Fix\" when selecting posts to draft — handle it as a one-off site-hygiene task instead, separately, if its status is still not_started.",
-    "last_updated": "2026-10-21"
+    "last_updated": "2026-11-13"
   },
   "rows": [
     {
@@ -548,10 +548,10 @@
       "evidence": "Only 2.3% of callers are price-sensitive, but transparency content is proven TAYA territory",
       "priority": "High",
       "link_to_existing_page": "",
-      "status": "not_started",
-      "slug": null,
-      "published_path": null,
-      "drafted_date": null
+      "status": "drafted_pending_push",
+      "slug": "boiler-fails-service-what-next",
+      "published_path": "/advice-centre/boiler-fails-service-what-next/",
+      "drafted_date": "2026-11-13"
     },
     {
       "id": 31,
@@ -566,10 +566,10 @@
       "evidence": "Landlord/CP12 (109 calls) plus general service (875 calls) both touch this; genuine confusion in real calls",
       "priority": "High",
       "link_to_existing_page": "",
-      "status": "not_started",
-      "slug": null,
-      "published_path": null,
-      "drafted_date": null
+      "status": "drafted_pending_push",
+      "slug": "boiler-service-vs-cp12",
+      "published_path": "/advice-centre/boiler-service-vs-cp12/",
+      "drafted_date": "2026-11-13"
     },
     {
       "id": 32,

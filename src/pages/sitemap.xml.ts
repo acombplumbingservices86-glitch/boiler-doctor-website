@@ -55,6 +55,8 @@ const staticPages = [
   "/advice-centre/elderly-parent-boiler-service/",
   "/advice-centre/engineer-not-turned-up/",
   "/advice-centre/whats-included-boiler-service/",
+  "/advice-centre/boiler-fails-service-what-next/",
+  "/advice-centre/boiler-service-vs-cp12/",
   "/service-areas/",
   "/book-online/",
   "/contact/",
