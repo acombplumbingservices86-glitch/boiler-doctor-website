@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tightness Test Calculator</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#1d4f91">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tightness Test">
+<style>
+@font-face{font-family:'Barlow';font-weight:400;font-style:normal;font-display:swap;src:url('fonts/barlow-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-weight:500;font-style:normal;font-display:swap;src:url('fonts/barlow-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-weight:600;font-style:normal;font-display:swap;src:url('fonts/barlow-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-weight:700;font-style:normal;font-display:swap;src:url('fonts/barlow-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:600;font-style:normal;font-display:swap;src:url('fonts/barlow-condensed-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:700;font-style:normal;font-display:swap;src:url('fonts/barlow-condensed-latin-700-normal.woff2') format('woff2')}
+:root{
+  /* layout: one question card per screen, phone-first, big tap targets, running record underneath */
+  --bg:#f3f5f8; --card:#ffffff; --ink:#18222f; --muted:#526072; --line:#c3ccd8;
+  --accent:#1d4f91; --accent-ink:#ffffff; --tint:#e6edf7;
+  --pass:#17603f; --pass-tint:#e2f1e9; --fail:#a63a0b; --fail-tint:#fdebdc;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",Arial,Helvetica,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10161f; --card:#1a232f; --ink:#edf1f6; --muted:#a9b5c4; --line:#3b4859;
+    --accent:#8fb8ee; --accent-ink:#0d1622; --tint:#22314a;
+    --pass:#7fd3a6; --pass-tint:#17392b; --fail:#ffab7a; --fail-tint:#44240f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10161f; --card:#1a232f; --ink:#edf1f6; --muted:#a9b5c4; --line:#3b4859;
+  --accent:#8fb8ee; --accent-ink:#0d1622; --tint:#22314a;
+  --pass:#7fd3a6; --pass-tint:#17392b; --fail:#ffab7a; --fail-tint:#44240f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45}
+.wrap{max-width:560px;margin:0 auto;padding:calc(20px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));display:flex;flex-direction:column;gap:16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+header .t{display:flex;flex-direction:column;gap:2px}
+header img{width:92px;height:auto;flex:none;background:#fff;border-radius:8px;padding:4px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{font-family:var(--display);font-size:34px;line-height:1.05;margin:0;text-wrap:balance}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.bar>div{height:100%;background:var(--accent);width:0;transition:width .2s}
+@media (prefers-reduced-motion: reduce){.bar>div{transition:none}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 16px;display:flex;flex-direction:column;gap:14px}
+.step{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+h2{font-family:var(--display);font-size:28px;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+.hint{color:var(--muted);font-size:15px}
+.opts{display:flex;flex-direction:column;gap:10px}
+button{font:inherit;cursor:pointer}
+.opt,.primary,.ghost{min-height:52px;border-radius:10px;padding:10px 14px;font-weight:600;text-align:left;width:100%}
+.opt{background:var(--card);color:var(--ink);border:2px solid var(--accent)}
+.opt small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.primary{background:var(--accent);color:var(--accent-ink);border:2px solid var(--accent);text-align:center}
+.primary:disabled{opacity:.45;cursor:not-allowed}
+.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);text-align:center;min-height:44px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 140px}
+label{font-weight:600;font-size:15px;display:flex;flex-direction:column;gap:4px}
+input[type=text],select{font:inherit;min-height:48px;padding:8px 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);width:100%}
+.check{flex-direction:row;align-items:flex-start;gap:12px;font-weight:500;font-size:17px;padding:10px 0;border-bottom:1px solid var(--line)}
+.check:last-of-type{border-bottom:0}
+.check input{width:26px;height:26px;flex:none;margin-top:1px;accent-color:var(--accent)}
+.tot{background:var(--tint);border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-variant-numeric:tabular-nums;font-size:15px}
+.tot b{text-align:right}
+.tot .big{font-size:18px;font-weight:700}
+.result{border-radius:12px;padding:18px 16px;display:flex;flex-direction:column;gap:8px;border:2px solid}
+.result.pass{background:var(--pass-tint);border-color:var(--pass)}
+.result.fail{background:var(--fail-tint);border-color:var(--fail)}
+.result .tag{font-family:var(--display);font-size:40px;line-height:1;font-weight:700}
+.result.pass .tag{color:var(--pass)}
+.result.fail .tag{color:var(--fail)}
+.timer{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.timer .clock{font-family:var(--display);font-size:36px;font-weight:700;font-variant-numeric:tabular-nums;min-width:86px}
+.timer button{flex:1 1 160px}
+.err{color:var(--fail);font-weight:600;font-size:15px}
+.rec{font-size:14px;color:var(--muted);display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-variant-numeric:tabular-nums}
+.rec b{color:var(--ink);font-weight:600}
+.piperow{display:grid;grid-template-columns:1fr 96px 44px;gap:8px;align-items:end}
+.piperow .del{min-height:48px;border:1px solid var(--line);background:transparent;color:var(--fail);border-radius:8px;font-weight:700}
+footer{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="t"><div class="eyebrow">IGEM/UP/1B Edition 4</div>
+    <h1>Tightness Test Calculator</h1></div>
+    <img src="icons/logo.png" alt="The Boiler Doctor" width="360" height="249">
+  </header>
+  <div class="bar" aria-hidden="true"><div id="progress"></div></div>
+  <main id="stage" class="card" aria-live="polite"></main>
+  <button class="ghost" id="back" type="button">Back one step</button>
+  <section class="card" id="recordCard" hidden>
+    <div class="step">This test so far</div>
+    <div class="rec" id="record"></div>
+  </section>
+  <footer>Built from Gas Safe Register ISU 133 (Edition 2) and the TomKat Gas Training Edition 4 worksheets (v3.0.1). A calculated result does not show that an installation is safe or compliant. Check against the full IGEM/UP/1B Edition 4 standard.</footer>
+</div>
+
+<script>
+// ---------- data ----------
+var GAS = { ng:'Natural gas', lpg:'LPG', lpgair:'LPG/Air' };
+var PIPES = [
+  {id:'c15', label:'Copper 15 mm', f:0.00014},
+  {id:'c22', label:'Copper 22 mm', f:0.00032},
+  {id:'c28', label:'Copper 28 mm', f:0.00054},
+  {id:'c35', label:'Copper 35 mm', f:0.00084},
+  {id:'s15', label:'Steel 15 mm / ½ inch', f:0.00024},
+  {id:'s20', label:'Steel 20 mm / ¾ inch', f:0.00046},
+  {id:'s25', label:'Steel 25 mm / 1 inch', f:0.00064},
+  {id:'s32', label:'Steel 32 mm / 1¼ inch', f:0.0011}
+];
+var METERS = [
+  {id:'none', label:'No meter in the section tested', v:0},
+  {id:'u6', label:'G4 / U6', v:0.008},
+  {id:'e6', label:'E6', v:0.0024},
+  {id:'u16', label:'U16 / G10', v:0.025}
+];
+var BANDS = {
+  ng:[[0.005,8],[0.010,4],[0.015,2.5],[0.035,1]],
+  lpg:[[0.0025,2],[0.005,1],[0.010,0.5],[0.035,0]],
+  lpgair:[[0.025,1.5],[0.035,0.5]]
+};
+var GAUGES = {
+  water:{label:'Water (fluid) gauge', thr:0},
+  elec:{label:'Electronic gauge', thr:0.25},
+  elec1:{label:'Electronic gauge reading to 1 decimal place', thr:0.2}
+};
+
+// ---------- pure logic ----------
+function r6(n){ return Math.round(n*1e6)/1e6; }
+function num(s){ var n=parseFloat(String(s).replace(',','.')); return isFinite(n)?n:NaN; }
+function calcIV(rows, meterId){
+  var a=0;
+  rows.forEach(function(r){
+    var p=PIPES.filter(function(x){return x.id===r.pipe;})[0];
+    var len=num(r.len);
+    if(p && len>0) a+=p.f*len;
+  });
+  var m=METERS.filter(function(x){return x.id===meterId;})[0];
+  var c=m?m.v:0;
+  var b=a*1.1;
+  return {a:r6(a), b:r6(b), c:c, d:r6(b+c), pv:r6((b+c)*1.5)};
+}
+// returns limit in mbar; 0 means "no perceptible movement"; null means outside UP/1B
+function limitFor(gas, iv){
+  var t=BANDS[gas], v=r6(iv);
+  for(var i=0;i<t.length;i++){ if(v<=t[i][0]) return t[i][1]; }
+  return null;
+}
+// water gauge: any movement you can see is perceptible (it means more than 0.25 mbar). electronic: up to thr is allowed
+function perceptible(drop, gauge){ return drop > GAUGES[gauge].thr + 1e-9; }
+function moveRule(gauge){ return gauge==='water' ? 'On a water gauge, any movement you can see counts as movement.' : 'More than '+GAUGES[gauge].thr+' mbar on your gauge counts as movement.'; }
+
+// ---------- state ----------
+var S, trail;
+function reset(){
+  S={gas:null,gauge:null,drop:null,connected:null,meter:'u6',rows:[{pipe:'c22',len:''},{pipe:'c15',len:''}],iv:null,limit:null,result:null,reason:null,prep:[false,false,false],fin:[false,false,false,false]};
+  trail=['gas'];
+}
+var ORDER=['gas','prep','letby','stabilise','test','gauge','connected','iv','compare','retest','end'];
+var stage=document.getElementById('stage');
+
+function el(tag, attrs, kids){
+  var e=document.createElement(tag);
+  if(attrs) Object.keys(attrs).forEach(function(k){
+    if(k==='text') e.textContent=attrs[k];
+    else if(k==='on') Object.keys(attrs.on).forEach(function(ev){ e.addEventListener(ev, attrs.on[ev]); });
+    else if(k==='checked'||k==='disabled'||k==='hidden'){ if(attrs[k]) e[k]=true; }
+    else e.setAttribute(k, attrs[k]);
+  });
+  (kids||[]).forEach(function(c){ if(c) e.appendChild(typeof c==='string'?document.createTextNode(c):c); });
+  return e;
+}
+function go(step){ trail.push(step); render(); }
+function back(){ if(trail.length>1){ stopTimer(); trail.pop(); render(); } }
+function fmt(n){ return n.toFixed(6).replace(/0+$/,'').replace(/\.$/,''); }
+function limitText(l){ return l===0 ? 'No perceptible movement' : l+' mbar'; }
+function optBtn(title, sub, fn){
+  return el('button',{class:'opt',type:'button',on:{click:fn}},[title, sub?el('small',{text:sub}):null]);
+}
+function primary(text, fn, id){ return el('button',{class:'primary',type:'button',id:id||'next',on:{click:fn}},[text]); }
+function head(n, title, hint){
+  return [el('div',{class:'step',text:n}), el('h2',{text:title}), hint?el('p',{class:'hint',text:hint}):null];
+}
+function fill(nodes){ stage.textContent=''; nodes.forEach(function(n){ if(n) stage.appendChild(n); }); }
+
+// ---------- timer ----------
+var tHandle=null;
+function stopTimer(){ if(tHandle){ clearInterval(tHandle); tHandle=null; } }
+function timerBox(seconds, id){
+  var clock=el('div',{class:'clock',id:id+'Clock',text:mmss(seconds)});
+  var btn=el('button',{class:'ghost',type:'button',id:id+'Btn',text:'Start '+(seconds/60)+' minute timer'});
+  btn.addEventListener('click',function(){
+    stopTimer();
+    var end=Date.now()+seconds*1000;
+    btn.textContent='Restart timer';
+    tHandle=setInterval(function(){
+      var left=Math.max(0,Math.round((end-Date.now())/1000));
+      clock.textContent= left===0 ? 'Done' : mmss(left);
+      if(left===0) stopTimer();
+    },250);
+  });
+  return el('div',{class:'timer'},[clock,btn]);
+}
+function mmss(s){ return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+
+// ---------- screens ----------
+var SCREENS={
+  gas:function(){
+    fill(head('Start','Which gas are you testing?').concat([
+      el('div',{class:'opts'},[
+        optBtn('Natural gas',null,function(){S.gas='ng';go('prep');}),
+        optBtn('LPG',null,function(){S.gas='lpg';go('prep');}),
+        optBtn('LPG/Air',null,function(){S.gas='lpgair';go('prep');})
+      ])
+    ]));
+  },
+  prep:function(){
+    var items=['Visual inspection done','Appliances set up: cooker lids upright, permanent pilots out','ECV (or the appropriate valve) turned off'];
+    var next=primary('Next: let-by test',function(){go('letby');});
+    function sync(){ next.disabled=!S.prep.every(Boolean); }
+    var boxes=items.map(function(t,i){
+      return el('label',{class:'check',for:'prep'+i},[
+        el('input',{type:'checkbox',id:'prep'+i,checked:S.prep[i],on:{change:function(e){S.prep[i]=e.target.checked;sync();}}}), t]);
+    });
+    sync();
+    fill(head('Steps 1 and 2','Get the installation ready','Tick each one off.').concat(boxes,[next]));
+  },
+  letby:function(){
+    fill(head('Step 3','Let-by test','Connect the gauge. Set 7 to 10 mbar and hold for 1 minute.').concat([
+      timerBox(60,'t1'),
+      el('p',{text:'Did the let-by test pass?'}),
+      el('div',{class:'opts'},[
+        optBtn('Yes, let-by passed',null,function(){go('stabilise');}),
+        optBtn('No, let-by failed',null,function(){S.result='stop';S.reason='Let-by test failed. Do not carry on to the tightness test. Deal with the let-by as the full standard requires, then start again.';go('end');})
+      ])
+    ]));
+  },
+  stabilise:function(){
+    fill(head('Step 4','Pressurise and stabilise','Raise the pressure to the tightness test pressure for '+GAS[S.gas]+'. Let the temperature stabilise for 1 minute.').concat([
+      timerBox(60,'t2'),
+      primary('Next: the 2 minute test',function(){go('test');})
+    ]));
+  },
+  test:function(){
+    fill(head('Step 5','Tightness test','Adjust the pressure if needed, then watch the gauge for a further 2 minutes.').concat([
+      timerBox(120,'t3'),
+      primary('Next: enter the reading',function(){go('gauge');})
+    ]));
+  },
+  gauge:function(){
+    var sel=el('select',{id:'gaugeType'},Object.keys(GAUGES).map(function(k){
+      var o=el('option',{value:k,text:GAUGES[k].label}); if(S.gauge===k) o.selected=true; return o; }));
+    var inp=el('input',{type:'text',inputmode:'decimal',id:'dropInput',placeholder:'e.g. 0 or 1.5',value:S.drop===null?'':String(S.drop)});
+    var err=el('p',{class:'err',id:'dropErr',hidden:true,text:'Enter the drop in mbar as a number. Enter 0 if the gauge did not move.'});
+    fill(head('Reading','How far did the gauge drop?','Over the 2 minute test.').concat([
+      el('label',{for:'gaugeType'},['Gauge type',sel]),
+      el('label',{for:'dropInput'},['Pressure drop (mbar)',inp]),
+      el('p',{class:'hint',text:'Water gauge: enter 0 unless you saw it move. Electronic gauge: enter the drop it shows. Up to 0.25 mbar (0.2 on a gauge reading to 1 decimal place) counts as no movement.'}),
+      err,
+      primary('Check the reading',function(){
+        var d=num(inp.value);
+        if(!(d>=0)){ err.hidden=false; return; }
+        S.gauge=sel.value; S.drop=d;
+        if(perceptible(d,S.gauge)) go('connected');
+        else { S.result='pass'; S.reason=(S.gauge==='water' ? 'No movement seen on the water gauge.' : 'No perceptible movement ('+d+' mbar is within the '+GAUGES[S.gauge].thr+' mbar allowed on this gauge).')+' The installation is gas tight.'; go('end'); }
+      })
+    ]));
+  },
+  connected:function(){
+    function noMove(what){ S.connected=what; S.result='fail'; S.reason='Perceptible movement of '+S.drop+' mbar. For '+what+' there can be no perceptible movement.'; go('end'); }
+    fill(head('Perceptible movement','What is connected to the section you tested?','A drop of '+S.drop+' mbar counts as perceptible movement on this gauge.').concat([
+      el('div',{class:'opts'},[
+        optBtn('Pipework only','No appliances connected',function(){noMove('pipework only');}),
+        optBtn('Only new appliances',null,function(){noMove('new appliances only');}),
+        optBtn('Existing appliances','One or more existing appliances connected',function(){S.connected='existing appliances';go('iv');}),
+        optBtn('Known or suspected escape','Including any smell of gas',function(){noMove('a known or suspected escape');})
+      ])
+    ]));
+  },
+  iv:function(){
+    var tot=el('div',{class:'tot',id:'ivTotals'});
+    var list=el('div',{class:'opts',id:'pipeRows'});
+    var warn=el('p',{class:'err',id:'ivErr',hidden:true});
+    var meter=el('select',{id:'meterType',on:{change:function(e){S.meter=e.target.value;sync();}}},METERS.map(function(m){
+      var o=el('option',{value:m.id,text:m.label+(m.v?' ('+m.v+' m³)':'')}); if(S.meter===m.id) o.selected=true; return o; }));
+    function sync(){
+      var r=calcIV(S.rows,S.meter);
+      tot.textContent='';
+      [['A  Pipe volume',fmt(r.a)+' m³'],['B  With fittings (A × 1.1)',fmt(r.b)+' m³'],['C  Meter',fmt(r.c)+' m³']].forEach(function(p){
+        tot.appendChild(el('span',{text:p[0]})); tot.appendChild(el('b',{text:p[1]}));
+      });
+      tot.appendChild(el('span',{class:'big',text:'D  Installation Volume'})); tot.appendChild(el('b',{class:'big',text:fmt(r.d)+' m³'}));
+    }
+    function draw(){
+      list.textContent='';
+      S.rows.forEach(function(row,i){
+        var sel=el('select',{id:'pipe'+i,on:{change:function(e){row.pipe=e.target.value;sync();}}},PIPES.map(function(p){
+          var o=el('option',{value:p.id,text:p.label}); if(row.pipe===p.id) o.selected=true; return o; }));
+        var len=el('input',{type:'text',inputmode:'decimal',id:'len'+i,placeholder:'0',value:row.len,on:{input:function(e){row.len=e.target.value;sync();}}});
+        var del=el('button',{class:'del',type:'button','aria-label':'Remove pipe run '+(i+1),text:'×',on:{click:function(){S.rows.splice(i,1);draw();sync();}}});
+        list.appendChild(el('div',{class:'piperow'},[
+          el('label',{for:'pipe'+i},['Pipe run '+(i+1),sel]),
+          el('label',{for:'len'+i},['Length (m)',len]),
+          del]));
+      });
+    }
+    draw(); sync();
+    fill(head('Step 6','Work out the Installation Volume','Add every pipe run in the section tested. For hidden pipework, assume the largest size you can see.').concat([
+      el('label',{for:'meterType'},['Meter',meter]),
+      list,
+      el('button',{class:'ghost',type:'button',id:'addRun',text:'Add another pipe run',on:{click:function(){S.rows.push({pipe:'c15',len:''});draw();sync();}}}),
+      tot, warn,
+      primary('Check the drop against the limit',function(){
+        var r=calcIV(S.rows,S.meter);
+        if(!(r.d>0)){ warn.textContent='Enter at least one pipe length or choose a meter.'; warn.hidden=false; return; }
+        S.iv=r; S.limit=limitFor(S.gas,r.d);
+        go('compare');
+      })
+    ]));
+  },
+  compare:function(){
+    var iv=S.iv, l=S.limit, nodes;
+    if(l===null){
+      nodes=head('Outside scope','This installation is too big for UP/1B').concat([
+        el('p',{text:'Installation Volume is '+fmt(iv.d)+' m³. Anything over 0.035 m³ is outside IGEM/UP/1B, so these limits do not apply. Use the correct standard for the installation.'}),
+        primary('Start a new test',function(){reset();render();})
+      ]);
+    } else {
+      var within = l>0 && S.drop <= l + 1e-9;
+      var box=el('div',{class:'tot'},[
+        el('span',{text:'Installation Volume'}),el('b',{text:fmt(iv.d)+' m³'}),
+        el('span',{text:'Maximum drop for '+GAS[S.gas]}),el('b',{text:limitText(l)}),
+        el('span',{class:'big',text:'Your drop'}),el('b',{class:'big',text:S.drop+' mbar'})
+      ]);
+      if(within){
+        nodes=head('Step 6 result','Inside the limit, but not a pass yet','The drop must not be coming from the pipework. That needs a retest.').concat([box,
+          primary('Next: retest on pipework only',function(){go('retest');})]);
+      } else {
+        nodes=head('Step 6 result','Outside the limit').concat([box,
+          primary('See what to do',function(){S.result='fail';S.reason='Drop of '+S.drop+' mbar is outside the limit ('+limitText(l)+') for an Installation Volume of '+fmt(iv.d)+' m³.';go('end');})]);
+      }
+    }
+    fill(nodes);
+  },
+  retest:function(){
+    fill(head('Step 7','Retest on pipework only','Isolate every appliance and repeat the whole test. If you cannot reasonably isolate an appliance, retest with it connected. The rule is the same either way.').concat([
+      el('p',{text:'Was there any perceptible movement on the retest?'}),
+      el('p',{class:'hint',text:moveRule(S.gauge)}),
+      el('div',{class:'opts'},[
+        optBtn('No movement',null,function(){S.result='pass';S.reason='First test dropped '+S.drop+' mbar, inside the '+limitText(S.limit)+' limit. Retest on pipework showed no perceptible movement.';go('end');}),
+        optBtn('Yes, the gauge moved',null,function(){S.result='fail';S.reason='The retest showed perceptible movement, so the drop cannot be ruled out of the pipework.';go('end');})
+      ])
+    ]));
+  },
+  end:function(){
+    var nodes=[];
+    if(S.result==='pass'){
+      nodes.push(el('div',{class:'result pass'},[el('div',{class:'tag',text:'PASS'}),el('p',{text:S.reason})]));
+      var items=['Gauge removed and test nipple refitted','Gas reintroduced','LDF on all disturbed joints','LDF on pipework between each isolation valve and its appliance. No smell of gas'];
+      nodes.push(el('div',{class:'step',text:'Step 8: finish'}));
+      items.forEach(function(t,i){
+        nodes.push(el('label',{class:'check',for:'fin'+i},[
+          el('input',{type:'checkbox',id:'fin'+i,checked:S.fin[i],on:{change:function(e){S.fin[i]=e.target.checked;}}}), t]));
+      });
+    } else if(S.result==='fail'){
+      nodes.push(el('div',{class:'result fail'},[el('div',{class:'tag',text:'FAIL'}),el('p',{text:S.reason}),
+        el('p',{},[el('b',{text:'Trace and repair the escape, or disconnect the installation from the gas supply and make safe.'})])]));
+    } else {
+      nodes.push(el('div',{class:'result fail'},[el('div',{class:'tag',text:'STOP'}),el('p',{text:S.reason})]));
+    }
+    if(S.iv){
+      nodes.push(el('div',{class:'tot'},[
+        el('span',{text:'Installation Volume'}),el('b',{text:fmt(S.iv.d)+' m³'}),
+        el('span',{class:'big',text:'Purge volume (IV × 1.5)'}),el('b',{class:'big',text:fmt(S.iv.pv)+' m³'})
+      ]));
+    }
+    var copied=el('p',{class:'hint',id:'copyMsg',hidden:true});
+    nodes.push(el('button',{class:'ghost',type:'button',id:'copyBtn',text:'Copy the result',on:{click:function(){
+      var txt=summary();
+      try{ navigator.clipboard.writeText(txt).then(function(){copied.textContent='Copied.';copied.hidden=false;},function(){copied.textContent=txt;copied.hidden=false;}); }
+      catch(e){ copied.textContent=txt; copied.hidden=false; }
+    }}}));
+    nodes.push(copied);
+    nodes.push(primary('Start a new test',function(){reset();render();}));
+    fill(nodes);
+  }
+};
+function summary(){
+  var p=['Tightness test, IGEM/UP/1B Ed 4','Gas: '+GAS[S.gas]];
+  if(S.gauge) p.push('Gauge: '+GAUGES[S.gauge].label);
+  if(S.drop!==null) p.push('Drop: '+S.drop+' mbar');
+  if(S.connected) p.push('Connected: '+S.connected);
+  if(S.iv){ p.push('IV: '+fmt(S.iv.d)+' m³'); if(S.limit!==null) p.push('Limit: '+limitText(S.limit)); p.push('Purge volume: '+fmt(S.iv.pv)+' m³'); }
+  p.push('Result: '+(S.result||'').toUpperCase()); if(S.reason) p.push(S.reason);
+  return p.join('\n');
+}
+function render(){
+  var step=trail[trail.length-1];
+  SCREENS[step]();
+  document.getElementById('progress').style.width=Math.round(100*(ORDER.indexOf(step)+1)/ORDER.length)+'%';
+  document.getElementById('back').hidden=trail.length<2;
+  var rec=document.getElementById('record'), rows=[];
+  if(S.gas) rows.push(['Gas',GAS[S.gas]]);
+  if(S.drop!==null) rows.push(['Drop',S.drop+' mbar']);
+  if(S.connected) rows.push(['Connected',S.connected]);
+  if(S.iv) rows.push(['IV',fmt(S.iv.d)+' m³']);
+  if(S.iv && S.limit!==null) rows.push(['Limit',limitText(S.limit)]);
+  rec.textContent='';
+  rows.forEach(function(r){ rec.appendChild(el('span',{text:r[0]})); rec.appendChild(el('b',{text:r[1]})); });
+  document.getElementById('recordCard').hidden=rows.length===0;
+}
+document.getElementById('back').addEventListener('click',back);
+reset(); render();
+if('serviceWorker' in navigator){ window.addEventListener('load',function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); }); }
+</script>
+</body>
+</html>
